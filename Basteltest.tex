@@ -1,0 +1,72 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{chngcntr}
+\usepackage{ upgreek }
+\usepackage{mathtools}
+\usepackage{empheq}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{listings} 
+\usepackage{braket}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,calc}
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt} \lstset{language=Scilab} 
+
+%\\textcolor{red}{}
+%Formel-Farbe
+%\textcolor[RGB]{0,0,204}{\Phi sik}
+%Präambel für römische Zahlen 
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+
+
+\begin{document}
+
+%\\\textcolor{red}{Hier fehlt was}\\
+%\maketitle %gibt dastitelblatt hier aus
+\begin{equation}
+\textcolor[RGB]{0,0,204}{\Phi sik}
+\end{equation}
+
+\section{Tests}
+\begin{equation*}
+   x \underset{\mathrm{def}}{=} y
+\end{equation*}
+
+\begin{equation*}
+   x
+   \tikz[baseline=-1pt]{
+     \node (eq)
+     {$=$};
+   }
+   y
+\end{equation*}
+
+
+\begin{tikzpicture}[overlay]
+   \node (t) at ($(eq) + (-0.8,-0.5)$) {\footnotesize Explanation};
+   \path[->,shorten >= 5pt] (eq.base) edge [bend left=10] (t.mid) ;
+\end{tikzpicture}
+
+\begin{equation*}
+  x
+  % with tikzpicture environment
+  \underset{\mathllap{
+    \begin{tikzpicture}
+      \draw[->] (-0.3, 0) to[bend right=20] ++(0.3,2ex);
+      \node[below left] at (0,0) {because $x = y$};
+    \end{tikzpicture}
+  }}{=}
+  y + x - x
+  % with tikz command
+  \overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {trivial};}}{=}
+  y + y - y
+\end{equation*}
+
+
+
+\end{document}

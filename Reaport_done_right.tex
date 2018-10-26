@@ -1,0 +1,1563 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+%\usepackage{chngcntr}
+\usepackage{upgreek}
+\usepackage{mathtools}
+\usepackage{empheq}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{listings} 
+\usepackage{braket}
+\usepackage{tikz}
+\usepackage[toc,page]{appendix}
+\usetikzlibrary{arrows,shapes,calc}
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt} \lstset{language=Scilab} 
+%%\tolerance=700 %Soll Badbox entfernen klappt nicht
+%\\textcolor{red}{}
+%Formel-Farbe
+%\textcolor[RGB]{0,0,204}{\Phi sik}
+%Präambel für römische Zahlen 
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+
+
+\title{\includegraphics[scale=0.07]{logo}\\Specialization report}
+\date{4.10.2018}
+\author{ Heinrich Heine Universit\"at D\"usseldorf\\ Institut f\"ur Theoretische Physik I\\  \\Presented by:\\Marius Thei\ss{}en\\ Matrn.: 2163903 \\  }
+
+\begin{document}
+
+\tikzstyle{every picture}+=[remember picture]
+\everymath{\displaystyle}
+
+%\\\textcolor{red}{Hier fehlt was}\\
+\maketitle %gibt dastitelblatt hier aus
+\tableofcontents
+\newpage
+%\begin{equation}
+%\textcolor[RGB]{0,0,204}{\Phi sik}
+%\end{equation}
+\section{Introduction}
+This report has three main goals. First we shall establish the transition between pictures in quantum mechanics and quantum field theory. We go over the more common ones, Schrödinger, Heisenberg and Interaction picture, to derive and justify the two In and Out Pictures.
+By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula.
+
+\section{Pictures in Quantum Mechanics }
+\subsection{Schrödinger picture and Heisenberg picture}
+In the Schrödinger the operators are time-independent but the wavefunctions are time dependent. The time evolution of the state vector is controlled by the Schrödinger equation. Let $ \ket{\Psi(t)} $ denote the state vector at time t. It satisfies
+\begin{equation}\label{eq:schroedinger}
+\textcolor[RGB]{0,0,204}{
+i \hbar \frac{\partial }{\partial t} \ket{\Psi_{S}(t)} =
+\hat{H} \ket{\Psi_{S}(t)},
+}
+\end{equation}
+where $ \hat{H} $ is the Hamiltonian of the system. When assuming it time independent, the solution of eq. \eqref{eq:schroedinger} can be formally written as 
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+\ket{\Psi_{S}(t)} 
+=\hat{U}\ket{\Psi_{S}(t_0)}
+}
+\end{equation}
+with $ \hat{U} = e^{-\frac{1}{\hbar}\hat{H}(t-t_{0})} $ denoting the time evolution operator. Here $ \ket{\Psi_{S}(t_0)} $ is a ket of $ t=t_{0} $. We shall generally take $ t_{0}=0 $ and write
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+\ket{\Psi_{S}(t)} 
+= e^{-\frac{1}{\hbar}\hat{H}t}
+\ket{\Psi}.
+}
+\end{equation}
+In this picture, matrix elements of operators are given by 
+\begin{equation}\label{eq:matrix_ele_time_dep}
+\textcolor[RGB]{0,0,204}{
+\bra{\Psi^{\prime}_{S}(t)}\hat{A}_{S}\ket{\Psi_{S} (t)}
+=\bra{\Psi^{\prime}}e^{\frac{i}{\hbar}t\hat{H}}\hat{A}_{S}
+e^{-\frac{i}{\hbar}t\hat{H}}\ket{\Psi }
+.
+}
+\end{equation}
+The subscript $ S $ represents the object in the Schrödinger picture. Alternatively we may pass to Heisenberg picture, in which the operators carry the time evolution. The relationship between the two pictures is established by \eqref{eq:matrix_ele_time_dep}.\\
+We define the Heisenberg operator by
+\begin{equation}\label{eq:S-H-Operator_Trafo}
+\textcolor[RGB]{0,0,204}{
+\hat{A}_{H}(t)=e^{\frac{i}{\hbar}t\hat{H}}\hat{A}_{S}
+e^{-\frac{i}{\hbar}t\hat{H}}=\hat{U}^{-1}\hat{A}_{S}\hat{U}.
+}
+\end{equation}
+The time evolution in the Heisenberg picture follows form differentiating the equation above and reads
+\begin{subequations}
+\begin{align}
+\frac{d}{dt}\hat{A}_{H}(t)
+&=\frac{i}{\hbar}\hat{H}
+e^{\frac{i}{\hbar}t \hat{H}}
+\hat{A}_{S}
+e^{-\frac{i}{\hbar}t \hat{H}}
++
+e^{\frac{i}{\hbar}t \hat{H}}
+\frac{\partial\hat{A}_{S}}{\partial t}
+e^{-\frac{i}{\hbar}t \hat{H}}
++e^{\frac{i}{\hbar}t \hat{H}}
+\hat{A}_{S}
+\left( -\frac{i}{\hbar}\hat{H}\right) 
+e^{-\frac{i}{\hbar}t \hat{H}},
+\end{align}
+\text{assuming the operator has no internal dependency of time independent of the picture, }
+\begin{align}
+\frac{d}{dt}\hat{A}_{H}(t)
+&=\frac{i}{\hbar}\hat{H}
+e^{\frac{i}{\hbar}t \hat{H}}
+\hat{A}_{S}
+e^{-\frac{i}{\hbar}t \hat{H}}
++
+e^{\frac{i}{\hbar}t \hat{H}}
+\hat{A}_{S}
+\left( -\frac{i}{\hbar}\hat{H}\right) 
+e^{-\frac{i}{\hbar}t \hat{H}}
+&\\
+&=\frac{i}{\hbar}
+e^{\frac{i}{\hbar}t \hat{H}}
+\left( 
+\hat{H}\hat{A}_{S}- \hat{A}_{S} \hat{H}
+\right) 
+e^{-\frac{i}{\hbar}t \hat{H}}.
+\end{align}
+\end{subequations}
+Giving us:
+\begin{equation}\label{eq:Heisenberg_time_dep._eq.}
+\textcolor[RGB]{0,0,204}{
+\frac{d}{d t}\hat{A}_{H}(t)=
+\frac{i}{\hbar}\left[ \hat{A}_{H}(t),\hat{H}\right] 
+.
+}
+\end{equation} 
+The unitary operator $ U $ itself satisfies the equation
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+\frac{i}{\hbar}\partial_{t} \hat{U}=\hat{H}\hat{U}.
+}
+\end{equation}
+\subsection{Interaction picture}
+The third picture is called the Interaction picture (sometimes called the Dirac picture). It denotes the time dependence to the state as well as to the operators.\\
+Suppose $ \hat{H} = \hat{H}_{0}+V$ . This will effect the unitary operator so 
+\begin{equation}\label{eq:omega_and_U}
+\textcolor[RGB]{0,0,204}{
+\hat{U}=e^{-\frac{i}{\hbar}t \hat{H}}
+=e^{-\frac{i}{\hbar}t \hat{H}_{0}+V}
+=
+e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+\hat{\Omega} (t)
+}
+\end{equation}
+This expression leads us to the formula of transformation to the Schrödinger picture, by again looking at a matrix element.
+%\begin{align}\label{eq:matrix_ele_for_interaction}
+%\textcolor[RGB]{0,0,204}{
+%	\bra{\Psi^{\prime}(t)}
+%	\hat{A}_{S}
+%	\ket{\Psi(t)}
+%	=
+%	\bra{\Psi^{\prime}}
+%	(e^{-\frac{i}{\hbar}t \hat{H_{0}}}	
+%	\Omega (t))^{\dagger}
+%	\hat{A}_{S}
+%	e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+%	\Omega (t)
+%	\ket{\Psi}
+%}
+%\end{align}
+\begin{subequations}
+\textcolor[RGB]{0,0,0}{
+\begin{align}\label{eq:matrix_ele_for_interaction}
+	\bra{\Psi^{\prime}(t)}
+	\hat{A}_{S}
+	\ket{\Psi(t)}
+  		&= 	\bra{\Psi^{\prime}}
+			(e^{-\frac{i}{\hbar}t \hat{H_{0}}}	
+			\Omega (t))^{\dagger}
+			\hat{A}_{S}
+			e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+			\Omega (t)
+			\ket{\Psi}
+  		\\
+  		&= \bra{\Psi^{\prime}}
+  			\Omega(t)^{-1}
+			e^{+\frac{i}{\hbar}t \hat{H_{0}}}	
+			\hat{A}_{S}
+			e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+			\Omega (t)
+			\ket{\Psi}
+  		\\
+  		&\underset{\mathrm{def.picture}}{=}
+  			\bra{\Psi^{\prime}}
+  			\Omega(t)^{-1}
+			\hat{A}_{I}
+			\Omega (t)
+			\ket{\Psi}  .
+\end{align}
+}
+\end{subequations}
+Here we defined a new operator:
+\begin{equation}\label{eq:operator_interac_schrodinger}
+\textcolor[RGB]{0,0,204}{
+	\hat{A}_{I}(t)
+	=
+	e^{+\frac{i}{\hbar}t \hat{H_{0}}}
+	\hat{A}_{S}
+	e^{-\frac{i}{\hbar}t \hat{H_{0}}}	.
+}
+\end{equation}
+This connects to the Heisenberg picture by rewriting $ \hat{A}_{S} $:
+\begin{subequations}
+\begin{align}
+	\hat{A}_{I}(t)
+	&=
+	e^{+\frac{i}{\hbar}t \hat{H_{0}}}
+	\hat{U}	
+	\hat{A}_{H}(t)
+	\hat{U}^{-1}	
+	e^{-\frac{i}{\hbar}t \hat{H_{0}}}	.
+	\\
+	&=
+	e^{+\frac{i}{\hbar}t \hat{H_{0}}}
+	e^{-\frac{i}{\hbar}t\hat{H}}
+	\hat{A}_{H}(t)
+	e^{\frac{i}{\hbar}t\hat{H}}	
+	e^{-\frac{i}{\hbar}t \hat{H_{0}}}	.
+\end{align}
+\end{subequations}
+%%
+Resulting in:
+\begin{equation}\label{eq:operator_interac_heisenberg}
+\textcolor[RGB]{0,0,204}{
+	\hat{A}_{I}(t)
+	=
+	\hat{\Omega}(t)
+	\hat{A}_{H}(t)
+	\hat{\Omega}(t)^{-1}
+}
+\end{equation}
+%%
+Eq.\eqref{eq:operator_interac_schrodinger} leads on the same way as before to:
+\begin{equation}\label{eq:time_evo_equ_Intera}
+\textcolor[RGB]{0,0,204}{
+	i\hbar
+	\frac{\partial}{\partial t}
+	\hat{A}_{I}
+	=
+	\left[ 
+	\hat{A}_{I},
+	\hat{H}_{0}
+	\right] 
+}
+\end{equation}
+observe that $ \hat{\Omega}(t) $, obeys the equation 
+\begin{subequations}
+\begin{align}
+ \hat{\Omega}(t) 
+  		&= e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+			\hat{U}
+  		\\
+  		i\hbar\partial_{t}\hat{\Omega}(t) 
+  		 &= \left(i\hbar\partial_{t}\hat{U} \right)
+  		 e^{\frac{i}{\hbar}t\hat{H_{0}}}
+  		 -
+  		 \hat{H_{0}}
+  		 \hat{U}
+  		 e^{\frac{i}{\hbar}t\hat{H_{0}}}
+  		 \\
+  		 &=
+  		 \hat{H}
+  		 \hat{U}  		 
+  		 e^{\frac{i}{\hbar}t\hat{H_{0}}}
+  		 -
+  		 \hat{H_{0}}
+  		 \hat{U}
+  		 e^{\frac{i}{\hbar}t\hat{H_{0}}}
+\end{align}
+\end{subequations}
+resulting in :
+\begin{equation}\label{eq:time_evo_Omega_interaction}
+\textcolor[RGB]{0,0,204}{
+	i\hbar
+	\frac{\partial}{\partial t}
+	\hat{\Omega}(t)
+	=
+	\hat{V}_{I}(t)
+	\hat{\Omega}(t)
+.}
+\end{equation}
+Additionally we can derive a differential equation for $ \hat{U} $
+\begin{subequations}
+\begin{align}
+	i\hbar
+	\partial_{t}
+	(e^{-\frac{i}{\hbar}tH_{0}}
+	\Omega(t))
+		&=
+		i\hbar(-\frac{i}{\hbar}H_{0}) e^{-\frac{i}{\hbar}tH^{0}} \Omega(t)
+		+
+		i\hbar e^{-\frac{i}{\hbar}tH_{0}} \partial_{t} \Omega(t)
+		\\
+			i\hbar \partial_{t} U
+			&=H_{0}U+i\hbar e^{-\frac{i}{\hbar}tH_{0}}\partial_{t}\Omega(t).
+\end{align}
+\end{subequations}
+\section{The In and Out picture}
+Let's consider $ V=j(t)\hat{q}(t) $ with $ \hat{q}(t) $ as the operator of position and $ j $ an external source.\\
+This term will lead to a poissonian probability distribution for the excitation of of states, especially the vacuum or ground states of a system. Resulting in an unstable vacuum. But for experiments and calculations we have asymptotic states, meaning we can distinguish between states and/or particles. This fits the observation of a stable vacuum without external influences. With asymptotic conditions on $ j(t) $ . We assume it vanishes outside of finite intervals. 
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+j(t)\rightarrow 0 \text{ for } t\rightarrow \pm \infty
+}. 
+\end{equation}
+The effect of these conditions on eq.\eqref{eq:time_evo_Omega_interaction} leads to 
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+\Omega \rightarrow 1
+}
+\end{equation}
+%This means 
+The early time condition defines the In picture and it  writes :
+\begin{equation}\label{eq:time_evo_Omega_in}
+\textcolor[RGB]{0,0,204}{
+	i\hbar
+	\frac{\partial}{\partial t}
+	\hat{\Omega}_{in}(t)
+	=
+	\hat{V}_{in}(t)
+	\hat{\Omega}_{in}(t)
+	.}
+\end{equation}
+Fulfilling:
+\begin{equation}\label{eq:Omega_in_cond}
+\textcolor[RGB]{0,0,204}{
+	\hat{\Omega}_{in}(-\infty)
+	=1
+	.}
+\end{equation}
+The so called Out picture will fulfill the condition for late times:
+\begin{equation}\label{eq:time_evo_Omega_out}
+\textcolor[RGB]{0,0,204}{
+	i\hbar
+	\frac{\partial}{\partial t}
+	\hat{\Omega}_{out}(t)
+	=
+	\hat{V}_{out}(t)
+	\hat{\Omega}_{out}(t)
+	.}
+\end{equation}
+Stating:
+\begin{equation}\label{eq:Omega_out_cond}
+\textcolor[RGB]{0,0,204}{
+	\hat{\Omega}_{out}(+\infty)
+	=1
+	.}
+\end{equation}
+The Interaction picture as introduced above does not require $ V $ to be of any special form but can still be applied for external source terms. To distinguish between the other two pictures the condition is chosen :
+\begin{equation}\label{eq:Omega_I_cond}
+\textcolor[RGB]{0,0,204}{
+	\hat{\Omega}_{I}(0)
+	=1
+	.}
+\end{equation}
+The connecting operator between the pictures is called scattering operator or S-Matrix. It is defined as :\footnote{We will now go to natural units $c= \hbar=1 $ and drop the operator hat for convenience sake}
+\begin{equation}\label{eq:S_in_out}
+\textcolor[RGB]{0,0,204}{
+	S=\Omega_{in}(t)\Omega_{out}^{-1}(t)
+	=\Omega_{I}(\infty)
+	.}
+\end{equation}
+\section{Scattering operator}
+\subsection{Solutions for the Interaction picture}
+The verification of statement \eqref{eq:S_in_out} will make use of explicit expressions of all $ \Omega $.\\
+Starting with the Interaction picture depended on $ t' $  and integrate the left-hand side of \eqref{eq:time_evo_Omega_interaction} :
+\begin{subequations}
+\begin{align}
+\int_{t_{0}}^{t}\mathrm{d}t'
+ i\hbar 
+ \frac{\partial}{\partial_{t'}} 
+ \Omega_{I} (t')
+ =
+ i\hbar
+ \left[ 
+\Omega_{I}(t) -\Omega_{I}(t_{0})
+ \right] 
+\end{align}
+\text{,here we state $ t_{0} = 0 $ as it is the condition for this picture and for now $ t>0 $.}
+\begin{align}
+\int_{0}^{t}\mathrm{d}t'
+ i\hbar 
+ \frac{\partial}{\partial_{t'}} 
+ \Omega_{I} (t')
+ =
+ i\hbar
+ \left[ 
+\Omega_{I}(t) -1
+ \right] 
+ .
+\end{align}
+\end{subequations}
+Using this formula and the integral over the right-hand side of \eqref{eq:time_evo_Omega_interaction}, we find an expression for $ \Omega_{I}(t) $.
+\begin{equation}
+\Omega_{I}(t)=
+1
+-
+\frac{i}{\hbar} 
+\int_{0}^{t}\mathrm{d}t'V_{I}(t')\Omega_{I}(t')	
+\end{equation}
+,since the expression has an $ \Omega_{I} $ on the other side we will go on by an iterative approach.
+\begin{subequations}
+\begin{align}
+\Omega_{I}(t)
+&=
+1
+-
+\frac{i}{\hbar} 
+\int_{0}^{t}\mathrm{d}t'V_{I}(t')
+\cdot
+\left( 
+1
+-
+\frac{i}{\hbar} 
+\int_{0}^{t'}\mathrm{d}t''V_{I}(t'')\Omega_{I}(t'')
+\right) 
+&\\
+&=
+1
+-
+\frac{i}{\hbar} 
+\int_{0}^{t}\mathrm{d}t'V_{I}(t')
++(\frac{i}{\hbar})^{2} 
+\int_{0}^{t}\mathrm{d}t'
+\int_{0}^{t'}\mathrm{d}t''
+V_{I}(t'')\Omega_{I}(t'').
+\end{align}
+\end{subequations}
+The iteration will lead us by single digit incrementation in the power and number of integrals. An problematic aspect of this series are the different integral borders. Each term introduces a new $ t $ and keeps the previous as an integral boundary which forces us to solve them in a strict order. To keep the different $ t $ as variables over the same integral $ \int_{0}^{t} $, we use the chronological time ordering.
+\begin{equation}\label{eq:chron-time_ordering}
+\textcolor[RGB]{0,0,204}{
+T(V(t_1), V(t_2))=V(t_1)\ V(t_2)\ \theta (t_1 -t_2)\ +\ V(t_2)\  V(t_1) \ \theta (t_2-t_1)
+.}
+\end{equation}
+In chronological time ordering the Heaviside-Step-function is used to set the earlier times to the right and later to the left by checking the difference. The Step-function is $ 0 $ for negative values and $ 1 $ for positive.\footnote{Proofs and elaborations for time ordering are to be found in the Appendices }
+\\
+For convince sake we drop $ \hbar $ again, $ t $ will be labelled with numbers instead of primes and time dependency will be indicated by index : $ V(t_1)\rightarrow V_{1} $.\\
+The solution to $ \Omega_{I}(t) $ written as an infinite sum and time ordered :
+\begin{subequations}
+\begin{align}
+\Omega_{I}(t) &=
+\sum\limits_{n=0}^{\infty} 
+(-i)^{n}
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t_{1}}\! \! \mathrm{d}t_2
+ \ldots
+ \int_{0}^{t_{n-1}}\! \! \mathrm{d}t_n
+  V_{I}(t_1)\cdot \ldots \cdot V_{I}(t_n)
+&\\
+&=
+\sum\limits_{n=0}^{\infty} 
+\frac{(-i)^{n}}{n!}
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
+ \ldots
+ \int_{0}^{t}\! \! \mathrm{d}t_n
+ T\left\lbrace V_{I}(t_1), \ldots , V_{I}(t_n)\right\rbrace 
+\end{align}
+\end{subequations}
+The factorial sum over $ n $ converges to exponential function as seen in calculus and this non perturbativ expression reads:
+\begin{equation}\label{eq:Omega_I_Chron_0}
+\textcolor[RGB]{0,0,204}{
+\Omega_{I}(t)
+=T\left( e^{-i\int_{0}^{t}\mathrm{d}t^{\prime} V_{I}(t^{\prime})} \right)
+	,\text{for  }  t>0 
+	.}
+\end{equation}
+We needed to split the solution of $ \Omega_{I}(t)
+ $, since the condition for the picture is not on the limits of the time span. Assuming $ t<0 $ changes the first integral to :
+ \begin{equation}
+ \int_{t}^{0}\mathrm{d}t'
+ i\hbar 
+ \frac{\partial}{\partial_{t'}} 
+ \Omega_{I} (t')
+ =
+ i\hbar
+ \left[ 
+1 -\Omega_{I}(t)
+ \right] 
+ \end{equation}
+The sign difference to the expression for $ t>0 $ can be fixed by switching the integral borders. This means our infinite sum expression still holds:
+\begin{equation}
+\Omega_{I}(t) =
+\sum\limits_{n=0}^{\infty} 
+(-i)^{n}
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t_{1}}\! \! \mathrm{d}t_2
+ \ldots
+ \int_{0}^{t_{n-1}}\! \! \mathrm{d}t_n
+  V_{I}(t_1)\cdot \ldots \cdot V_{I}(t_n).
+\end{equation}
+The key difference now stands in the negativity of all $ t $ and a logical order for them would prefer later times to the right, coming closer to $ 0 $. This requires the anti-chronological time ordering :
+ \begin{equation}\label{eq:anti-chron-time_ordering}
+\textcolor[RGB]{0,0,204}{
+\bar{T}(V(t_1), V(t_2))=V(t_2)\ V(t_1)\ \theta (t_1 -t_2)\ +\ V(t_1)\  V(t_2) \ \theta (t_2-t_1)
+.}
+\end{equation}
+Using it similar as before:
+\begin{equation}
+\Omega_{I}(t) =
+\sum\limits_{n=0}^{\infty} 
+\frac{(-i)^{n}}{n!}
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
+ \ldots
+ \int_{0}^{t}\! \! \mathrm{d}t_n
+ \bar{T}\left\lbrace V_{I}(t_1), \ldots , V_{I}(t_n)\right\rbrace .
+\end{equation}
+Converging to the second expression:
+\begin{equation}\label{eq:Omega_I_Chron_0<}
+\textcolor[RGB]{0,0,204}{
+\Omega_{I}(t)
+= \bar{T}\left( e^{-i\int_{0}^{t}\mathrm{d}t^{\prime} V_{I}(t^{\prime})} \right)
+	,\text{for  }  t<0 
+	.}
+\end{equation}
+These two cases make the use of $ \Omega_I $ safe in a sense of not having to watch out for sign flip in the integral while t runs. Second, the picture condition is clearly stated and not possible to hit while performing integration over t from negative to positive. But to perform the iterative solution ones only needs to state $ \Omega_{I} $ being finite in the region of integration. Lowering the integral boundary  to $ -\infty $ instead of $ 0 $. Losing the advantages from above but gaining the single expression:
+\begin{equation}\label{eq:Omega_I_Chron_infty}
+\textcolor[RGB]{0,0,204}{
+\Omega_{I}(t)
+=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{I}(t^{\prime})} \right)
+	.}
+\end{equation}
+\subsection{Solutions for the In and Out picture}
+Beginning with the In picture and eq.\eqref{eq:time_evo_Omega_in} we reach:
+\begin{subequations}
+\begin{align}
+\int_{t_{0}}^{t}\mathrm{d}t'
+ i\hbar 
+ \frac{\partial}{\partial_{t'}} 
+ \Omega_{in} (t')
+ =
+ i\hbar
+ \left[ 
+\Omega_{I}(in) -\Omega_{in}(t_{0})
+ \right] 
+\end{align}
+\text{,here we state $ t_{0} = -\infty $ }
+\begin{align}
+\int_{-\infty}^{t}\mathrm{d}t'
+ i\hbar 
+ \frac{\partial}{\partial_{t'}} 
+ \Omega_{in} (t')
+ =
+ i\hbar
+ \left[ 
+\Omega_{in}(t) -1
+ \right] 
+ .
+\end{align}
+\end{subequations}
+The condition of the In picture being a limit for the time span spares us any splitting. Following the first solution of the Interaction picture: 
+\begin{subequations}
+\begin{align}
+\Omega_{in}(t) &=
+\sum\limits_{n=0}^{\infty} 
+(-i)^{n}
+\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_{1}}\! \! \mathrm{d}t_2
+ \ldots
+ \int_{-\infty}^{t_{n-1}}\! \! \mathrm{d}t_n
+  V_{in}(t_1)\cdot \ldots \cdot V_{in}(t_n)
+&\\
+&=
+\sum\limits_{n=0}^{\infty} 
+\frac{(-i)^{n}}{n!}
+\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
+ \ldots
+ \int_{-\infty}^{t}\! \! \mathrm{d}t_n
+ T\left\lbrace V_{in}(t_1), \ldots , V_{in}(t_n)\right\rbrace .
+\end{align}
+\end{subequations}
+Converging to :
+\begin{equation}\label{eq:Omega_in_converg}
+\textcolor[RGB]{0,0,204}{
+\Omega_{in}(t)
+= T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})} \right)
+	.}
+\end{equation}
+The Out picture on the other hand follows the second solution. Here we argue $ t $ being smaller then $ \infty $ needs one change of sign like before and anti-chronological ordering,since $ t $ only coming closer to the limit as it runs.
+\begin{equation}
+\Omega_{out}(t) =
+\sum\limits_{n=0}^{\infty} 
+\frac{(-i)^{n}}{n!}
+\int_{\infty}^{t}\mathrm{d}t_1\int_{\infty}^{t}\! \! \mathrm{d}t_2
+ \ldots
+ \int_{\infty}^{t}\! \! \mathrm{d}t_n
+ \bar{T}\left\lbrace V_{out}(t_1), \ldots , V_{out}(t_n)\right\rbrace .
+\end{equation}
+Concluding :
+\begin{equation}\label{eq:Omega_out_converg}
+\textcolor[RGB]{0,0,204}{
+\Omega_{out}(t)
+= \bar{T}\left( e^{-i\int_{\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})} \right)
+	.}
+\end{equation}
+\subsection{Connections}
+Using this set of solution, the first set of relations to be proven is:
+\begin{subequations}
+\textcolor[RGB]{0,0,204}{
+\begin{align}
+	S&=
+	\Omega_{in}(t)\Omega_{out}(t)^{-1}
+	&\\
+	&=\Omega_{in}(\infty)
+	&\\
+	&=\Omega_{out}(-\infty)^{-1}
+	.
+\end{align}
+}
+\end{subequations}
+Writing the first equality out,
+\begin{subequations}
+\begin{align}
+  S
+  &=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})} \right)
+	\cdot
+	\bar{T}\left( e^{-i\int_{\infty}^{t}\mathrm{d}t^{\prime \prime} V_{out}(t^{\prime \prime})} \right)
+	 &\\
+	 %
+  &= \sum_{n} (-i)^{n}
+  	    \int_{-\infty}^{t}\mathrm{d}t_1 V_{in}(t_1)
+		\ldots    
+	    \int_{-\infty}^{t_{n-1}}\mathrm{d}t_n V_{in}(t_n)
+	&\\	
+  &\cdot
+  \left( 
+  		\sum_{n} (-i)^{n}
+  	    \int_{\infty}^{t}\mathrm{d}t_1^{\prime} V_{out}(t_1^{\prime})
+		\ldots    
+	    \int_{\infty}^{t_{n-1}^{\prime}}\mathrm{d}t_n^{\prime} V_{out}(t_n^{\prime})  	
+  \right)^{-1}   
+\end{align}
+%
+\text{As an unitar operator $ \Omega_{out}(t)^{-1}=\Omega_{out}(t)^{\dagger} $} 
+%
+\begin{align}
+	%forceful ajsuting
+	\text{\textcolor{white}{llllllllllllllllllllllllllllll}}
+	=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})} \right)
+	\cdot
+	T\left( e^{+i\int_{\infty}^{t}\mathrm{d}t^{\prime \prime} V_{out}(t^{\prime \prime})} \right)
+	%forceful ajsuting
+	\text{\textcolor{white}{llllllllllllllllllllllllllllllllllll}}
+\end{align}
+%
+\text{The lack of overlap in the integral limits allows us to fuse $ T $ }
+%
+\begin{align}
+	&=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+	\cdot
+	 e^{+i\int_{\infty}^{t}\mathrm{d}t^{\prime \prime} V_{out}(t^{\prime \prime})} \right)
+	\end{align}
+\text{Commutation in $ T $ allow ease use ofthe Baker-Campbell-Hausdorff-formula }	
+	\begin{align}
+	 %&\underset{\mathrm{CBH-formula}}{=} 
+	&=	 
+	 T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})
+	 -i\int_{t}^{\infty}\mathrm{d}t^{\prime \prime} V_{out}(t^{\prime \prime})} \right).
+\end{align}
+\end{subequations}
+In addition the overlap makes $ S $ time-independent. Therefore $ t $ could be $ \infty $:
+\begin{equation}\label{eq:S_equal_in_infty}
+S=T\left( e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})
+	 -i\int_{\infty}^{\infty}\mathrm{d}t^{\prime \prime} V_{out}(t^{\prime \prime})} \right)
+=T\left( e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}\right)
+=\Omega_{in}(\infty).
+\end{equation}
+Or we choose $ -\infty $:
+\begin{equation}
+S=T\left( e^{-i\int_{-\infty}^{-\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})
+	 -i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime \prime} V_{out}(t^{\prime \prime})} \right)
+=T\left( e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} V_{out}(t^{\prime})}\right)
+=\Omega_{out}(-\infty)^{-1}.
+\end{equation}
+Eq. \eqref{eq:S_equal_in_infty} is very similar to the definition in eq.\eqref{eq:S_in_out} for $ \Omega_{I} $. This comes from $ V_{I} $ and $ V_{in} $ both being picture transformations of $ V_{H} $ in the Heisenberg picture. We discussed the main difference lies in position of the condition on the time span. The time independence and integral over all $ t $ makes them equal. 
+\begin{equation}\label{eq:S_equal_in_plus_minus_infty}
+\textcolor[RGB]{0,0,204}{
+S=T\left( e^{-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)}\right)
+.}
+\end{equation}
+The next set of relations is :
+\begin{subequations}
+\textcolor[RGB]{0,0,204}{
+\begin{align}
+	\Omega_{in}(t)\Omega_{I}(t)^{-1}
+	&=S\ \Omega_{I}(\infty)^{-1}
+	&\\
+	&=
+	\Omega_{in}(0)	.
+\end{align}
+}
+\end{subequations}
+The first one is just $ 1 $, since the  definition was $ S = \Omega_{I}(\infty) $ was 
+Using the exponential formulae:
+\begin{subequations}
+\begin{align}
+	\Omega_{in}(t)\Omega_{I}(t)^{-1}&=
+T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})} \right)
+ \left( \bar{T}\left( e^{-i\int_{0}^{t}\mathrm{d}t^{\prime} V_{I}(t^{\prime})} \right)
+	\right)^{-1}
+	&\\
+	 &\underset{\mathrm{T\rightarrow\bar{T} }}{=} 
+	 T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})} \right)
+  T\left( e^{+i\int_{0}^{t}\mathrm{d}t^{\prime} V_{I}(t^{\prime})} \right)
+  &\\
+  &=
+  T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+  e^{+i\int_{0}^{t}\mathrm{d}t^{\prime} V_{I}(t^{\prime})} \right)
+  	&\\
+	 &\underset{\mathrm{CBH}}{=} 
+T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})
+ -i\int_{t}^{0}\mathrm{d}t^{\prime} V_{I}(t^{\prime}) }\right) 
+  &\\
+  &= 	\Omega_{in}(0) 	\Omega_{I}(0)\underset{\mathrm{\Omega_{I}(0)=1}}{=} 	\Omega_{in}(0)
+\end{align}
+\end{subequations}
+This last expression is time independent and is also $ 1 $ by looking at the differential equation for $\Omega_{in} $.
+%%%
+%%%
+%%
+\\
+The last relation is :
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+\Omega_{in}(t)=
+\bar{T}
+\left( 
+ e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+S.}
+\end{equation}
+First it must satisfy the differential equation for $ \Omega_{in} $:
+\begin{subequations}
+\begin{align}
+i\partial_{t}\Omega_{in}(t)
+	&=i\partial_{t} \left( 
+	\sum_{n} i^{n}
+  	   \int_{t}^{\infty}\mathrm{d}t_1 V_{in}(t_1)
+		\ldots    
+	    \int_{t_{n-1}}^{\infty}\mathrm{d}t_n V_{in}(t_n)
+		\right)
+		S
+	\end{align}
+	\text{making an integration by part,}
+	\begin{align}
+	&=i \left( 
+	\sum_{n} i^{n}
+		\partial_{t}
+		\left[
+		\bar{V}_{in}(\infty)-\bar{V}_{in}(t)
+		 \right] 
+  	    \int_{t_1}^{\infty}\mathrm{d}t_2 V_{in}(t_2)
+		\ldots    
+	    \int_{t_{n-1}}^{\infty}\mathrm{d}t_n V_{in}(t_n)
+		\right)
+		S	
+\end{align}
+\text{partial differentiate in respect to $ t $,}
+\begin{align}
+	&= i\left( 
+	\sum_{n} i^{n}
+		\left[
+		0-V_{in}(t)
+		 \right] 
+  	     \int_{t_1}^{\infty}\mathrm{d}t_2 V_{in}(t_2)
+		\ldots    
+	    \int_{t_{n-1}}^{\infty}\mathrm{d}t_n V_{in}(t_n)
+		\right)
+		S		
+	\end{align}
+	\text{multiplying and convergence,}
+	\begin{align}
+	&=V_{in}(t)
+	\sum_{n}
+	\frac{i^{n-1}}{(n-1)!} 
+ 	     \int_{t_1}^{\infty}\mathrm{d}t_2 
+		\ldots    
+	   \int_{t_{n-1}}^{\infty}\mathrm{d}t_n
+		\bar{T}
+		\left( 
+		V_{in}(t_2)
+		\ldots
+		     V_{in}(t_n)
+		\right)S
+	&\\
+	&=
+	\bar{T}
+	\left( 
+	V_{in}(t)	
+	 e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+	\right)S
+		&\\
+	&=V_{in}(t)	
+	\bar{T}
+	\left( 
+	 e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+	\right)S
+\end{align}
+\end{subequations}
+The last step was based on $ t $ being the earliest time in the integral and anti-chronological time ordering.\\
+One also has to provide $ \Omega_{in}(-\infty)= 1 $:
+\begin{subequations}
+\begin{align}
+\Omega_{in}(t)
+	&=\bar{T}
+	\left( 
+	 e^{i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+	\right) S
+	&\\
+	&=
+	(\Omega_{in}(\infty))^{\dagger}S
+	&\\
+	&=S^{\dagger}S=S^{-1}S=1
+\end{align}
+\end{subequations}
+\subsection{Unitarity of S}
+This last step required $ S $ to be unitar. Beginning with rewriting it.
+\begin{subequations}
+\begin{align}
+S
+	&=T
+	\left( 
+	 e^{-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)}
+	\right) 
+	&\\
+	&=	\sum_{n}
+	\frac{(-i)^{n}}{(n)!} 
+ 	     \int_{-\infty}^{\infty}\mathrm{d}t_1 
+		\ldots    
+	   \int_{-\infty}^{\infty}\mathrm{d}t_n
+		T
+		\left( 
+		V_{in}(t_1)
+		\ldots
+		     V_{in}(t_n)
+		\right)
+			&\\
+			&=	\sum_{n}
+	(-i)^{n}
+ 	     \int_{-\infty}^{\infty}\mathrm{d}t_1 
+		\ldots    
+	   \int_{-\infty}^{\infty}\mathrm{d}t_n
+		V_{in}(t_1)
+		\ldots
+		     V_{in}(t_n).
+\end{align}
+\text{Without variables in the limits of integration the order is arbitrary}
+\begin{align}
+	&=	\sum_{n}
+	\frac{(-i)^{n}}{(n)!} 
+ 	     \int_{-\infty}^{\infty}\mathrm{d}t_1 
+		\ldots    
+	   \int_{-\infty}^{\infty}\mathrm{d}t_n
+		\bar{T}
+		\left( 
+		V_{in}(t_1)
+		\ldots
+		     V_{in}(t_n)
+		\right)
+			&\\
+	&=\bar{T}
+	\left( 
+	 e^{-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)}
+	\right)  .
+\end{align}    
+\end{subequations}
+Keeping this in mind we express $ 1=1 $ as :
+\begin{subequations}
+\begin{align}
+1
+&=
+T
+\left( 
+e^{0}
+\right) 
+		&\\
+		&=
+		T
+	\left( 
+	e^{i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}
+	\right) 
+			&\\
+		 &\underset{\mathrm{CBH}}{=} 
+		T
+	\left( 
+	e^{i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}	
+	e^{
+	-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}
+	e^{\frac{1}{2}\left[ i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t),
+	-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	\right] 
+	}
+	\right) 
+		&\\
+		&\underset{\mathrm{e^{\frac{1}{2}\cdot 0}}}{=} 
+		T
+	\left( 
+	e^{i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}	
+	e^{
+	-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}
+	\right) 		
+		&\\
+		&=	
+				T
+	\left( 
+	e^{i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}	
+	\right) 	
+	T
+	\left(
+	e^{
+	-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}
+	\right) 	
+		&\\
+		&=	
+				T
+	\left( 
+	e^{i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}	
+	\right) 	
+	\bar{T}
+	\left(
+	e^{
+	-i\int_{-\infty}^{\infty}\mathrm{d}t V_{I}(t)
+	}
+	\right) 	
+	&\\
+	&=	S \cdot S^{\dagger}
+	&\\
+	&=	S \cdot S^{-1}	
+	&\\
+	&=	1
+\end{align}
+\end{subequations}
+\section{Gell-Mann Low formula}
+%
+To motivate Gell-Mann Low formula as the important asset, a common way of application and requirement will be laid out. \\
+First, the formula allows us to transform a polynomial , chronological (or anti-chronological) ordered set of operators in the Heisenberg picture to  the three pictures connected to the scattering operator. \\
+This strikes as a fundamental step for dealing with the pictures. Furthermore this transition will be made very early when working on many topics of quantum field theory. As most of the time, one would begin with classical mechanics to get to QFT. Starting with the action of your problem in term of classical fields and then apply second quantisation to promote them to operators in the Heisenberg picture. This would be the point to transition and one needs the Gell-Mann Low formula.\\
+%
+Recalling Eq.\eqref{eq:operator_interac_heisenberg} we can write:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+Q_{H}(t)=\Omega_{I}(t)^{-1}Q_{I}(t)\ \Omega_{I}(t).
+}
+\end{equation}
+Since the proof didn't require any specifications on $ \Omega $ as it only remains as the difference to the Heisenberg operator $ U $. Allowing us to write:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+Q_{H}(t)=\Omega_{in}(t)^{-1}Q_{in}(t)\ \Omega_{in}(t).
+}
+\end{equation}
+Expressing $ \Omega_{in} $ by $ S $ as seen above:
+\begin{equation}
+Q_{H}(t)
+=\left( 
+\bar{T}
+\left( 
+ e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+S
+\right)^{-1}
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+\end{equation}
+being a unitary operator, we replace $ -1 $ by $ \dagger $ and apply hermitian conjugation
+\begin{subequations}
+\begin{align}
+Q_{H}(t)
+&=\left( 
+\bar{T}
+\left( 
+ e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+S
+\right)^{\dagger}
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+\\
+&=
+S^{\dagger}\left( 
+\bar{T}
+\left( 
+ e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+\right)^{\dagger}
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+\\
+&=
+S^{-1} 
+T
+\left( 
+ e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right)
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) .
+\end{align}
+\end{subequations}
+This step used the unitarity of $ S $ itself and the appendix for transition to chronological time ordering. Following that it is allowed to merge $ T $ due to zero overlap in the boundaries and correct order
+\begin{equation}
+%%
+Q_{H}(t)
+=S^{-1}
+T\left( 
+ e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+%%
+Q_{in}(t)
+%%
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) .
+\end{equation}
+The position of $ Q_{in}  $ is still not ideal. Changing it will require commutations. Using the infinite series for $ e $ and removing time ordering will reduce the problem to commutations between $ Q_{in} $ and $ V_{in} $.
+\begin{equation}
+Q_{H}(t)
+=
+S^{-1}
+\left( 
+\sum_{n}
+(-i)^{n}
+\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
+\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
+\ldots
+\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
+\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
+V_{in}(t_{1}^{\prime})
+\ldots
+V_{in}(t_{n}^{\prime})
+Q_{in}(t)
+\right) .
+\end{equation}
+We see $ Q_{in} $ and $ V_{in} $ can commute without any problem since $ Q_{in} $ depends on $  t $ and $ t \neq t' $. Moving it to the left and reapply $ T $ as well as $ e $:
+\begin{subequations}
+\begin{align}
+Q_{H}(t)
+&=
+S^{-1}
+\left( 
+\sum_{n}
+(-i)^{n}
+Q_{in}(t)
+\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
+\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
+\ldots
+\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
+\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
+V_{in}(t_{1}^{\prime})
+\ldots
+V_{in}(t_{n}^{\prime})
+\right) 
+\\
+Q_{H}(t)
+&=S^{-1}
+T\left( 
+Q_{in}(t)
+%%
+ e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) .
+\end{align}
+\end{subequations}
+Identifying the exponential function as $ S $, the result is:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+Q_{H}(t)=
+S^{-1}
+T\left( 
+Q_{in}(t)
+S
+\right) .
+}
+\end{equation}
+Next will be for more than one operator. Starting with the left side in a non trivial time ordering and applying the transformation for each operator:
+\begin{subequations}
+\begin{align}
+T\left( 
+Q_{H}(t_1)
+Q_{H}(t_2)
+\ldots
+\right) 
+=
+T\left( 
+\prod_{j}
+\Omega_{in}(t_{j})^{-1}
+Q_{in}(t_j)
+\Omega_{in}(t_{j})
+\right)
+\end{align}
+\text{,inserting the expression with $ S $ for a $ \Omega $ depending on $ t_{j} $  ,}
+\begin{align}
+&=
+T\left( 
+\prod_{j}
+S^{-1}
+T\left( 
+ e^{-i\int_{t_{j}}^{\infty}\mathrm{d}t^{\prime}_{j} V_{in}(t^{\prime}_{j})}
+\right) 
+%
+Q_{in}(t_{j})
+%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t_{j}}\mathrm{d}t^{\prime}_{j} V_{in}(t^{\prime}_{j})}
+\right) 
+\right) 
+\end{align}
+\end{subequations}
+,the series and commutation follows the same argumentation as for a single $ Q $, 
+\begin{equation}
+T\left( 
+Q_{H}(t_1)
+Q_{H}(t_2)
+\ldots
+\right) 
+=
+T\left( 
+\prod_{j}
+S^{-1}
+Q_{in}(t_{j})
+S
+\right).
+\end{equation}
+Moving $ S $ outside of $ T $ gives the final form of the Gell-Mann Low formula:
+\begin{equation}\label{Gell-Mann_Low_formula}
+\textcolor[RGB]{0,0,204}{
+T\left( 
+Q_{H}(t_1)
+Q_{H}(t_2)
+\ldots
+\right) 
+=
+S^{-1}
+T\left( 
+Q_{in}(t_{1})
+Q_{in}(t_{2})
+\ldots
+S
+\right).
+}
+\end{equation}
+To proof $ S $ can be outside of chronological time ordering we look at $ T(S^{-1}) $:
+\begin{subequations}
+\begin{align}
+ T({S^{-1}})
+ &= T(S^{\dagger})
+\end{align}
+\text{,using the expression of $ S $ in term of the In-picture and apply hermitian conjugation,}
+\begin{align}
+ T({S^{-1}})=
+T\left( 
+\bar{T}
+\left( 
+ e^{i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} V_{in}(t^{\prime})}
+\right) 
+\right) 
+\end{align}
+\text{,$ e^{x} $ as a series,}
+\begin{align}
+ &=
+ T\left( 
+ \sum_{n}
+ \frac{(i)^{n}}{n!}
+ \int_{-\infty}^{\infty}\mathrm{d}t_{1}
+ \int_{-\infty}^{\infty}\mathrm{d}t_{2}
+ \ldots
+ \int_{-\infty}^{\infty}\mathrm{d}t_{n}
+ \bar{T}
+ \left( 
+  V_{in}(t_{1})
+  \ldots
+   V_{in}(t_{n})
+ \right) 
+  \right) 
+\end{align}
+\text{and removing the anti-chronological time ordering,}
+\begin{align} &=
+ T\left( 
+ \sum_{n}
+\frac{(i)^{n}}{n!}
+ i^{n}
+ \int_{-\infty}^{\infty}\mathrm{d}t_{1}
+ \int_{-\infty}^{\infty}\mathrm{d}t_{2}
+ \ldots
+ \int_{-\infty}^{\infty}\mathrm{d}t_{n}
+  V_{in}(t_{1})
+  \ldots
+   V_{in}(t_{n})
+  \right) .
+\end{align}
+\end{subequations}
+The boundaries make every integral independent from each other so rearranging 
+$ t_{1} $  to $ t_n $ wouldn't change the result 
+\[
+\rightarrow T(S^{-1} \ldots)=S^{-1} T(\ldots)
+\]
+%%
+\subsection{Vacuum expectation value} 
+The Gell-Mann Low formula eq.\eqref{Gell-Mann_Low_formula} plays a central role in many perturbative or non-perturbative calculations. In particular by evaluating it sandwiched between eigenstates to rising and lowering operators in the In- and Out-picture. If they are in the groundstate of the theory aka. the vacuum state, we obtain the vacuum expectation value.
+\begin{subequations}
+\begin{align}
+\bra{0_{out}}
+%
+T
+\left(
+Q_{H}(t_1)
+Q_{H}(t_2)
+\ldots
+\right)
+%
+\ket{0_{in}}=
+\\
+=
+\bra{0_{out}}
+S^{-1}
+T\left( 
+Q_{in}(t_{1})
+Q_{in}(t_{2})
+\ldots
+S
+\right)
+\ket{0_{in}}
+\\
+=
+\bra{0_{out}}
+S^{-1}
+T\left( 
+Q_{in}(t_{1})
+Q_{in}(t_{2})
+\ldots
+e^{-i\int^{\infty}_{-\infty}dt'V_{in}(t')}
+\right)
+\ket{0_{in}}
+\end{align}
+\end{subequations}%%
+This average (expectation value) of a product of $ n $ operators is called the $ n $-point correlation function. For example, using Wick's theorem and expansions in powers of $ V_{in}(Q_{in}(t),t) $ , we can gain knowledge about processes that involves in total $ n $ excitations of the ground state (or vacuum) in both asymptotic states.\\
+At this point one can be in two situations. The ground state can be either stable or unstable. Over time it could spontaneously go into a state of excitation. Mathematically speaking instability leads to :
+\begin{equation}\textcolor[RGB]{0,0,204}{
+\braket{0_{out}|0_{in}}
+\neq
+1.
+}
+\end{equation}
+Here of course already normalized states. This possibility for excitations stem from external sources and therefore external currents. A stable state would lead to:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+\bra{0_{out}}
+S^{-1}
+=
+\bra{0_{in}}
+}
+\end{equation}
+An asymptotic state would go over time into a asymptotic state of same excitation.
+%
+%
+% 
+%\subsection{Gell-Mann Low formula for Out and Interaction picture}
+%%%
+%We can derive equivalent representations of the Gell-Mann Low formula. First for the Out-picture and its unitary transformation similar to the In.
+%\begin{subequations}
+%\begin{align}
+%Q_{H}(t)
+%=
+%\Omega_{out}(t)^{-1}
+%Q_{out}(t)
+%\Omega_{out}(t)
+%\end{align}
+%\end{subequations}
+\newpage
+\section{Conclusion}
+In this report we have presented a set of fundamental concepts and methods. These are essential for starting to study Quantum field theory. We began with well-known pictures from quantum mechanics and introduced the In and Out picture as consequences of working with asymptotic states. They lead us to the important connecting element between the pictures, the scattering operator. The connections allowed us to derive the Gell-Mann Low formula, which plays a major part in the second quantisation process one would do in quantum field theories. 
+%%
+%%
+\newpage
+\begin{appendices}
+\section{Chronological time ordering}
+Let's begin with at a regular function in form of:\\
+\begin{equation}\label{regular_function}
+I(t)=
+\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
+V(t_1)V(t_2)
+\end{equation}
+\\
+We see that although the the right hand side has functions of $t_2$ and $t_1$ the left hand side  doesn't. The integrals allow us to perform a change of variable and rewrite $I$ as $ I(t) = \dfrac{1}{2} I(t) +\dfrac{1}{2} I(t)$ :\\
+\begin{equation}
+I(t)=
+\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
+			V(t_1)V(t_2)
++
+\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_2\int_{-\infty}^{t_2}\! \! \mathrm{d}t_1
+			V(t_2)V(t_1).
+\end{equation}
+We define the \textbf{chronological time ordering}\footnote{
+earlier times to the right and later times to the left
+} at this point to equalize the boundaries. \\
+Note $ V(t_{1}) \rightarrow V_{1} $:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+T(V_1, V_2)=V_1\ V_2\ \theta (t_1 -t_2)\ +\ V_2\  V_1 \ \theta (t_2-t_1).
+}
+\end{equation}
+Being based on the Heaviside step-function it allows us to write the Eq.\eqref{regular_function} as:
+\begin{equation}
+I(t)=\dfrac{1}{2}
+\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
+V_1\ V_2\ \theta (t_1 -t_2)
++
+\dfrac{1}{2}
+\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
+\ V_2\  V_1 \ \theta (t_2-t_1)
+\end{equation}
+\begin{equation}
+I(t)=\dfrac{1}{2!}
+\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
+T(V_1,V_2)
+\end{equation}
+The Heaviside function allows us to set terms to zero for negative arguments of $ \theta $ and 1 for positive. By subtracting $ t_1 $ and $ t_2 $ we will be able to switch between the later and earlier points in time. \\
+\textit{for} $ t_1 > t_2  \rightarrow \theta (t_1 -t_2)$ $\thinspace $
+and
+\textit{for} $ t_2 > t_1  \rightarrow \theta (t_2 -t_1)$\\
+To expand our concept to cases of more then  two $  t $ we start by advancing $ T $.
+In general it consists of a summation of all permutations P of a given set multiplied by Heaviside functions. These Heaviside functions have arguments with the negative summation of the t in the same permutation P.\\
+Definition:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+T(V_1, V_2,\ldots,V_n)=
+\sum_{j=1}^{n}\ P_{j}
+\left[
+V_1, V_2,\ldots,V_n
+ \right]  
+\cdot
+\theta (P_{j}\left[t_{j} -\sum_{i\neq j}^{n} t_{i}\right])\ .
+}
+\end{equation}
+But this summation over $ j $ would not add up to the same value for $ I(t) $ since it started in the order of one element in the sum.In this case we need a normalization in addition to $ T $ . From statistics we know a set of n different elements can be linear arranged in $ n! $ ways.Coming in as a factor of $ \frac{1}{n!} $ in the expressions later.
+\\
+Now we can apply it to new $ I $ and do a proof by Induction based on the number of $ V $. The Induction start is the case of two $ V $. In the Induction step we say in a mathematicians way that it works for at least one unspecified higher order. Let's call it $ k $ : ($ \textit{Note:} $ $ t_0 = t $)\\
+\begin{equation}
+I_k (t)
+=
+ \prod_{a=1}^{k} 
+ \int_{-\infty}^{t_{a-1}}\mathrm{d}t_a\
+  V_a
+=
+\dfrac{1}{k!}
+ (
+ \prod_{a=1}^{k} 
+\int_{-\infty}^{t}\mathrm{d}t_a\
+)
+T(V_1,\ldots,V_k).
+\end{equation}
+Moving one increment higher in our 'chain' $ k+1 $,
+\\
+\begin{equation}
+I_{k+1} (t)
+=
+ \prod_{a=1}^{k+1} 
+ \int_{-\infty}^{t_{a-1}}\mathrm{d}t_a\
+  V_a
+  =
+   \prod_{a=1}^{k} 
+ \int_{-\infty}^{t_{a-1}}\mathrm{d}t_a\
+  V_a
+  \cdot
+ \int_{-\infty}^{t_{k}}\mathrm{d}t_{k+1}\
+ V_{k+1}
+\end{equation}
+Using the Induction Step and general definition for $ T $:
+\\
+\begin{equation}
+I_{k+1} (t)
+=
+\dfrac{1}{k!}
+ (
+ \prod_{a=1}^{k} 
+\int_{-\infty}^{t}\mathrm{d}t_a\
+)
+T(V_1,\ldots,V_k)
+\cdot
+ \int_{-\infty}^{t_{k}}\mathrm{d}t_{k+1}\
+ V_{k+1}
+\end{equation}
+\begin{equation}
+I_{k+1} (t)
+=
+I_k (t)
+\cdot
+ \int_{-\infty}^{t_{k}}\mathrm{d}t_{k+1}\
+ V_{k+1}
+\end{equation}
+This shows that the incrementation of $ k $ reduces to a multiplication with one more different element for the set. This increases the possible permutations by a factor of $ k+1 $ resulting in $ (k+1)! $ in total. Giving us:
+\begin{equation}
+I_{k+1}(t)
+=
+\dfrac{1}{(k+1)!}
+ (
+ \prod_{a=1}^{k+1} 
+\int_{-\infty}^{t}\mathrm{d}t_a\
+)
+T(V_1,\ldots,V_{k+1})
+\end{equation}
+Time ordering is a very grounded concept in field theory, it appears very naturally for expressing propagators in term of fields. The reason apart from pure mathematics is comprehensible. The different functions, functionals or fields are best organized for summarizing a scattering or interaction event if they are time-like sorted.
+\\
+Furthermore it comes with a great advantage. All products in $ T(\ldots) $ do commute. Proof for two elements:
+\begin{subequations}
+\begin{align}
+T(V_1, V_2)=V_1\ V_2\ \theta (t_1 -t_2)\ +\ V_2\  V_1 \ \theta (t_2-t_1)
+\\
+T(V_2, V_1)=V_2\ V_1\ \theta (t_2 -t_1)\ +\ V_1\  V_2 \ \theta (t_1-t_2)
+\end{align}
+\end{subequations}
+,since terms in sums always commutes,
+\begin{equation}\textcolor[RGB]{0,0,204}{
+T(V_1, V_2)=T(V_2, V_1)
+}
+\end{equation}
+In other words, the commutation relations say whether the subtraction of permutations of elements is zero or not. But in time ordering all permutations appear, we can rearrange the terms so subtraction of equal permutations happens. Therefore commutation in $ T $ holds.
+\section{Anti-chronological time ordering}
+On a close inspection of the introduction of the Heaviside-function and its' insertion into the integral, we actually skipped a choice. If we just would have wanted to the overall boundaries the order of $ t_1 $ and $ t_2 $ in relation to $ V_1 $ and $ V_2 $ the insertion of $  \theta$  could have been switched. This secretly led us to the definition of time-ordering or chronological time ordering as it is called more precisely. The other path would have resulted in anti-chronological time ordering:\footnote{
+earlier times to the left and later times to the right
+}
+\begin{equation}\label{anti_o}
+ \bar{T}(V_1,V_2)
+ =
+ V_1\ V_2\ \theta (t_2 -t_1)\ +\ V_2\  V_1 \ \theta (t_1-t_2)
+\end{equation} 
+This section is not just to satisfy the observed readers but to proof a connection between both involing hermitian conjugation of the integrals, which can easily appear while doing picture transitions.
+\\
+We choose the same starting point as for $ T $:
+
+%\noindent Text before.
+\begin{align*}
+  I(t)
+  &= \dfrac{1}{2}
+	 \int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
+	 V_1 V_2
+	+
+	\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_2\int_{-\infty}^{t_2}\! \! \mathrm{d}t_1
+	V_2 V_1
+	 &\\
+  &= \dfrac{1}{2!}
+	 \int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
+	 T(V_1,V_2)
+\end{align*}
+%%%&\underset{\mathrm{def.picture}}{=}
+%%
+\begin{subequations}
+\begin{align}
+  I(t)^{\dagger}
+  &=\left(  \dfrac{1}{2}
+	 \int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
+	 V_1 V_2
+	+
+	\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_2\int_{-\infty}^{t_2}\! \! \mathrm{d}t_1
+	V_2 V_1
+	\right) ^{\dagger}
+	 &\\
+	 %
+  &=  \dfrac{1}{2}
+	 \int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
+	 \left(V_1 V_2\right) ^{\dagger}
+	+
+	\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_2\int_{-\infty}^{t_2}\! \! \mathrm{d}t_1
+	\left( V_2 V_1\right) ^{\dagger}
+	&\\	
+	%
+ %maybe :% &\underset{\mathrm{rem.flip under hermitian conjugation}}{=}   
+  &=  \dfrac{1}{2}
+	 \int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
+	 V_2^{\dagger}	V_1^{\dagger}
+	+
+	\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_2\int_{-\infty}^{t_2}\! \! \mathrm{d}t_1
+	V_1^{\dagger}	V_2^{\dagger}
+\end{align}
+\text{, we observe that the switch of positions due to hermitian conjugation allows to use Eq.\eqref{anti_o}  }
+\begin{flalign}
+  I(t)^{\dagger}
+  &=\dfrac{1}{2}
+	 \int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}  \mathrm{d}t_2
+	 V_2^{\dagger}	V_1^{\dagger} \theta (t_1 -t_2)
+	+ 
+	 \dfrac{1}{2}
+	 \int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t} \mathrm{d}t_2
+	 V_1^{\dagger}	V_2^{\dagger} \theta (t_2-t_1)
+	 &\\
+	 %
+  &\Rightarrow   	
+  		\dfrac{1}{2}
+  		\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}  \mathrm{d}t_2
+  		\bar{T}(V_1^{\dagger},V_2^{\dagger})
+  		%
+\end{flalign}
+\text{
+Now we assume our total Hamiltonian $ \hat{H}=\hat{H}_0 + \hat{V} $ is hermitian and $ \hat{V} $\\
+}\\
+\text{ won't lead to non fixed ground state energy $ \rightarrow $ vacuum instability
+}
+\begin{flalign} 
+  I(t)^{\dagger}
+  &=\dfrac{1}{2}
+  		\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}  \mathrm{d}t_2
+  		\bar{T}(V_1,V_2)
+  		%
+\end{flalign}
+\end{subequations}
+%
+\end{appendices}
+
+\newpage
+\begin{thebibliography}{12}
+ \bibitem{aheaehw} 
+S.Randjbar-Daemi.
+\textit{Course on Quantum Electrodynamics: Introduction to Quantum Field Theory}.
+ The Abdus Salam International Centre for Theoretical Physics , 2007-2008.
+ 
+\bibitem{latexcompanion} 
+M.Peskin; D.Schroeder. 
+\textit{Quantum field theory}. 
+Perseus Books Publishing, 1995.
+ 
+\bibitem{einstein} 
+W.Greiner;J.Reinhart.
+\textit{Quantum electrodynamics}.
+ Verlag Harri Deutsch Thun und Frankfurt am Main, 1984.
+ 
+ \bibitem{gw} 
+W.Greiner;J.Reinhart.
+\textit{Feldquantisierung}.
+ Verlag Harri Deutsch Thun und Frankfurt am Main, 1993.
+\end{thebibliography}
+
+
+
+\end{document}

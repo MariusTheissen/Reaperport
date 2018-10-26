@@ -1,0 +1,297 @@
+\documentclass[12pt, titlepage]{article}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{chngcntr}
+\usepackage{ upgreek }
+\usepackage{mathtools}
+\usepackage{empheq}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{listings} 
+\usepackage{braket}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,calc}
+\lstset{numbers=left, numberstyle=\tiny, numbersep=5pt} \lstset{language=Scilab} 
+%%\tolerance=700 %Soll Badbox entfernen klappt nicht
+%\\textcolor{red}{}
+%Formel-Farbe
+%\textcolor[RGB]{0,0,204}{\Phi sik}
+%Präambel für römische Zahlen 
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}
+
+
+\title{\includegraphics[scale=0.07]{logo}\\Specialization report}
+\date{\textcolor{red}{date}}
+\author{ Heinrich Heine Universit\"at D\"usseldorf\\ Institut f\"ur Theoretische Physik I\\ \\ Supervisor:  Dr. Selym Villalba-Chavez \\\\Presented by:\\Marius Thei\ss{}en\\ Matrn.: 2163903 \\  }
+
+\begin{document}
+
+\tikzstyle{every picture}+=[remember picture]
+\everymath{\displaystyle}
+
+%\\\textcolor{red}{Hier fehlt was}\\
+\maketitle %gibt dastitelblatt hier aus
+\tableofcontents
+\newpage
+\begin{equation}
+\textcolor[RGB]{0,0,204}{\Phi sik}
+\end{equation}
+\section{Introduction}
+This report has three main goals. First we shall establish the transition between pictures in quantum mechanics and quanten field theory. We go over the more common ones, Schrödinger, Heisenberg and Interaction picture, to derive and justify the two In and Out Pictures.
+By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula.
+
+\section{Pictures in Quantum field theory }
+\subsection{Schrödinger and Heisenberg picture}
+The starting point is the Schrödinger picture. The central element of quantum system is the state. It contains everything that we know or can discover about our system.
+\\
+In the Dirac bra-ket notation we write:  
+$ \ket{\psi} $ 
+as the ket vector. These states are vectors in a Hilbertspace. Although it is a interesting topic, we will restrain our self form going deeper in the structure of Hilbertspaces. Therefore we look at the vectors.
+
+%\\\textcolor{red}{sounds bad}\\
+
+Nature shows us, that a set up, system or objects do change over time. This is something observable even in everyday life. This \textit{time dependence} is governed by the Schrödinger equation :
+
+\begin{equation}\label{eq:schroedinger}
+\textcolor[RGB]{0,0,204}{
+i \hbar \frac{\partial }{\partial t} \ket{\Psi(t)} =
+\hat{H} \ket{\Psi(t)}
+}
+\end{equation}
+
+With the Hamiltonian $ \hat{H} = H(\hat{a}, \hat{p})  $ the state vector is explicit depended on $ t $. To see it a bit better in context, let's look at it in the coordinate basis:
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+i \hbar \frac{\partial }{\partial t} \Psi (q,t) =
+\hat{H} (q, \frac{\hbar}{i} \frac{\partial }{\partial q}) \Psi(q,t)}
+\end{equation}
+now the state is the wave function expressed by scalar product $ \Psi(q,t) = \braket{q |\Psi(t)} $. Here is $ \ket{q} $ a \textit{ket-vector} and the eigenvector to the coordinate operator $ \hat{q} $ obeying: $ \hat{q}\ket{q}=\ket{q}q $.
+\\
+Now we try to think of a way to rewrite $  \ket{\Psi(t)}$ but still fulfilling eq. \eqref{eq:schroedinger}.
+\\
+If the Hamiltonian is  independent of $ t $, we could write \\
+\begin{equation}
+\textcolor[RGB]{0,0,204}{
+\ket{\Psi(t)} = e^{-\frac{i}{\hbar}t\hat{H}}\ket{\Psi}
+=\hat{U}\ket{\Psi}
+}
+\end{equation}
+We just did a transformation between pictures. At the beginning the state had time dependence, called the Schrödinger picture. Now time is expressed in a function of operators.
+This is one very important point to think about. We see that states have some degree of freedom on how we write them down. Similar like gauge freedom in the electro-magnetic potential, we can do mathematics in our favor without changing physics.\\
+%note lorentz trafo?
+Before we jump on working with this and even more operators connected to transformation, general properties of them must be acquired.
+\\
+The central property is unitarity, hence why one calls these unitary transformations. 
+\begin{equation}\label{eq:unitary}
+\textcolor[RGB]{0,0,204}{
+UU^{\dagger}= UU^{-1}=1
+}
+\end{equation}
+Let's proof this for our $ U $.\\
+\emph{\textit{Proof \RM{1}}}
+\begin{equation*}
+\hat{U}(t)=e^{-\frac{i}{\hbar}t\hat{H}}
+\end{equation*}
+ is unitary, when t is real and $\hat{H}$ is hermitian.
+ \\
+ We can use the time derivativ on the definition of unitarity to get a short but elegant result.
+\\
+
+\begin{equation*}
+  \frac{\partial}{\partial t}\hat{U}(t)\hat{U}^{\dagger}(t)=-i\hat{H}\hat{U}\hat{U}^{\dagger}+i\hat{U}
+  % with tikzpicture environment
+  \underset{\mathllap{
+    \begin{tikzpicture}
+      \draw[->] (-0.3, 0) to[bend right=20] ++(0.3,2ex);
+      \node[below left] at (0,0) {hermitian: $ \hat{H}^{\dagger}= \hat{H} $};
+    \end{tikzpicture}
+  }}{\hat{H}^{\dagger}}
+  \hat{U}^{\dagger}  
+  =-i\hat{H}\hat{U}\hat{U}^{\dagger}+i\hat{H}\hat{U}\hat{U}^{\dagger}=0
+\end{equation*}
+
+Now we want to use the unitary operator on something else than a state. Matrix elements should give us insight:
+\\
+\begin{equation}\label{eq:matrix_ele_time_dep}
+\textcolor[RGB]{0,0,204}{
+\bra{\Psi^{\prime}(t)}\hat{A}_{S}\ket{\Psi (t)}
+=\bra{\Psi^{\prime}}e^{\frac{i}{\hbar}t\hat{H}}\hat{A}_{S}
+e^{-\frac{i}{\hbar}t\hat{H}}\ket{\Psi }
+=\bra{\Psi^{\prime}}\hat{A}_{H}(t)\ket{\Psi}
+}
+\end{equation}
+The time dependence shifted from the state to the arbitrary $ \hat{A} $. This picture is called the Heisenberg picture and therefore we used the index $ H $. With this changes we are in the need for a equation, that tells us how the operators deal with time instead of the Schrödinger equation for states.
+\\By apply time derivation to $ \hat{A}_{H}(t) $ we get our answers.
+\begin{equation}\label{eq:S-H-Operator_Trafo}
+\textcolor[RGB]{0,0,204}{
+\hat{A}_{H}(t)=e^{\frac{i}{\hbar}t\hat{H}}\hat{A}_{S}
+e^{-\frac{i}{\hbar}t\hat{H}}=\hat{U}^{-1}\hat{A}_{S}\hat{U}
+}
+\end{equation}
+
+\begin{equation}\label{eq:Heisenberg_time_dep._eq.}
+\textcolor[RGB]{0,0,204}{
+i\hbar\frac{\partial}{\partial t}\hat{A}(t)=
+\frac{i}{\hbar}\hat{H}
+\hat{U}^{-1}
+\hat{A}_{S}
+\hat{U}
+-
+\frac{i}{\hbar}
+\hat{U}^{-1}
+\hat{A}_{S}
+\hat{U}
+\hat{H}
+=\left[ \hat{A}_{H}(t),\hat{H}\right] 
+}
+\end{equation}
+These to pictures give us a good foundation to expand into even more useful ones. The next step will lay the background for perturbation theory in in every quantum based model.\\
+Suppose $ \hat{H}=\hat{H}_{0}+\hat{V} $ where $ \hat{H}_{0} $ is simple (or at least somewhat solvable) and $ \hat{V} $
+small.
+The unitary operator for the Interaction picture (sometimes called the Dirac picture) is defined as 
+\begin{equation}\label{eq:omega_and_U}
+\textcolor[RGB]{0,0,204}{
+\hat{U}=e^{-\frac{i}{\hbar}t \hat{H}}
+=
+e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+\hat{\Omega} (t)
+}
+\end{equation}
+This expression leads us to the formula of transformation to the Schrödinger picture, by again looking at a matrix element.\\
+%\begin{align}\label{eq:matrix_ele_for_interaction}
+%\textcolor[RGB]{0,0,204}{
+%	\bra{\Psi^{\prime}(t)}
+%	\hat{A}_{S}
+%	\ket{\Psi(t)}
+%	=
+%	\bra{\Psi^{\prime}}
+%	(e^{-\frac{i}{\hbar}t \hat{H_{0}}}	
+%	\Omega (t))^{\dagger}
+%	\hat{A}_{S}
+%	e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+%	\Omega (t)
+%	\ket{\Psi}
+%}
+%\end{align}
+\begin{subequations}
+\begin{align}
+	\bra{\Psi^{\prime}(t)}
+	\hat{A}_{S}
+	\ket{\Psi(t)}
+  		&= 	\bra{\Psi^{\prime}}
+			(e^{-\frac{i}{\hbar}t \hat{H_{0}}}	
+			\Omega (t))^{\dagger}
+			\hat{A}_{S}
+			e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+			\Omega (t)
+			\ket{\Psi}
+  		\\
+  		&= \bra{\Psi^{\prime}}
+  			\Omega(t)^{-1}
+			e^{+\frac{i}{\hbar}t \hat{H_{0}}}	
+			\hat{A}_{S}
+			e^{-\frac{i}{\hbar}t \hat{H_{0}}}
+			\Omega (t)
+			\ket{\Psi}
+  		\\
+  		&\underset{\mathrm{def.picture}}{=}
+  			\bra{\Psi^{\prime}}
+  			\Omega(t)^{-1}
+			\hat{A}_{I}
+			\Omega (t)
+			\ket{\Psi}  		
+\end{align}
+\end{subequations}
+Here we defined ourself a new operator:
+\begin{equation}\label{eq:operator_interac_schrodinger}
+\textcolor[RGB]{0,0,204}{
+	\hat{A}_{I}(t)
+	=
+	e^{+\frac{i}{\hbar}t \hat{H_{0}}}
+	\hat{A}_{S}
+	e^{-\frac{i}{\hbar}t \hat{H_{0}}}	
+}
+\end{equation}
+This leads on the same way as before to:
+\begin{equation}\label{eq:time_evo_equ_Intera}
+\textcolor[RGB]{0,0,204}{
+	i\hbar
+	\frac{\partial}{\partial t}
+	\hat{A}_{I}
+	=
+	\left[ 
+	\hat{A}_{I},
+	\hat{H}_{0}
+	\right] 
+}
+\end{equation}
+
+and
+
+\begin{equation}\label{eq:time_evo_Omega_interaction}
+\textcolor[RGB]{0,0,204}{
+	i\hbar
+	\frac{\partial}{\partial t}
+	\hat{\Omega}(t)
+	=
+	\hat{V}_{I}(t)
+	\hat{\Omega}(t)
+}
+\end{equation}
+This equation for $ \Omega(t) $ will the possibility to do an expansion in a power series in $ \hat{V} $ if it is small compared to $ \hat{H}_{0} $.
+\\
+At this point one could start solving a few not trivial problems for example the hydrogen atom or free massiv/massless particles in space. \\
+We, on the other hand, will state yet another question for $ V(t) $: When will it vanish?\\
+This radical approach will become sensible quite soon. Let's begin at :
+\begin{figure}[h!]
+ \centering
+ \includegraphics[scale=0.04,angle=90]{IMG_20180508_194541}
+ \label{figure1}
+\end{figure} 
+\\
+This is the Hamiltonian for the forced harmonic oscillator.
+\\
+Proof \RM{2} for \eqref{eq:time_evo_Omega_interaction}:
+\footnote{In the following we use natural units $ \hbar=c=1 $
+and skip the operator hats, if not we want to emphasize its role to the proofs}
+\begin{equation}\label{eq:Omega_and_U}
+ 	\textrm{With help of }
+ 	U(t)
+ 	=
+ 	e^{-itH_{0}}
+	\Omega(t)  
+ \end{equation} 
+\begin{equation*}
+\begin{aligned}\label{eq:proof_omega_eq}
+	i
+	\partial_{t}
+	(e^{-itH_{0}}
+	\Omega(t))
+		&=
+		i(-iH_{0}) e^{-itH^{0}} \Omega(t)
+		+
+		ie^{-itH_{0}} \partial_{t} \Omega(t)
+		\\
+			i\partial_{t} U
+			&=H_{0}U+ie^{-itH_{0}}\partial_{t}\Omega(t)
+			\\
+				e^{itH_{0}} \cdot	| \textrm{     }
+				i\partial_{t} U - H_{0} U
+				&=i e^{-tH_{0}} \partial_{t}\Omega(t)				
+					\\					
+					   i\partial_{t}	\Omega
+						&=e^{itH^{0}} (-H_{0} + H(t)) U(t)
+						\\
+						   &=e^{itH^{0}} (V(t)) e^{-itH^{0}} 										\Omega(t)
+						   \\
+						   	  &=V_{I}(t) \Omega(t)		
+\end{aligned}
+\end{equation*}
+
+
+
+\end{document}

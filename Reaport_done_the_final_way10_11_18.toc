@@ -1,0 +1,18 @@
+\select@language {german}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Pictures in Quantum Mechanics }{2}
+\contentsline {subsection}{\numberline {2.1}Schr\IeC {\"o}dinger picture and Heisenberg picture}{2}
+\contentsline {subsection}{\numberline {2.2}Interaction picture}{3}
+\contentsline {section}{\numberline {3}The In and Out picture}{4}
+\contentsline {subsection}{\numberline {3.1}External currents and the unstable vacuum}{5}
+\contentsline {section}{\numberline {4}Scattering operator}{9}
+\contentsline {subsection}{\numberline {4.1}Solutions for the Interaction picture}{9}
+\contentsline {subsection}{\numberline {4.2}Solutions for the In and Out picture}{12}
+\contentsline {subsection}{\numberline {4.3}Connections}{12}
+\contentsline {subsection}{\numberline {4.4}Unitarity of S}{15}
+\contentsline {section}{\numberline {5}Gell-Mann Low formula}{16}
+\contentsline {subsection}{\numberline {5.1}Vacuum expectation value}{19}
+\contentsline {section}{\numberline {6}Conclusion}{20}
+\contentsline {section}{Appendices}{21}
+\contentsline {section}{\numberline {A}Chronological time ordering}{21}
+\contentsline {section}{\numberline {B}Anti-chronological time ordering}{23}

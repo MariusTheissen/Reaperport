@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.7.1)  13 NOV 2018 10:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.7.1)  13 NOV 2018 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Reaport_done_best_241018.tex
-(./Reaport_done_best_241018.tex
+**Reaport_done_the_final_way10_11_18.tex
+(./Reaport_done_the_final_way10_11_18.tex
 LaTeX2e <2011/06/27>
 Babel <3.9k> and hyphenation patterns for 76 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -839,8 +839,8 @@ File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.0 (rcs-revision 1.9)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/03/04 1.5c listings language file
 )
-(./Reaport_done_best_241018.aux)
-\openout1 = `Reaport_done_best_241018.aux'.
+No file Reaport_done_the_final_way10_11_18.aux.
+\openout1 = `Reaport_done_the_final_way10_11_18.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
@@ -854,7 +854,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
-
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count139
@@ -937,11 +936,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./logo.png>
 ]
-(./Reaport_done_best_241018.toc)
+No file Reaport_done_the_final_way10_11_18.toc.
 \tf@toc=\write4
-\openout4 = `Reaport_done_best_241018.toc'.
+\openout4 = `Reaport_done_the_final_way10_11_18.toc'.
 
- [1] [2] [3] [4]
+[1]
+
+LaTeX Warning: Reference `eq:schroedinger' on page 2 undefined on input line 57
+.
+
+
+LaTeX Warning: Reference `eq:matrix_ele_time_dep' on page 2 undefined on input 
+line 81.
+
+[2]
+
+LaTeX Warning: Reference `eq:operator_interac_schrodinger' on page 3 undefined 
+on input line 232.
+
+[3] [4]
 Overfull \hbox (47.6516pt too wide) detected at line 389
 [] \OML/cmm/m/it/12 d[][] u[]  \OMS/cmsy/m/n/12 ^^A j [] [] \OT1/cmr/m/n/12 = [
 ] \OML/cmm/m/it/12 d[][] j\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/1
@@ -958,12 +971,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 557--568
 
  []
 
+
+LaTeX Warning: Reference `eq:time_evo_Omega_interaction' on page 8 undefined on
+ input line 573.
+
 [8]
+
+LaTeX Warning: Reference `eq:S_in_out' on page 9 undefined on input line 632.
+
+
+LaTeX Warning: Reference `eq:time_evo_Omega_interaction' on page 9 undefined on
+ input line 633.
+
+
 Overfull \hbox (4.26132pt too wide) in paragraph at lines 645--647
 [] 
  []
 
-[9] [10] [11] [12]
+
+LaTeX Warning: Reference `eq:time_evo_Omega_interaction' on page 9 undefined on
+ input line 660.
+
+[9] [10]
+
+LaTeX Warning: Reference `eq:time_evo_Omega_in' on page 11 undefined on input l
+ine 788.
+
+[11] [12]
 Overfull \hbox (46.84288pt too wide) in paragraph at lines 907--907
 [] 
  []
@@ -975,7 +1009,19 @@ ML/cmm/m/it/12 T [] \OT1/cmr/m/n/12 =
 [](\OMS/cmsy/m/n/12 ^^@1\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 :
  []
 
-[13] [14] [15] [16]
+
+LaTeX Warning: Reference `eq:S_equal_in_infty' on page 13 undefined on input li
+ne 938.
+
+
+LaTeX Warning: Reference `eq:S_in_out' on page 13 undefined on input line 938.
+
+[13] [14] [15]
+
+LaTeX Warning: Reference `eq:operator_interac_heisenberg' on page 16 undefined 
+on input line 1211.
+
+[16]
 Overfull \hbox (58.51563pt too wide) detected at line 1319
 \OML/cmm/m/it/12 Q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) = \OML
 /cmm/m/it/12 S[] [] :
@@ -991,6 +1037,10 @@ Overfull \hbox (47.53929pt too wide) in paragraph at lines 1432--1434
 [] 
  []
 
+
+LaTeX Warning: Reference `Gell-Mann_Low_formula' on page 18 undefined on input 
+line 1484.
+
 [18] [19] [20]
 Underfull \hbox (badness 10000) in paragraph at lines 1818--1819
 
@@ -1000,6 +1050,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 1818--1819
 Underfull \hbox (badness 10000) in paragraph at lines 1823--1826
 
  []
+
+
+LaTeX Warning: Reference `regular_function' on page 21 undefined on input line 
+1844.
 
 [21]
 Underfull \hbox (badness 10000) in paragraph at lines 1901--1905
@@ -1017,7 +1071,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1934--1937
  []
 
 [22] [23]
-Overfull \hbox (92.51112pt too wide) in paragraph at lines 2044--2046
+
+LaTeX Warning: Reference `anti_o' on page 24 undefined on input line 2045.
+
+
+Overfull \hbox (87.63731pt too wide) in paragraph at lines 2044--2046
 [] 
  []
 
@@ -1026,19 +1084,22 @@ Overfull \hbox (7.95003pt too wide) in paragraph at lines 2062--2062
 [] 
  []
 
-[24] [25] (./Reaport_done_best_241018.aux)
+[24] [25] (./Reaport_done_the_final_way10_11_18.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 17953 strings out of 493319
- 357179 string characters out of 6140572
+ 17949 strings out of 493319
+ 357133 string characters out of 6140572
  517972 words of memory out of 5000000
  21025 multiletter control sequences out of 15000+600000
  25574 words of font info for 69 fonts, out of 8000000 for 9000
  953 hyphenation exceptions out of 8191
- 55i,14n,67p,820b,226s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,67p,830b,226s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/t
@@ -1064,7 +1125,8 @@ per/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfr
 m1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1440.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Reaport_done_best_241018.pdf (26 pages, 497794 bytes).
+Output written on Reaport_done_the_final_way10_11_18.pdf (26 pages, 490679 byte
+s).
 PDF statistics:
  200 PDF objects out of 1000 (max. 8388607)
  142 compressed objects within 2 object streams

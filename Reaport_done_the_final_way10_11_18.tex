@@ -55,38 +55,39 @@ i \hbar \frac{\partial }{\partial t} \ket{\Psi_{S}(t)} =
 }
 \end{equation}
 where $ \hat{H} $ is the Hamiltonian of the system. When assuming it time independent, the solution of eq. \eqref{eq:schroedinger} can be formally written as 
-\begin{equation}
+\begin{equation}\label{eq:time_ev_op_schr}
 \textcolor[RGB]{0,0,204}{
 \ket{\Psi_{S}(t)} 
 =\hat{U}\ket{\Psi_{S}(t_0)}
 }
 \end{equation}
-with $ \hat{U} = e^{-\frac{1}{\hbar}\hat{H}(t-t_{0})} $ denoting the time evolution operator. Here $ \ket{\Psi_{S}(t_0)} $ is a ket of $ t=t_{0} $. We shall generally take $ t_{0}=0 $ and write
+with $ \hat{U} = e^{-\frac{i}{\hbar}\hat{H}(t-t_{0})} $ denoting the time evolution operator. Here $ \ket{\Psi_{S}(t_0)} $ is a ket of $ t=t_{0} $. We shall generally take $ t_{0}=0 $ and write
 \begin{equation}
 \textcolor[RGB]{0,0,204}{
 \ket{\Psi_{S}(t)} 
-= e^{-\frac{1}{\hbar}\hat{H}t}
-\ket{\Psi}.
+= e^{-\frac{i}{\hbar}\hat{H}t}
+\ket{\Psi_{H}}.
 }
 \end{equation}
-In this picture, matrix elements of operators are given by 
+The state one the right-hand side now has no more time dependence. This turns it in contrast to Eq.\eqref{eq:time_ev_op_schr} into a state in a new representation called the Heisenberg picture.\\
+These two pictures differ by the way of storing the time dependence of the total system. In Schrödinger the states carried it, leaving for the Heisenberg picture only operators as a possibility. To perform this transition of dependence we look at matrix elements of operators are given by 
 \begin{equation}\label{eq:matrix_ele_time_dep}
 \textcolor[RGB]{0,0,204}{
 \bra{\Psi^{\prime}_{S}(t)}\hat{A}_{S}\ket{\Psi_{S} (t)}
-=\bra{\Psi^{\prime}}e^{\frac{i}{\hbar}t\hat{H}}\hat{A}_{S}
-e^{-\frac{i}{\hbar}t\hat{H}}\ket{\Psi }
+=\bra{\Psi^{\prime}_{H}}e^{\frac{i}{\hbar}t\hat{H}}\hat{A}_{S}
+e^{-\frac{i}{\hbar}t\hat{H}}\ket{\Psi_{H} }
 .
 }
 \end{equation}
-The subscript $ S $ represents the object in the Schrödinger picture. Alternatively we may pass to Heisenberg picture, in which the operators carry the time evolution. The relationship between the two pictures is established by Eq. \eqref{eq:matrix_ele_time_dep}.\\
-Indeed, the Heisenberg operator defined according to
 \begin{equation}\label{eq:S-H-Operator_Trafo}
 \textcolor[RGB]{0,0,204}{
 \hat{A}_{H}(t)=e^{\frac{i}{\hbar}t\hat{H}}\hat{A}_{S}
 e^{-\frac{i}{\hbar}t\hat{H}}=\hat{U}^{-1}\hat{A}_{S}\hat{U}.
 }
 \end{equation}
-its time evolution is dictated by an equation that follows from differentiating the equation above and reads
+This new operator $ \hat{A}_{H} $ in combination with the state $ \Psi_{H} $ build the set to work in the Heisenberg picture.
+The choice of a picture always requires the transition of states as well as operators. 
+Now its time evolution is dictated by an equation that follows from differentiating the equation above and reads
 \begin{equation}
 \frac{d}{dt}\hat{A}_{H}(t)
 =\frac{i}{\hbar}\hat{H}
@@ -121,11 +122,44 @@ e^{-\frac{i}{\hbar}t \hat{H}}.
 %\right) 
 %e^{-\frac{i}{\hbar}t \hat{H}}.
 \end{equation}
+Here we used the derivative of the unitary operator itself:
+\begin{equation}\label{eq:time_evo_unitary}
+\textcolor[RGB]{0,0,204}{
+\frac{i}{\hbar}\partial_{t}\hat{U}=\hat{H}\hat{U}
+.
+}
+\end{equation}
+\begin{subequations}
+\begin{align}
+\frac{d}{dt}\hat{A}_{H}(t)
+	&=\frac{i}{\hbar}
+	\hat{U}^{-1}\hat{H}\hat{A}_{S}\hat{U}
+	-
+	\frac{i}{\hbar}
+	\hat{U}^{-1}\hat{A}_{S}\hat{H}\hat{U}
+	&\\
+	&=\frac{i}{\hbar}
+	\hat{U}^{-1}\hat{H}\hat{U}\hat{U}^{-1}\hat{A}_{S}\hat{U}
+	-
+	\frac{i}{\hbar}
+	\hat{U}^{-1}\hat{A}_{S}\hat{U}\hat{U}^{-1}\hat{H}\hat{U}.
+\end{align}
+\end{subequations}
+The inserted $ 1 $ allows us to transform the operators from Schrödinger picture to Heisenberg, including The Hamiltonian.
+\begin{equation}
+\frac{d}{dt}\hat{A}_{H}(t)
+	=\frac{i}{\hbar}
+	\hat{H}(t)_{H}\hat{A}(t)_{H}
+	-
+	\frac{i}{\hbar}
+	\hat{A}(t)_{H}\hat{H}(t)_{H}
+.
+\end{equation} 
 Giving us:
 \begin{equation}\label{eq:Heisenberg_time_dep._eq.}
 \textcolor[RGB]{0,0,204}{
 \frac{d}{d t}\hat{A}_{H}(t)=
-\frac{i}{\hbar}\left[ \hat{A}_{H}(t),\hat{H}\right] 
+\frac{-i}{\hbar}\left[ \hat{A}_{H}(t),\hat{H}_{H}(t)\right] 
 .
 }
 \end{equation} 

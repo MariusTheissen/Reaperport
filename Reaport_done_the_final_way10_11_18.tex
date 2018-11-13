@@ -164,8 +164,9 @@ Giving us:
 }
 \end{equation} 
 \subsection{Interaction picture}
-The third picture is called the Interaction picture (sometimes called the Dirac picture). It denotes the time dependence to the state similar to the Schrödinger picture, as well as to the operators like the Heisenberg picture.\\
-Suppose $ \hat{H} = \hat{H}_{0}+V$ . Although it often used in a perturbative approach the Interaction picture does not require $ V $  to be small or of any special form. This will effect the unitary operator so 
+The third picture is called the Interaction picture (sometimes called the Dirac picture). In it the state and any operator has a time dependence.\\
+Suppose the Hamiltonian from the Schrödinger picture  $ \hat{H} = \hat{H}_{0}+V$. Normally the $ \hat{H}_{0} $ represents the free motion of a particle. $ V $ represents in general an external influence or new term complicating a basic problem. Although it often used in a perturbative approach the Interaction picture does not require $ V $  to be small or of any special form.\\
+Inserting this new $ \hat{H} $ in the unitary operator introduced above:
 \begin{equation}\label{eq:omega_and_U}
 \textcolor[RGB]{0,0,204}{
 \hat{U}=e^{-\frac{i}{\hbar}t \hat{H}}
@@ -214,11 +215,17 @@ This expression leads us to the formula of transformation to the Schrödinger pi
 			\ket{\Psi_{H}}
   		\\
   		&\underset{\mathrm{def.picture}}{=}
-  			\bra{\Psi^{\prime}}
+  			\bra{\Psi^{\prime}_{H}}
   			\Omega(t)^{-1}
 			\hat{A}_{I}
 			\Omega (t)
-			\ket{\Psi}  .
+			\ket{\Psi_{H}}  
+		\\
+		&=	
+		  	\bra{\Psi^{\prime}_{I}(t)}
+			\hat{A}_{I}(t)
+			\ket{\Psi_{I}(t)} 		
+			.
 \end{align}
 }
 \end{subequations}
@@ -232,7 +239,16 @@ Here we defined a new operator:
 	e^{-\frac{i}{\hbar}t \hat{H_{0}}}	.
 }
 \end{equation}
-This connects to the Heisenberg picture by rewriting $ \hat{A}_{S} $:
+And new state :
+\begin{equation}\label{eq:state_interac_schrodinger}
+\textcolor[RGB]{0,0,204}{
+	\ket{\Psi_{I}(t)}
+	=\Omega (t)
+			\ket{\Psi_{H}}
+		.
+}
+\end{equation}
+At the level of operators, the connection between Interaction and Heisenberg be established by substituting $ \hat{A}_{S} $ in Eq.\eqref{eq:S-H-Operator_Trafo} into Eq.\eqref{eq:operator_interac_schrodinger}
 \begin{subequations}
 \begin{align}
 	\hat{A}_{I}(t)
@@ -604,14 +620,14 @@ Taking these new results into account, we need to impose for the case $  V=j(t)\
 j(t)\rightarrow 0 \text{ for } t\rightarrow \pm \infty
 }. 
 \end{equation}
-The effect of these conditions on eq.\eqref{eq:time_evo_Omega_interaction} leads to 
+The effect of these conditions on Eq.\eqref{eq:time_evo_Omega_interaction} leads to 
 \begin{equation}
 \textcolor[RGB]{0,0,204}{
 \Omega \rightarrow 1
 }
 \end{equation}
 %This means 
-The early time condition defines the In picture in reminiscence to the first homogeneous equation and it  writes :
+The early time condition defines the $ In $ picture in reminiscence to the first homogeneous equation and it  writes :
 \begin{equation}\label{eq:time_evo_Omega_in}
 \textcolor[RGB]{0,0,204}{
 	i\hbar
@@ -629,7 +645,7 @@ Fulfilling:
 	=1
 	.}
 \end{equation}
-The so called Out picture will fulfill the condition for late times:
+The so called $ Out $ picture will fulfill the condition for late times:
 \begin{equation}\label{eq:time_evo_Omega_out}
 \textcolor[RGB]{0,0,204}{
 	i\hbar
@@ -647,7 +663,7 @@ Stating:
 	=1
 	.}
 \end{equation}
-The Interaction picture as introduced above does not require $ V $ to be of any special form but can still be applied for external source terms. To distinguish between the other two pictures the condition is chosen :
+The Interaction picture as introduced above does not require $ V $ to be of any special form but can still be applied for external source terms. To distinguish between the other two pictures above from the condition is chosen :
 \begin{equation}\label{eq:Omega_I_cond}
 \textcolor[RGB]{0,0,204}{
 	\hat{\Omega}_{I}(0)

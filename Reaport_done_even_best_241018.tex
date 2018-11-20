@@ -368,22 +368,22 @@ I=
 We will confine the field in a box and impose periodic boundary conditions on it. This is called quantisation in a box. It allows us to write the field in terms of modes.
 \begin{equation}\label{box_quanta}
 \textcolor[RGB]{0,0,204}{
-\Phi(x) = \Phi (\underline{x},t)= \sum_{k} q_{k}(t)u_{k}(\underline{x})
+\Phi(x) = \Phi (\pmb{x},t)= \sum_{\pmb{k}} q_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
  .}
 \end{equation}
-In this separated time and space dependency, we choose the Fourier basis for $ u_{k} $. 
+In this separated time and space dependency, we choose the Fourier basis for $ u_{\pmb{k}} $. 
 \begin{equation}\label{fourierbasis}
-u_{k}(\underline{x})
+u_{\pmb{k}}(\pmb{x})
 =
-\dfrac{1}{\sqrt{V}} e^{ik\underline{x}}
+\dfrac{1}{\sqrt{V}} e^{i\pmb{k}\pmb{x}}
 \end{equation}
-The normalisation over the volume $ V $ comes form the box we impose for the field. In addition $ u_{k} $ fulfills the completeness relation.
+The normalisation over the volume $ V $ comes form the box we impose for the field. In addition $ u_{\pmb{k}} $ fulfills the completeness relation.
 \begin{equation}\label{compl_relation}
-\int d^{3}\underline{x} \ 
-u^{\ast}_{k'}(\underline{x})
-u_{k}(\underline{x})
+\int d^{3}\pmb{x} \ 
+u^{\ast}_{\pmb{k}'}(\pmb{x})
+u_{\pmb{k}}(\pmb{x})
 =
-\delta_{kk'}
+\delta_{\pmb{k}\pmb{k}'}
 \end{equation}
 With these we can rewrite the equation of motion:
 \begin{subequations}
@@ -391,80 +391,80 @@ With these we can rewrite the equation of motion:
 \left(
 \partial^{2}+m^{2}
  \right)
- \sum_{k} q_{k}(t)u_{k}(\underline{x})
- =j(\underline{x},t)
+ \sum_{\pmb{k}} q_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
+ =j(\pmb{x},t)
 	&\\
- \sum_{k}
+ \sum_{\pmb{k}}
  \left[ 
 	\left( 
 	\dfrac{\partial}{\partial t^{2}}
 	-\nabla^{2}
 	+m^{2}
 	\right)  
-	q_{k}(t)u_{k}(\underline{x})
+	q_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
  \right] 
- =j(\underline{x},t).
+ =j(\pmb{x},t).
 \end{align}
 \end{subequations}
-The basis for $ u_{k} $ will enable us to take the spacial derivative.
+The basis for $ u_{\pmb{k}} $ will enable us to take the spacial derivative.
 \begin{equation}
- \sum_{k}
+ \sum_{\pmb{k}}
  \left[ 
-	\ddot{q}_{k}(t)u_{k}(\underline{x})
-	-(i)^{2}k^{2}q_{k}(t)u_{k}(\underline{x})
-	+m^{2}q_{k}(t)u_{k}(\underline{x})
+	\ddot{q}_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
+	-(i)^{2}\pmb{k}^{2}q_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
+	+m^{2}q_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
  \right] 
-  =j(\underline{x},t).
+  =j(\pmb{x},t).
 \end{equation}
-To get an equation for $ q_{k} $ alone we need to get rid of $ u_{k} $ and remove the space dependency in the current. Multiplying with $ u^{\ast}_{k'} $ and integrating over the whole space will form the completeness relation on the left-hand side and the Fourier transformation for the current.
+To get an equation for $ q_{\pmb{k}} $ alone we need to get rid of $ u_{\pmb{k}} $ and remove the space dependency in the current. Multiplying with $ u^{\ast}_{\pmb{k}'} $ and integrating over the whole space will form the completeness relation on the left-hand side and the Fourier transformation for the current.
 \begin{equation}
-\int d^{3}\underline{x} \ 
-u^{\ast}_{k'}
+\int d^{3}\pmb{x} \ 
+u^{\ast}_{\pmb{k}'}
 \ \cdot
 \vert 
- \sum_{k}
+ \sum_{\pmb{k}}
  \left[ 
-	\ddot{q}_{k}(t)u_{k}(\underline{x})
-	-(i)^{2}k^{2}q_{k}(t)u_{k}(\underline{x})
-	+m^{2}q_{k}(t)u_{k}(\underline{x})
+	\ddot{q}_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
+	-(i)^{2}\pmb{k}^{2}q_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
+	+m^{2}q_{\pmb{k}}(t)u_{\pmb{k}}(\pmb{x})
  \right] 
  =
- \int d^{3}\underline{x} \ 
-j(\underline{x},t) \dfrac{1}{\sqrt{V}} e^{ik\underline{x}}
+ \int d^{3}\pmb{x} \ 
+j(\pmb{x},t) \dfrac{1}{\sqrt{V}} e^{i\pmb{k}\pmb{x}}
 \end{equation}
 \begin{equation}
- \sum_{k}
+ \sum_{\pmb{k}}
  \left[ 
- \int d^{3}\underline{x} \ u^{\ast}_{k'}u_{k}
+ \int d^{3}\pmb{x} \ u^{\ast}_{\pmb{k}'}u_{\pmb{k}}
  \left( 
- \ddot{q}_{k}(t) 
+ \ddot{q}_{\pmb{k}}(t) 
  +
- \left( k^{2}+m^{2}\right) 
- q_{k}(t) 
+ \left( \pmb{k}^{2}+m^{2}\right) 
+ q_{\pmb{k}}(t) 
  \right) 
   \right] 
-  =\tilde{j}(k',t).
+  =\tilde{j}(\pmb{k}',t).
 \end{equation}
 Using the completeness relation 
 \begin{equation}
- \sum_{k}
- \delta_{kk'}
+ \sum_{\pmb{k}}
+ \delta_{\pmb{k}\pmb{k}'}
  \left[ 
- \ddot{q}_{k}(t) 
+ \ddot{q}_{\pmb{k}}(t) 
  +
- \left( k^{2}+m^{2}\right) 
- q_{k}(t) 
+ \left( \pmb{k}^{2}+m^{2}\right) 
+ q_{\pmb{k}}(t) 
   \right] 
-  =\tilde{j}(k',t).
+  =\tilde{j}(\pmb{k}',t).
 \end{equation}
-The Kronecker-delta reduces the sum to one term. With change of variable we set choose $ k $ and we define $ (k^{2}+m^{2}) = \omega_{k}^{2} $.
+The Kronecker-delta reduces the sum to one term. With change of variable we set choose $ \pmb{k} $ and we define $ (\pmb{k}^{2}+m^{2}) = \omega_{\pmb{k}}^{2} $.
 \begin{equation}\label{eq_for_q}
  \textcolor[RGB]{0,0,204}{
-\ddot{q}_{k}(t) 
+\ddot{q}_{\pmb{k}}(t) 
  +
-\omega_{k}^{2}
- q_{k}(t) 
-  =\tilde{j}(k',t)
+\omega_{\pmb{k}}^{2}
+ q_{\pmb{k}}(t) 
+  =\tilde{j}(\pmb{k}',t)
   .}
 \end{equation}
 We now make the assumption that the current vanishes outside a finite time interval. 
@@ -1626,20 +1626,20 @@ In this report we have presented a set of fundamental concepts and methods. Thes
 %We will confine the field in a box and impose periodic boundary conditions on it. This is called quantisation in a box. It allows us to write the field in terms of modes.
 %\begin{equation}\label{box_quanta}
 %\textcolor[RGB]{0,0,204}{
-%\Phi(x) = \Phi (\underline{x},t)= \sum_{k} q_{k}(t)u_{k}(\underline{x})
+%\Phi(x) = \Phi (\pmb{x},t)= \sum_{k} q_{k}(t)u_{k}(\pmb{x})
 % .}
 %\end{equation}
 %In this separated time and space dependency, we choose the Fourier basis for $ u_{k} $. 
 %\begin{equation}\label{fourierbasis}
-%u_{k}(\underline{x})
+%u_{k}(\pmb{x})
 %=
-%\dfrac{1}{\sqrt{V}} e^{ik\underline{x}}
+%\dfrac{1}{\sqrt{V}} e^{ik\pmb{x}}
 %\end{equation}
 %The normalisation over the volume $ V $ comes form the box we impose for the field. In addition $ u_{k} $ fulfills the completeness relation.
 %\begin{equation}\label{compl_relation}
-%\int d^{3}\underline{x} \ 
-%u^{\ast}_{k'}(\underline{x})
-%u_{k}(\underline{x})
+%\int d^{3}\pmb{x} \ 
+%u^{\ast}_{k'}(\pmb{x})
+%u_{k}(\pmb{x})
 %=
 %\delta_{kk'}
 %\end{equation}
@@ -1649,8 +1649,8 @@ In this report we have presented a set of fundamental concepts and methods. Thes
 %\left(
 %\partial^{2}+m^{2}
 % \right)
-% \sum_{k} q_{k}(t)u_{k}(\underline{x})
-% =j(\underline{x},t)
+% \sum_{k} q_{k}(t)u_{k}(\pmb{x})
+% =j(\pmb{x},t)
 %	&\\
 % \sum_{k}
 % \left[ 
@@ -1659,41 +1659,41 @@ In this report we have presented a set of fundamental concepts and methods. Thes
 %	-\nabla^{2}
 %	+m^{2}
 %	\right)  
-%	q_{k}(t)u_{k}(\underline{x})
+%	q_{k}(t)u_{k}(\pmb{x})
 % \right] 
-% =j(\underline{x},t).
+% =j(\pmb{x},t).
 %\end{align}
 %\end{subequations}
 %The basis for $ u_{k} $ will enable us to take the spacial derivative.
 %\begin{equation}
 % \sum_{k}
 % \left[ 
-%	\ddot{q}_{k}(t)u_{k}(\underline{x})
-%	-(i)^{2}k^{2}q_{k}(t)u_{k}(\underline{x})
-%	+m^{2}q_{k}(t)u_{k}(\underline{x})
+%	\ddot{q}_{k}(t)u_{k}(\pmb{x})
+%	-(i)^{2}k^{2}q_{k}(t)u_{k}(\pmb{x})
+%	+m^{2}q_{k}(t)u_{k}(\pmb{x})
 % \right] 
-%  =j(\underline{x},t).
+%  =j(\pmb{x},t).
 %\end{equation}
 %To get an equation for $ q_{k} $ alone we need to get rid of $ u_{k} $ and remove the space dependency in the current. Multiplying with $ u^{\ast}_{k'} $ and integrating over the whole space will form the completeness relation on the left-hand side and the Fourier transformation for the current.
 %\begin{equation}
-%\int d^{3}\underline{x} \ 
+%\int d^{3}\pmb{x} \ 
 %u^{\ast}_{k'}
 %\ \cdot
 %\vert 
 % \sum_{k}
 % \left[ 
-%	\ddot{q}_{k}(t)u_{k}(\underline{x})
-%	-(i)^{2}k^{2}q_{k}(t)u_{k}(\underline{x})
-%	+m^{2}q_{k}(t)u_{k}(\underline{x})
+%	\ddot{q}_{k}(t)u_{k}(\pmb{x})
+%	-(i)^{2}k^{2}q_{k}(t)u_{k}(\pmb{x})
+%	+m^{2}q_{k}(t)u_{k}(\pmb{x})
 % \right] 
 % =
-% \int d^{3}\underline{x} \ 
-%j(\underline{x},t) \dfrac{1}{\sqrt{V}} e^{ik\underline{x}}
+% \int d^{3}\pmb{x} \ 
+%j(\pmb{x},t) \dfrac{1}{\sqrt{V}} e^{ik\pmb{x}}
 %\end{equation}
 %\begin{equation}
 % \sum_{k}
 % \left[ 
-% \int d^{3}\underline{x} \ u^{\ast}_{k'}u_{k}
+% \int d^{3}\pmb{x} \ u^{\ast}_{k'}u_{k}
 % \left( 
 % \ddot{q}_{k}(t) 
 % +

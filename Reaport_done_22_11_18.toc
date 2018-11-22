@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {2.3}The In and Out picture: External currents}{5}
 \contentsline {section}{\numberline {3}Scattering operator}{10}
 \contentsline {subsection}{\numberline {3.1}Solutions for the Interaction picture}{10}
-\contentsline {subsection}{\numberline {3.2}Solutions for the In and Out picture}{13}
+\contentsline {subsection}{\numberline {3.2}Solutions for the In and Out picture}{12}
 \contentsline {subsection}{\numberline {3.3}Connections}{13}
 \contentsline {subsection}{\numberline {3.4}Unitarity of S}{16}
 \contentsline {section}{\numberline {4}Gell-Mann Low formula}{17}

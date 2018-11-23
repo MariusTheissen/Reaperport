@@ -43,7 +43,8 @@
 %\end{equation}
 \section{Introduction}
 This report has three main goals. First we shall establish the transition between pictures in quantum mechanics and quantum field theory. We go over the more common ones, Schrödinger, Heisenberg and Interaction picture, to derive and justify the two In and Out Pictures.
-By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula.\textcolor{red}{What is the GellMann Law formula, why is it so important explain in worth}
+By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula. This important formula allows us transition of polynomial terms in one description of our system to multiple different but equivalent expressions that are based on boundary conditions we impose from experimental and physical point of views. The Gell-Mann Low formula does this without loss of informat
+%\textcolor{red}{What is the GellMann Law formula, why is it so important explain in worth}
 
 \section{Pictures in Quantum Mechanics }
 \subsection{Schrödinger picture and Heisenberg picture}
@@ -533,25 +534,31 @@ The solution for $ \hat{q}_{\underline{k}}(t) $, at times for which $ j(\underli
 for late times we again go over to the different homogeneous solution $ \hat{q}_{k,out}(t)  $ and take the integral to $ +\infty $.
 \begin{equation}\label{q_Out_by_q_In}
  \textcolor[RGB]{0,0,204}{
-\hat{q}_{k,out}(t) 
+\hat{q}_{\underline{k},out}(t) 
   =
-  \hat{q}_{k,in}(t) 
+  \hat{q}_{\underline{k},in}(t) 
   +
     \dfrac{1}{\omega_{\underline{k}}}
     \int^{\infty}_{-\infty}
     dt'
-    \sin\left(\omega_{\underline{k}}(t-t') \right) \tilde{j}(k,t')
+    \sin
+    \left[
+    \omega_{\underline{k}}(t-t') 
+    \right]
+     \tilde{j}(\underline{k},t')
   .}
 \end{equation}
 Now we will apply a second Fourier transformation in respect to $ t $. The commutation between $ \underline{k},\underline{x},t,E $ ensures no problem to do these transformations separate and we move the $ \underline{k} $ dependence to a index notation.
 \begin{equation}
 \bar{j_{\underline{k}}}(E)= \int^{\infty}_{-\infty}dt \tilde{j_{\underline{k}}}(t) e^{iEt}.
 \end{equation}
+The wave vector $ \underline{k} $ and the energy written in terms of the angular frequency $ \omega_{k} $ together form the relativistic  four-wave-vector $ k^{\mu}=(\omega_k,k_x,k_y,k_z) $ or just $ k $ . This gives us the notation $ \bar{j_{\underline{k}}}(\omega_k)=j_k $.
+
 After splitting the sinus function we write:
 \begin{equation}
-\hat{q}_{k,out}(t) 
+\hat{q}_{\underline{k},out}(t) 
   =
-  \hat{q}_{k,in}(t) 
+  \hat{q}_{\underline{k},in}(t) 
   -
   	\dfrac{i}{2\omega_{\underline{k}}}e^{i\omega_{\underline{k}}t}\
   	\bar{j_{\underline{k}}}(-\omega_{\underline{k}})
@@ -559,15 +566,20 @@ After splitting the sinus function we write:
   	\dfrac{i}{2\omega_{\underline{k}}}e^{-i\omega_{\underline{k}}t}\
   	\bar{j_{\underline{k}}}(\omega_{\underline{k}})
 \end{equation}
-From this equation we can obtain the connection between creation and annihilation operators.
+From this equation we can obtain the connection between creation and annihilation operators in compact notation.
 \begin{subequations}
 \begin{align}
-\hat{a}_{k,Out}=  \hat{a}_{k,in}+i\bar{j_{\underline{k}}}(\omega_{\underline{k}})  
+\hat{a}_{\underline{k},Out}=  \hat{a}_{\underline{k},in}+i
+j_k
+%\bar{j_{\underline{k}}}(\omega_{\underline{k}})  
 &\\
-\hat{a}^{\dagger}_{\underline{k},out} = \hat{a}^{\dagger}_{\underline{k},in}-i\bar{j_{\underline{k}}}(-\omega_{\underline{k}})  
+\hat{a}^{\dagger}_{\underline{k},out} = \hat{a}^{\dagger}_{\underline{k},in}
+-i
+j_k
+%\bar{j_{\underline{k}}}(-\omega_{\underline{k}})  
 \end{align}
 \end{subequations}
-This shows that,in the presence of an external current, the two sets of second quantization operators are not the same. Therefore we need to differ between the corresponding $ in $ and $ out $ eigenstates. Especially, it has to be stated that vacua also differ in this scenario. The concept of early and later times to fully solve the full equations will be discussed further in the later chapters.
+This shows that,in the presence of an external current, the two sets of second quantization operators are not the same. Therefore we need to differ between the corresponding $ in $ and $ out $ eigenstates. Especially, it has to be stated that vacua also differ in this scenario. The concept of early and later times to fully solve the full equations will be discussed further in later chapters.
 \\
 Still, we need a way to transition from one operator to another and from eigenstate to eigenstate. This link is called the scattering operator $ S $.
 \begin{subequations}
@@ -584,12 +596,12 @@ The scalar product of the mentioned two vacua can be written as :
 For now we choose $ S $ in a more specific form , where we used $ \bar{j}_{\underline{k}}(-\omega_{\underline{k}}) = \bar{j}^{\ast}_{\underline{k}}(\omega_{\underline{k}})  $. The general one will be obtained later:
 \begin{equation}
 S=e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(\omega_{\underline{k}})\hat{a}^{\dagger}_{\underline{k},in}}
-e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(-\omega_{\underline{k}})\hat{a}_{k,in}}
+e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(-\omega_{\underline{k}})\hat{a}_{\underline{k},in}}
 e^{-\dfrac{1}{4\omega_{\underline{k}}}|\bar{j}_{\underline{k}}(-\omega_{\underline{k}})|^{2}}
 \end{equation}
 For the operators we can write:
 \begin{equation}
-S^{-1}\hat{a}_{k,in}S=\hat{a}_{k,Out}=\hat{a}_{\underline{k},in} +i\ \bar{j_{\underline{k}}}(\omega_{\underline{k}})
+S^{-1}\hat{a}_{\underline{k},in}S=\hat{a}_{\underline{k},Out}=\hat{a}_{\underline{k},in} +i\ \bar{j_{\underline{k}}}(\omega_{\underline{k}})
 \end{equation}
 %
 %
@@ -631,7 +643,7 @@ j(t)\rightarrow 0 \text{ for } t\rightarrow \pm \infty
 The effect of these conditions on Eq.\eqref{eq:time_evo_Omega_interaction} leads to 
 \begin{equation}
 \textcolor[RGB]{0,0,204}{
-\Omega \rightarrow 1
+\Omega(\pm \infty) \rightarrow 1
 }
 \end{equation}
 %This means 
@@ -681,7 +693,8 @@ The Interaction picture as introduced above does not require $ V $ to be of any 
 The connecting operator between the pictures is called scattering operator or S-Matrix. It is defined as :\footnote{We will now go to natural units $c= \hbar=1 $ and drop the operator hat for convenience sake}
 \begin{equation}\label{eq:S_in_out}
 \textcolor[RGB]{0,0,204}{
-	S=\Omega_{in}(t)\Omega_{out}^{-1}(t)
+	S
+	%=\Omega_{in}(t)\Omega_{out}^{-1}(t)
 	=\Omega_{I}(\infty)
 	.}
 \end{equation}
@@ -700,8 +713,9 @@ Starting with the Interaction picture depended on $ t' $  and integrate the left
  \left[ 
 \Omega_{I}(t) -\Omega_{I}(t_{0})
  \right] 
+ ,
 \end{align}
-\text{,here we state $ t_{0} = 0 $ as it is the condition for this picture and for now $ t>0 $.}
+\text{here we state $ t_{0} = 0 $ as it is the condition for this picture and for now $ t>0 $.}
 \begin{align}
 \int_{0}^{t}\mathrm{d}t'
  i\hbar 

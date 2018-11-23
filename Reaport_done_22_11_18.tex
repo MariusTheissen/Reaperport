@@ -593,6 +593,156 @@ The scalar product of the mentioned two vacua can be written as :
 \begin{equation}
 \braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
 \end{equation}
+These applications for the operator require $ S $ to be of the form
+\begin{equation}
+\begin{split}
+&S=e^{i\Lambda}\\
+&S^{\dagger}=e^{-i\Lambda^{\dagger}}
+\end{split}
+,
+\end{equation}
+since $ S=S^{\dagger} $ should hold $ \rightarrow $ $ \Lambda =-\Lambda^{\dagger} $. We choose for $ \Lambda $ the chronological time-ordered sum $ \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $.\\
+Explicitly,
+\begin{subequations}
+\begin{align}
+%S
+%&=
+%\\
+%\overset{Eq.\text{\eqref{q_In_operators}}}{&=}
+	S &=
+	T\left[
+    exp
+    \left(
+    i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) 
+    \right)
+    \right]  
+   \\
+   &\stackrel{\mathclap{\text{Eq.\text{\eqref{q_In_operators}}}}}{=} \hspace*{1.5em} 
+   T\left[
+   exp
+   \left(
+       i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     \dfrac{1}{2\omega_{\underline{k}}}\left(
+	\hat{a}_{\underline{k},in} 
+	e^{-i\omega_{\underline{k}}t}
+	+
+	\hat{a}^{\dagger}_{\underline{k},in}  
+	e^{i\omega_{\underline{k}}t}
+  \right)
+   \right)
+   \right]   
+%     &\overset{\mathclap{\text{CBH-formula}}}{=} 
+%    \hspace*{1.5em} 
+%    T\left[
+%   exp
+%   \left(
+%       i
+%    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+%     	\dfrac{1}{2\omega_{\underline{k}}}
+%     	\left(
+%			\hat{a}_{\underline{k},in} 
+%			e^{-i\omega_{\underline{k}}t}
+%		\right)
+%	\right)
+%	\\
+%	\cdot
+%	exp
+%		\left(
+%			i
+%    		\sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+%     		\dfrac{1}{2\omega_{\underline{k}}}
+%			\hat{a}^{\dagger}_{\underline{k},in}  
+%			e^{i\omega_{\underline{k}}t}
+%		\right)
+%		\right)		
+%   \right]
+,
+\end{align}
+\end{subequations}
+using the the CBH-formula allows us to separate,
+\begin{equation}
+\begin{split}
+S=
+&T	\Biggl[
+    exp
+    \left(
+       i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	\left(
+			\hat{a}_{\underline{k},in} 
+			e^{-i\omega_{\underline{k}}t}
+		\right)    
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	\left(
+			\hat{a}^{\dagger}_{\underline{k},in} 
+			e^{i\omega_{\underline{k}}t}
+		\right)    
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       -i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     	\dfrac{1}{2\cdot2\omega_{\underline{k}}}
+     	\left[
+			\hat{a}_{\underline{k},in} 
+			e^{-i\omega_{\underline{k}}t}     	
+     	,
+			\hat{a}^{\dagger}_{\underline{k},in} 
+			e^{i\omega_{\underline{k}}t}
+		\right]    
+    \right)	
+	\Biggr]
+	.
+\end{split}
+\end{equation}
+The integral over $ t $ will Fourier transform $ \bar{j_{\underline{k}}}(t) $ into our relativistic notation,
+\begin{equation}
+\begin{split}
+S=&	\Biggl[
+    exp
+    \left(
+     	  i
+    	\sum_{\underline{k}}
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	j_{-k_{\mu}}
+			\hat{a}_{\underline{k},in}  		
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       i
+    \sum_{\underline{k}}
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	j_{k^{\mu}}
+			\hat{a}^{\dagger}_{\underline{k},in}     
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       -i
+    \sum_{\underline{k}}
+     	\dfrac{1}{4\omega_{\underline{k}}}
+    	|j_{k^{\mu}}|^2
+    \right)	
+	\Biggr]
+	.
+\end{split}
+\end{equation}
+\\
 For now we choose $ S $ in a more specific form , where we used $ \bar{j}_{\underline{k}}(-\omega_{\underline{k}}) = \bar{j}^{\ast}_{\underline{k}}(\omega_{\underline{k}})  $. The general one will be obtained later:
 \begin{equation}
 S=e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(\omega_{\underline{k}})\hat{a}^{\dagger}_{\underline{k},in}}

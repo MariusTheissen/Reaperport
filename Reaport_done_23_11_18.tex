@@ -43,7 +43,7 @@
 %\end{equation}
 \section{Introduction}
 This report has three main goals. First we shall establish the transition between pictures in quantum mechanics and quantum field theory. We go over the more common ones, Schrödinger, Heisenberg and Interaction picture, to derive and justify the two In and Out Pictures.
-By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula. This important formula allows us transition of polynomial terms in one description of our system to multiple different but equivalent expressions that are based on boundary conditions we impose from experimental and physical point of views. The Gell-Mann Low formula does this without loss of informat
+By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula. This important formula allows us transition of polynomial terms of field operators in the Heisenberg picture to multiple different but equivalent picture expressions. These are based on boundary conditions imposing free motion on particles along them. We derive them from experimental and physical point of views. The Gell-Mann Low formula does this to this point without loss of information. In case of calculating multi particle processes the Gell-Mann Low formula allows us to perform perturbation theory on the correlation functions by introducing the scattering operator $ S $ which then can be expanded. This  $ S $ is the key to calculate cross-sections $ \sigma $ and decay rates $ \Gamma $ .
 %\textcolor{red}{What is the GellMann Law formula, why is it so important explain in worth}
 
 \section{Pictures in Quantum Mechanics }
@@ -356,7 +356,7 @@ To bring this concept on into our formulation let's consider $ V=j(t)\hat{q}(t) 
 In a system with an external current a pure vacuum state can evolve over time into a multi particle state .
 Starting with the action of a scalar field $ \Phi $ with mass $ m $ coupled to an external source $ j(\underline{x},t) $
 \begin{equation}
-I=
+I=\int d^{4}x \ \mathcal{L}(\Phi, \dot{\Phi},j)=
 \int d^{4}x 
 \left(
 \frac{1}{2}\partial_{\mu}\Phi\partial^{\mu}\Phi
@@ -375,7 +375,7 @@ Taking the functional derivative with respect to $ \Phi $ and setting it to zero
  .}
 \end{equation}
 %We will confine the field in a box and impose periodic boundary conditions on it. This %is called quantisation in a box. It allows us to write the field in terms of modes.
-To proceed we quantize our field in a box. For this the field and its canonical momentum are replace with operators $ \hat{\Phi} $ and  $ \hat{\Pi} $. Which are required to fulfill the equal-time commutator:
+To proceed, we quantize our field in a box of volume $ V $ and length $ L $. The field and its canonical momentum $ \Pi = \dfrac{\partial \mathcal{L}}{\partial\dot{\Phi}(\underline{x},t)} $ are then promoted to operators $ \hat{\Phi}(\underline{x},t) $ and  $ \hat{\Pi}(\underline{x},t) $ in the Heisenberg picture. Satisfying the equal-time commutator:
 \begin{equation}
 \left[
 \hat{\Phi}(\underline{x},t),\hat{\Pi}(\underline{x}',t)
@@ -384,9 +384,9 @@ To proceed we quantize our field in a box. For this the field and its canonical 
  i
  \delta^{3}
  (\underline{x} - \underline{x}')
+ .
 \end{equation}
-We now impose the field to be confined in a box of volume $ V $ and length $ L $ with periodic boundary conditions.
-This allows us to write $ \hat{\Phi} $ in terms of modes:
+We then expand the field operator as follows:
 \begin{equation}\label{box_quanta}
 \textcolor[RGB]{0,0,204}{
 \hat{\Phi} (\underline{x},t)= \sum_{\underline{k}} \hat{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
@@ -398,8 +398,9 @@ The 3 dim. wave vector $ \underline{k} $ for the modes is defines as $ \underlin
 u_{\underline{k}}(\underline{x})
 =
 \dfrac{1}{\sqrt{V}} e^{i\underline{k}\cdot \underline{x}}
+,
 \end{equation}
-Where the volume $ V $ provides normalization. We remark that $ u_{\underline{k}}\underline{x} $ constitutes an orthonormalized basis in the Hilbertspace
+where the volume $ V $ provides the required normalization. We remark that $ u_{\underline{k}}(\underline{x}) $ constitutes an orthonormalized basis in the Hilbert space
 \begin{equation}\label{ortho_relation}
 \int d^{3}x \ 
 u^{\ast}_{\underline{k}'}(\underline{x})
@@ -407,15 +408,23 @@ u_{\underline{k}}(\underline{x})
 =
 \delta_{\underline{k}, \underline{k}'}
 \end{equation}
-With these we can rewrite the equation of motion:
-\begin{subequations}
-\begin{align}
-\left(
-\partial^{2}+m^{2}
- \right)
- \sum_{\underline{k}} \hat{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
- =j(\underline{x},t)
-	&\\
+\begin{equation}\label{completness_relation}
+\sum_{\underline{k}} \ 
+u^{\ast}_{\underline{k}}(\underline{x})
+u_{\underline{k}}(\underline{x}')
+=
+\delta^{3}\left(\underline{x}-\underline{x}'\right)
+.
+\end{equation}
+We now substitute Eq.\eqref{fourierbasis} into the equation of motion \eqref{motion_scalar}
+:
+\begin{equation}
+%\left(
+%\partial^{2}+m^{2}
+% \right)
+% \sum_{\underline{k}} \hat{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+% =j(\underline{x},t)
+%	&\\
  \sum_{\underline{k}}
  \left[ 
 	\left( 
@@ -426,14 +435,13 @@ With these we can rewrite the equation of motion:
 	\hat{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
  \right] 
  =j(\underline{x},t).
-\end{align}
-\end{subequations}
+\end{equation}
 The basis will enable us to take the spacial derivative. As a consequence  
 \begin{equation}
  \sum_{\underline{k}}
  \left[ 
 	\ddot{\hat{q}}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
-	-(i)^{2}\underline{k}^{2}\hat{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+	+\underline{k}^{2}\hat{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
 	+m^{2}\hat{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
  \right] 
   =j(\underline{x},t).
@@ -457,7 +465,7 @@ To get an equation for $ \hat{q}_{\underline{k}}(t) $ alone we need to get rid o
 \begin{equation}
  \sum_{\underline{k}}
  \left[ 
- \int d^{3}\underline{x} \ u^{\ast}_{\underline{k}'}u_{\underline{k}}
+ \int d^{3}x \ u^{\ast}_{\underline{k}'}u_{\underline{k}}
  \left( 
  \ddot{\hat{q}}_{\underline{k}}(t) 
  +
@@ -465,11 +473,11 @@ To get an equation for $ \hat{q}_{\underline{k}}(t) $ alone we need to get rid o
  \hat{q}_{\underline{k}}(t) 
  \right) 
   \right] 
-  ={\underbrace{\int d^{3}\underline{x} \ 
-j(\underline{x},t) \dfrac{1}{\sqrt{V}} e^{i\underline{k}\underline{x}}}_{\tilde{j}(\underline{k},t)}}
+  ={\underbrace{\int d^{3}x \ 
+j(\underline{x},t) \dfrac{1}{\sqrt{V}} e^{i\underline{k}\cdot\underline{x}}}_{=\tilde{j}(\underline{k},t)}}
   .
 \end{equation}
-Afterof using the orthonormality relation \eqref{ortho_relation} this expression reduces to
+After using the orthonormality relation \eqref{ortho_relation} this expression reduces to
 \begin{equation}\label{eq_for_q}
  \textcolor[RGB]{0,0,204}{
 \ddot{\hat{q}}_{\underline{k}}(t) 
@@ -479,7 +487,7 @@ Afterof using the orthonormality relation \eqref{ortho_relation} this expression
   =\tilde{j}(\underline{k},t)
   ,}
 \end{equation}
-where  $ (k^{2}+m^{2}) = \omega_{\underline{k}}^{2} $.
+where  $ (\underline{k}^{2}+m^{2}) = \omega_{\underline{k}}^{2} $.
 
 We now make the assumption that the current vanishes outside a finite time interval. 
 As a consequence Eq.\eqref{eq_for_q} allows us to distinguish between early and late times. For early time  Eq.\eqref{eq_for_q} reduces to a homogeneous differential equation. We will call its solution by $ \hat{q}_{\underline{k}}(t) \rightarrow \hat{q}_{k,in}(t) $. Explicitly, 
@@ -509,7 +517,7 @@ where $ \hat{a}_{\underline{k},in} $ denotes the annihilation operator, whereas 
 At late times Eq.\eqref{eq_for_q} also reduces to a homogeneous type. In this case the solution $ \hat{q}_{\underline{k}}(t) \rightarrow \hat{q}_{k,out}(t) $ reads
 \begin{equation}\label{q_Out_operators}
  \textcolor[RGB]{0,0,204}{
- \hat{q}_{k,out}(t) 
+ \hat{q}_{\underline{k},out}(t) 
   =
   \dfrac{1}{2\omega_{\underline{k}}}\left(
 	\hat{a}_{\underline{k},out} 
@@ -552,7 +560,7 @@ Now we will apply a second Fourier transformation in respect to $ t $. The commu
 \begin{equation}
 \bar{j_{\underline{k}}}(E)= \int^{\infty}_{-\infty}dt \tilde{j_{\underline{k}}}(t) e^{iEt}.
 \end{equation}
-The wave vector $ \underline{k} $ and the energy written in terms of the angular frequency $ \omega_{k} $ together form the relativistic  four-wave-vector $ k^{\mu}=(\omega_k,k_x,k_y,k_z) $ or just $ k $ . This gives us the notation $ \bar{j_{\underline{k}}}(\omega_k)=j_k $.
+The wave vector $ \underline{k} $ and the energy written in terms of the angular frequency $ \omega_{k} $ together form the relativistic  four-wave-vector $ k^{\mu}=(\omega_{\underline{k}},k_x,k_y,k_z) $ or just $ k $ . This gives us the notation $ \bar{j_{\underline{k}}}(\omega_k)=j_k $.
 
 After splitting the sinus function we write:
 \begin{equation}
@@ -569,7 +577,7 @@ After splitting the sinus function we write:
 From this equation we can obtain the connection between creation and annihilation operators in compact notation.
 \begin{subequations}
 \begin{align}
-\hat{a}_{\underline{k},Out}=  \hat{a}_{\underline{k},in}+i
+\hat{a}_{\underline{k},out}=  \hat{a}_{\underline{k},in}+i
 j_k
 %\bar{j_{\underline{k}}}(\omega_{\underline{k}})  
 &\\
@@ -580,212 +588,15 @@ j_k
 \end{align}
 \end{subequations}
 This shows that,in the presence of an external current, the two sets of second quantization operators are not the same. Therefore we need to differ between the corresponding $ in $ and $ out $ eigenstates. Especially, it has to be stated that vacua also differ in this scenario. The concept of early and later times to fully solve the full equations will be discussed further in later chapters.
-\\
-Still, we need a way to transition from one operator to another and from eigenstate to eigenstate. This link is called the scattering operator $ S $.
-\begin{subequations}
-\begin{align}
-\ket{Out}=S^{-1}\ket{In}
-&\\
-\ket{In}=S\ket{Out}.
-\end{align}
-\end{subequations}
-The scalar product of the mentioned two vacua can be written as :
-\begin{equation}
-\braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
-\end{equation}
-These applications for the operator require $ S $ to be of the form
-\begin{equation}
-\begin{split}
-&S=e^{i\Lambda}\\
-&S^{\dagger}=e^{-i\Lambda^{\dagger}}
-\end{split}
-,
-\end{equation}
-since $ S=S^{\dagger} $ should hold $ \rightarrow $ $ \Lambda =-\Lambda^{\dagger} $. We choose for $ \Lambda $ the chronological time-ordered sum $ \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $.\\
-Explicitly,
-\begin{subequations}
-\begin{align}
-%S
-%&=
-%\\
-%\overset{Eq.\text{\eqref{q_In_operators}}}{&=}
-	S &=
-	T\left[
-    exp
-    \left(
-    i
-    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) 
-    \right)
-    \right]  
-   \\
-   &\stackrel{\mathclap{\text{Eq.\text{\eqref{q_In_operators}}}}}{=} \hspace*{1.5em} 
-   T\left[
-   exp
-   \left(
-       i
-    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
-     \dfrac{1}{2\omega_{\underline{k}}}\left(
-	\hat{a}_{\underline{k},in} 
-	e^{-i\omega_{\underline{k}}t}
-	+
-	\hat{a}^{\dagger}_{\underline{k},in}  
-	e^{i\omega_{\underline{k}}t}
-  \right)
-   \right)
-   \right]   
-%     &\overset{\mathclap{\text{CBH-formula}}}{=} 
-%    \hspace*{1.5em} 
-%    T\left[
-%   exp
-%   \left(
-%       i
-%    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
-%     	\dfrac{1}{2\omega_{\underline{k}}}
-%     	\left(
-%			\hat{a}_{\underline{k},in} 
-%			e^{-i\omega_{\underline{k}}t}
-%		\right)
-%	\right)
-%	\\
-%	\cdot
-%	exp
-%		\left(
-%			i
-%    		\sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
-%     		\dfrac{1}{2\omega_{\underline{k}}}
-%			\hat{a}^{\dagger}_{\underline{k},in}  
-%			e^{i\omega_{\underline{k}}t}
-%		\right)
-%		\right)		
-%   \right]
-,
-\end{align}
-\end{subequations}
-using the the CBH-formula allows us to separate,
-\begin{equation}
-\begin{split}
-S=
-&T	\Biggl[
-    exp
-    \left(
-       i
-    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
-     	\dfrac{1}{2\omega_{\underline{k}}}
-     	\left(
-			\hat{a}_{\underline{k},in} 
-			e^{-i\omega_{\underline{k}}t}
-		\right)    
-    \right)
-	\\
-&\quad\cdot
-    exp
-    \left(
-       i
-    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
-     	\dfrac{1}{2\omega_{\underline{k}}}
-     	\left(
-			\hat{a}^{\dagger}_{\underline{k},in} 
-			e^{i\omega_{\underline{k}}t}
-		\right)    
-    \right)
-	\\
-&\quad\cdot
-    exp
-    \left(
-       -i
-    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
-     	\dfrac{1}{2\cdot2\omega_{\underline{k}}}
-     	\left[
-			\hat{a}_{\underline{k},in} 
-			e^{-i\omega_{\underline{k}}t}     	
-     	,
-			\hat{a}^{\dagger}_{\underline{k},in} 
-			e^{i\omega_{\underline{k}}t}
-		\right]    
-    \right)	
-	\Biggr]
-	.
-\end{split}
-\end{equation}
-The integral over $ t $ will Fourier transform $ \bar{j_{\underline{k}}}(t) $ into our relativistic notation,
-\begin{equation}
-\begin{split}
-S=&	\Biggl[
-    exp
-    \left(
-     	  i
-    	\sum_{\underline{k}}
-     	\dfrac{1}{2\omega_{\underline{k}}}
-     	j_{-k_{\mu}}
-			\hat{a}_{\underline{k},in}  		
-    \right)
-	\\
-&\quad\cdot
-    exp
-    \left(
-       i
-    \sum_{\underline{k}}
-     	\dfrac{1}{2\omega_{\underline{k}}}
-     	j_{k^{\mu}}
-			\hat{a}^{\dagger}_{\underline{k},in}     
-    \right)
-	\\
-&\quad\cdot
-    exp
-    \left(
-       -i
-    \sum_{\underline{k}}
-     	\dfrac{1}{4\omega_{\underline{k}}}
-    	|j_{k^{\mu}}|^2
-    \right)	
-	\Biggr]
-	.
-\end{split}
-\end{equation}
-We dropped the time ordering since the transformation made it time independent.
-\\
-For now we choose $ S $ in a more specific form , where we used $ \bar{j}_{\underline{k}}(-\omega_{\underline{k}}) = \bar{j}^{\ast}_{\underline{k}}(\omega_{\underline{k}})  $. The general one will be obtained later:
-\begin{equation}
-S=e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(\omega_{\underline{k}})\hat{a}^{\dagger}_{\underline{k},in}}
-e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(-\omega_{\underline{k}})\hat{a}_{\underline{k},in}}
-e^{-\dfrac{1}{4\omega_{\underline{k}}}|\bar{j}_{\underline{k}}(-\omega_{\underline{k}})|^{2}}
-\end{equation}
-For the operators we can write:
-\begin{equation}
-S^{-1}\hat{a}_{\underline{k},in}S=\hat{a}_{\underline{k},Out}=\hat{a}_{\underline{k},in} +i\ \bar{j_{\underline{k}}}(\omega_{\underline{k}})
-\end{equation}
-%
-%
-Using this, we obtain first of all the probability for staying in the ground state for one mode:
-\begin{subequations}
-\begin{align}
-p_{0,k}&=\left| \braket{0_{out}|0_{in}}\right|^{2}=\left| \braket{0_{in}|S|0_{in}}\right|^{2}
-	&\\
-	&=\left| \braket{0_{in}|e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(\omega_{\underline{k}})\hat{a}^{\dagger}_{\underline{k},in}}
-e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(-\omega_{\underline{k}})\hat{a}_{k,in}}
-e^{-\dfrac{1}{4\omega_{\underline{k}}}|\bar{j}_{\underline{k}}(-\omega_{\underline{k}})|^{2}}|0_{in}}\right|^{2}
-.
-\end{align}
-\end{subequations}
-The annihilation operator will return a $ 0 $ in the exponent. Therefore only one factor remain important. The probabilty while taking to account any mode transition just involves the integral over all $ k $:
-\begin{equation}\label{prob_staying}
- \textcolor[RGB]{0,0,204}{
-	p_{0}
-	= 	exp\left\lbrace -\int \dfrac{d^{3}k}{(2\pi)^{3}} \ 
- 		 			 \left| \dfrac{\bar{j}_{\underline{k}}(\omega_{\underline{k}})}{\sqrt{2\omega_{\underline{k}}}} \right|^{2}
- 		 			 \right\rbrace 
- .}
-\end{equation}
-This confirms our statement about an unstable vacuum. The negative sign in the exponent translates to smaller probability at higher external currents. So the vacuum can change it's state if a current is $ >0 $.
-\\\\
-%
+
+Coming back to the idea of pictures, we incorporate these two sets of solutions as a starting point. Two new pictures should embody the influence of external currents along our boundary conditions we established.
 %
 %
 %
 %
 %
 \\
-Taking these new results into account, we need to impose for the case $  V=j(t)\hat{q}(t) $ from the beginning a similar approach. On the realm of pictures this means asymptotic conditions on $ j(t) $ . We  again assume it vanishes outside of finite intervals. 
+Taking these new results into account, we need to impose for the case $  V=j(t)\hat{q}(t) $ from Eq.\eqref{eq:omega_and_U} in beginning a similar approach. On the realm of pictures this means asymptotic conditions on $ j(t) $ . We  again assume it vanishes outside of finite intervals. 
 \begin{equation}
 \textcolor[RGB]{0,0,204}{
 j(t)\rightarrow 0 \text{ for } t\rightarrow \pm \infty
@@ -1779,7 +1590,312 @@ In this report we have presented a set of fundamental concepts and methods. Thes
 %%
 %%
 \newpage
-\begin{appendices}
+\begin{subappendices}
+\subsection{Vacuum transition probability under external current}
+%
+%\\\\\\This allows us to connect the field by propagators, so in terms of functions. An operator on the other hand would link both fields and the two different states. We call it the scattering operator $ S $. \\
+%For the $ In $-field and $ Out $-field we write:
+%\begin{equation}
+%\Phi_{out}(x)=S^{-1}\Phi_{in}(x)S,
+%\end{equation}
+%and the $ In $ and $ Out $-states according to
+%\begin{equation}
+%\ket{out}=S^{-1}\ket{In}
+%\end{equation}
+%\begin{equation}
+%\ket{In}=S\ket{Out},
+%\end{equation}
+%with these we express the probability amplitude to remain the ground state as
+%\begin{equation}
+%\braket{0_{out}|0_{in}}=\braket{0_{in}|S|0_{in}}=\braket{0_{out}|S|0_{out}}.
+%\end{equation}
+%The $ S $ operator can expressed in the following way, which will be verified in a more general form in it's own section.
+%\begin{equation}
+%S=exp\left[-i\int d^{4}y \phi_{in}(y)j(y) \right]
+%\end{equation}
+%%
+%It is convenient to separate the total field in a sum of creation operators $ a^{(-)}_{in}  $ and annihilation operators $ a^{(+)}_{in}  $. 
+%\begin{equation}\begin{split}
+%\phi_{in}(t,x)&=\int \dfrac{d^{3}p}{(2\pi)^{3}}\dfrac{1}{2\omega} a_{in}(p)^{(-)}e^{-i p x} -a_{in}(p)^{(+)}e^{+i p x} \\\
+%&=A^{(-)}_{in}(y) + A^{(+)}_{in}(y) 
+%\end{split}
+%\end{equation}
+%The Baker-Campbell-Hausdorff formula allows us to write each term in it's own exponential function.
+%\begin{equation}
+%e^{X+Y}=e^{X}e^{Y}e^{-\frac{1}{2}\left[ X,Y\right] }.
+%\end{equation}
+%In this case we need to choose two integral variables
+%\begin{equation}\begin{split}
+%S=& exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] exp\left[-i\int d^{4}y\ A^{(+)}_{in}(y)j(y) \right] \\\
+%&\times exp\left\lbrace
+% 		 \frac{1}{2}\int \!\! \int d^{4}x d^{4}y \ 
+% 		 	\left[ 
+% 		 			 A^{(-)}_{in}(x)j(x), A^{(+)}_{in}(y)j(y)
+% 		 	\right] 
+%\right\rbrace .
+%\end{split}
+%\end{equation}
+%Now we introduce the Fourier transform of the current $ j(x) $
+%\begin{equation}
+%J(k)=\int d^{4}x j(x)e^{-i k x },
+%\end{equation}
+%where a change in sign means complex conjugation 
+%\begin{equation}
+%J(-k)=J(k)^{\ast}.
+%\end{equation}
+%Applying this on the commutator in $ S $ results in 
+%\begin{equation}
+%\begin{split}
+%S=& exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] exp\left[-i\int d^{4}y\ A^{(+)}_{in}(y)j(y) \right] \\\
+%&\times exp\left\lbrace
+% 		- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+%\right\rbrace .
+%\end{split}
+%\end{equation}
+%Based on this new concept we look for the probabilities of excitations. Setting the number of particles in the $ Out $ -state  $ n $ will give us a distribution.
+%\begin{equation}
+%p_{n}=\left| \braket{n_{out}|0_{in}} \right|^{2}
+%		=\left| \braket{n_{in}|S|0_{in}} \right|^{2}
+%\end{equation}
+%First we have the same factor as for $ 0 $ but a second exponential function between the vectors is important.
+%\begin{equation}
+%p_{n}=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+% 		 			  \braket{n_{in}|exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] |0_{in}}
+% 		 			 \right|^{2}
+%\end{equation}
+%The exponential series will contain one term of order $ n $ . These $ n $ creation operators will act as annihilation operators in the bra vector. Term with more the $ n $ would directly go to zero and lower, too since the states are still orthogonal. Giving us the single contribution
+%\begin{subequations}
+%\begin{align}
+%  p_{n}&=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+% 		 			  \braket{n_{in}|
+% 		 			 \dfrac{1}{n!} \left(-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right)^{n} 
+% 		 			  |0_{in}}
+% 		 			 \right|^{2}
+% 		 			 &\\
+% 		 	&=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+% 		 			  \braket{0_{in}|
+% 		 			 \dfrac{1}{n!} \left(
+% 		 			 -i\int \dfrac{d^{3}q}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(q)J(q)
+% 		 			 \right)^{n} 
+% 		 			  |0_{in}}
+% 		 			 \right|^{2}		  .	
+%\end{align}
+% \end{subequations}  
+%Defining
+%\begin{equation}
+%\bar{n} \equiv \int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} 
+% 		 			 |J(k)|^{2},
+%\end{equation}
+%using it in the equation above we find the the solution to $ p_{n} $ to be a Poisson distribution.
+%\begin{equation}
+%p_{n}=e^{-\bar{n}}\frac{\bar{n}^{n}}{n!}
+%\end{equation}
+%%%
+%%
+%\\
+Still, we need a way to transition from one operator to another and from eigenstate to eigenstate. This link is called the scattering operator $ S $.
+\begin{subequations}
+\begin{align}
+\ket{out}=S^{-1}\ket{in}
+&\\
+\ket{in}=S\ket{out}.
+\end{align}
+\end{subequations}
+The scalar product of the mentioned two vacua can be written as :
+\begin{equation}
+\braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
+\end{equation}
+These applications for the operator require $ S $ to be of the form
+\begin{equation}
+\begin{split}
+&S=e^{i\Lambda}\\
+&S^{\dagger}=e^{-i\Lambda^{\dagger}}
+\end{split}
+,
+\end{equation}
+since $ S=S^{\dagger} $ should hold $ \rightarrow $ $ \Lambda =-\Lambda^{\dagger} $. We choose for $ \Lambda $ the chronological time-ordered sum $ \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $.\\
+Explicitly,
+\begin{subequations}
+\begin{align}
+%S
+%&=
+%\\
+%\overset{Eq.\text{\eqref{q_In_operators}}}{&=}
+	S &=
+	T\left[
+    exp
+    \left(
+    i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) 
+    \right)
+    \right]  
+   \\
+   &\stackrel{\mathclap{\text{Eq.\text{\eqref{q_In_operators}}}}}{=} \hspace*{1.5em} 
+   T\left[
+   exp
+   \left(
+       i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     \dfrac{1}{2\omega_{\underline{k}}}\left(
+	\hat{a}_{\underline{k},in} 
+	e^{-i\omega_{\underline{k}}t}
+	+
+	\hat{a}^{\dagger}_{\underline{k},in}  
+	e^{i\omega_{\underline{k}}t}
+  \right)
+   \right)
+   \right]   
+%     &\overset{\mathclap{\text{CBH-formula}}}{=} 
+%    \hspace*{1.5em} 
+%    T\left[
+%   exp
+%   \left(
+%       i
+%    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+%     	\dfrac{1}{2\omega_{\underline{k}}}
+%     	\left(
+%			\hat{a}_{\underline{k},in} 
+%			e^{-i\omega_{\underline{k}}t}
+%		\right)
+%	\right)
+%	\\
+%	\cdot
+%	exp
+%		\left(
+%			i
+%    		\sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+%     		\dfrac{1}{2\omega_{\underline{k}}}
+%			\hat{a}^{\dagger}_{\underline{k},in}  
+%			e^{i\omega_{\underline{k}}t}
+%		\right)
+%		\right)		
+%   \right]
+,
+\end{align}
+\end{subequations}
+using the the CBH-formula allows us to separate,
+\begin{equation}
+\begin{split}
+S=
+&T	\Biggl[
+    exp
+    \left(
+       i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	\left(
+			\hat{a}_{\underline{k},in} 
+			e^{-i\omega_{\underline{k}}t}
+		\right)    
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	\left(
+			\hat{a}^{\dagger}_{\underline{k},in} 
+			e^{i\omega_{\underline{k}}t}
+		\right)    
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       -i
+    \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
+     	\dfrac{1}{2\cdot2\omega_{\underline{k}}}
+     	\left[
+			\hat{a}_{\underline{k},in} 
+			e^{-i\omega_{\underline{k}}t}     	
+     	,
+			\hat{a}^{\dagger}_{\underline{k},in} 
+			e^{i\omega_{\underline{k}}t}
+		\right]    
+    \right)	
+	\Biggr]
+	.
+\end{split}
+\end{equation}
+The integral over $ t $ will Fourier transform $ \bar{j_{\underline{k}}}(t) $ into our relativistic notation,
+\begin{equation}
+\begin{split}
+S=&	\Biggl[
+    exp
+    \left(
+     	  i
+    	\sum_{\underline{k}}
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	j_{-k_{\mu}}
+			\hat{a}_{\underline{k},in}  		
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       i
+    \sum_{\underline{k}}
+     	\dfrac{1}{2\omega_{\underline{k}}}
+     	j_{k^{\mu}}
+			\hat{a}^{\dagger}_{\underline{k},in}     
+    \right)
+	\\
+&\quad\cdot
+    exp
+    \left(
+       -i
+    \sum_{\underline{k}}
+     	\dfrac{1}{4\omega_{\underline{k}}}
+    	|j_{k^{\mu}}|^2
+    \right)	
+	\Biggr]
+	.
+\end{split}
+\end{equation}
+We dropped the time ordering since the transformation made it time independent.
+\\
+For now we choose $ S $ in a more specific form , where we used $ \bar{j}_{\underline{k}}(-\omega_{\underline{k}}) = \bar{j}^{\ast}_{\underline{k}}(\omega_{\underline{k}})  $. The general one will be obtained later:
+\begin{equation}
+S=e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(\omega_{\underline{k}})\hat{a}^{\dagger}_{\underline{k},in}}
+e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(-\omega_{\underline{k}})\hat{a}_{\underline{k},in}}
+e^{-\dfrac{1}{4\omega_{\underline{k}}}|\bar{j}_{\underline{k}}(-\omega_{\underline{k}})|^{2}}
+\end{equation}
+For the operators we can write:
+\begin{equation}
+S^{-1}\hat{a}_{\underline{k},in}S=\hat{a}_{\underline{k},Out}=\hat{a}_{\underline{k},in} +i\ \bar{j_{\underline{k}}}(\omega_{\underline{k}})
+\end{equation}
+%
+%
+Using this, we obtain first of all the probability for staying in the ground state for one mode:
+\begin{subequations}
+\begin{align}
+p_{0,k}&=\left| \braket{0_{out}|0_{in}}\right|^{2}=\left| \braket{0_{in}|S|0_{in}}\right|^{2}
+	&\\
+	&=\left| \braket{0_{in}|e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(\omega_{\underline{k}})\hat{a}^{\dagger}_{\underline{k},in}}
+e^{\dfrac{i}{2\omega_{\underline{k}}}\bar{j}_{\underline{k}}(-\omega_{\underline{k}})\hat{a}_{k,in}}
+e^{-\dfrac{1}{4\omega_{\underline{k}}}|\bar{j}_{\underline{k}}(-\omega_{\underline{k}})|^{2}}|0_{in}}\right|^{2}
+.
+\end{align}
+\end{subequations}
+The annihilation operator will return a $ 0 $ in the exponent. Therefore only one factor remain important. The probabilty while taking to account any mode transition just involves the integral over all $ k $:
+\begin{equation}\label{prob_staying}
+ \textcolor[RGB]{0,0,204}{
+	p_{0}
+	= 	exp\left\lbrace -\int \dfrac{d^{3}k}{(2\pi)^{3}} \ 
+ 		 			 \left| \dfrac{\bar{j}_{\underline{k}}(\omega_{\underline{k}})}{\sqrt{2\omega_{\underline{k}}}} \right|^{2}
+ 		 			 \right\rbrace 
+ .}
+\end{equation}
+This confirms our statement about an unstable vacuum. The negative sign in the exponent translates to smaller probability at higher external currents. So the vacuum can change it's state if a current is $ >0 $.
+\\\\
+%%
 %\section{External currents and the unstable vacuum}
 %In a system with an external current the vacuum state can evolve over time into a state with particles.
 %Starting with the action of a scalar field with mass $ m $
@@ -2037,7 +2153,7 @@ In this report we have presented a set of fundamental concepts and methods. Thes
 % .}
 %\end{equation}
 %This confirms our statement about an unstable vacuum. The negative sign in the exponent translates to smaller probability at higher external currents. So the vacuum can change it's state if a current is $ >0 $.
-\section{Chronological time ordering}
+\subsection{Chronological time ordering}
 Let's begin with at a regular function in form of:\\
 \begin{equation}\label{regular_function}
 I(t)=
@@ -2205,7 +2321,7 @@ T(V_1, V_2)=T(V_2, V_1)
 }
 \end{equation}
 In other words, the commutation relations say whether the subtraction of permutations of elements is zero or not. But in time ordering all permutations appear, we can rearrange the terms so subtraction of equal permutations happens. Therefore commutation in $ T $ holds.
-\section{Anti-chronological time ordering}
+\subsection{Anti-chronological time ordering}
 On a close inspection of the introduction of the Heaviside-function and its' insertion into the integral, we actually skipped a choice. If we just would have wanted to the overall boundaries the order of $ t_1 $ and $ t_2 $ in relation to $ V_1 $ and $ V_2 $ the insertion of $  \theta$  could have been switched. This secretly led us to the definition of time-ordering or chronological time ordering as it is called more precisely. The other path would have resulted in anti-chronological time ordering:\footnote{
 earlier times to the left and later times to the right
 }
@@ -2297,7 +2413,7 @@ Now we assume our total Hamiltonian $ \hat{H}=\hat{H}_0 + \hat{V} $ is hermitian
 \end{flalign}
 \end{subequations}
 %
-\end{appendices}
+\end{subappendices}
 
 \newpage
 \begin{thebibliography}{12}
@@ -2356,109 +2472,5 @@ W.Greiner;J.Reinhart.
 %\end{equation}
 %
 %
-%%
-%\\\\\\This allows us to connect the field by propagators, so in terms of functions. An operator on the other hand would link both fields and the two different states. We call it the scattering operator $ S $. \\
-%For the $ In $-field and $ Out $-field we write:
-%\begin{equation}
-%\Phi_{out}(x)=S^{-1}\Phi_{in}(x)S,
-%\end{equation}
-%and the $ In $ and $ Out $-states according to
-%\begin{equation}
-%\ket{out}=S^{-1}\ket{In}
-%\end{equation}
-%\begin{equation}
-%\ket{In}=S\ket{Out},
-%\end{equation}
-%with these we express the probability amplitude to remain the ground state as
-%\begin{equation}
-%\braket{0_{out}|0_{in}}=\braket{0_{in}|S|0_{in}}=\braket{0_{out}|S|0_{out}}.
-%\end{equation}
-%The $ S $ operator can expressed in the following way, which will be verified in a more general form in it's own section.
-%\begin{equation}
-%S=exp\left[-i\int d^{4}y \phi_{in}(y)j(y) \right]
-%\end{equation}
-%%
-%It is convenient to separate the total field in a sum of creation operators $ a^{(-)}_{in}  $ and annihilation operators $ a^{(+)}_{in}  $. 
-%\begin{equation}\begin{split}
-%\phi_{in}(t,x)&=\int \dfrac{d^{3}p}{(2\pi)^{3}}\dfrac{1}{2\omega} a_{in}(p)^{(-)}e^{-i p x} -a_{in}(p)^{(+)}e^{+i p x} \\\
-%&=A^{(-)}_{in}(y) + A^{(+)}_{in}(y) 
-%\end{split}
-%\end{equation}
-%The Baker-Campbell-Hausdorff formula allows us to write each term in it's own exponential function.
-%\begin{equation}
-%e^{X+Y}=e^{X}e^{Y}e^{-\frac{1}{2}\left[ X,Y\right] }.
-%\end{equation}
-%In this case we need to choose two integral variables
-%\begin{equation}\begin{split}
-%S=& exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] exp\left[-i\int d^{4}y\ A^{(+)}_{in}(y)j(y) \right] \\\
-%&\times exp\left\lbrace
-% 		 \frac{1}{2}\int \!\! \int d^{4}x d^{4}y \ 
-% 		 	\left[ 
-% 		 			 A^{(-)}_{in}(x)j(x), A^{(+)}_{in}(y)j(y)
-% 		 	\right] 
-%\right\rbrace .
-%\end{split}
-%\end{equation}
-%Now we introduce the Fourier transform of the current $ j(x) $
-%\begin{equation}
-%J(k)=\int d^{4}x j(x)e^{-i k x },
-%\end{equation}
-%where a change in sign means complex conjugation 
-%\begin{equation}
-%J(-k)=J(k)^{\ast}.
-%\end{equation}
-%Applying this on the commutator in $ S $ results in 
-%\begin{equation}
-%\begin{split}
-%S=& exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] exp\left[-i\int d^{4}y\ A^{(+)}_{in}(y)j(y) \right] \\\
-%&\times exp\left\lbrace
-% 		- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
-% 		 			 J^{\ast}(k)J(k)
-%\right\rbrace .
-%\end{split}
-%\end{equation}
-%Based on this new concept we look for the probabilities of excitations. Setting the number of particles in the $ Out $ -state  $ n $ will give us a distribution.
-%\begin{equation}
-%p_{n}=\left| \braket{n_{out}|0_{in}} \right|^{2}
-%		=\left| \braket{n_{in}|S|0_{in}} \right|^{2}
-%\end{equation}
-%First we have the same factor as for $ 0 $ but a second exponential function between the vectors is important.
-%\begin{equation}
-%p_{n}=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
-% 		 			 J^{\ast}(k)J(k)
-% 		 			  \braket{n_{in}|exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] |0_{in}}
-% 		 			 \right|^{2}
-%\end{equation}
-%The exponential series will contain one term of order $ n $ . These $ n $ creation operators will act as annihilation operators in the bra vector. Term with more the $ n $ would directly go to zero and lower, too since the states are still orthogonal. Giving us the single contribution
-%\begin{subequations}
-%\begin{align}
-%  p_{n}&=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
-% 		 			 J^{\ast}(k)J(k)
-% 		 			  \braket{n_{in}|
-% 		 			 \dfrac{1}{n!} \left(-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right)^{n} 
-% 		 			  |0_{in}}
-% 		 			 \right|^{2}
-% 		 			 &\\
-% 		 	&=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
-% 		 			 J^{\ast}(k)J(k)
-% 		 			  \braket{0_{in}|
-% 		 			 \dfrac{1}{n!} \left(
-% 		 			 -i\int \dfrac{d^{3}q}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
-% 		 			 J^{\ast}(q)J(q)
-% 		 			 \right)^{n} 
-% 		 			  |0_{in}}
-% 		 			 \right|^{2}		  .	
-%\end{align}
-% \end{subequations}  
-%Defining
-%\begin{equation}
-%\bar{n} \equiv \int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} 
-% 		 			 |J(k)|^{2},
-%\end{equation}
-%using it in the equation above we find the the solution to $ p_{n} $ to be a Poisson distribution.
-%\begin{equation}
-%p_{n}=e^{-\bar{n}}\frac{\bar{n}^{n}}{n!}
-%\end{equation}
-%%
-%
+
 \end{document}

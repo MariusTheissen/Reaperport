@@ -26,7 +26,7 @@
 
 
 \title{\includegraphics[scale=0.07]{logo}\\Specialization report}
-\date{2.12.2018}
+\date{4.12.2018}
 \author{ Heinrich Heine Universit\"at D\"usseldorf\\ Institut f\"ur Theoretische Physik I\\  \\Presented by:\\Marius Thei\ss{}en\\ Matrn.: 2163903 \\  }
 
 \begin{document}
@@ -41,14 +41,14 @@
 %\begin{equation}
 %\textcolor[RGB]{0,0,204}{\Phi sik}
 %\end{equation}
-\section{Introduction}
+\section{Introduction}\label{Introduction}
 %This report has three main goals. First we shall establish the transition between pictures in quantum mechanics and quantum field theory. We go over the more common ones, Schrödinger, Heisenberg and Interaction picture, to derive and justify the two In and Out Pictures.
 %By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula. This important formula allows us transition of polynomial terms of field operators in the Heisenberg picture to multiple different but equivalent picture expressions. These are based on boundary conditions imposing free motion on particles along them. We derive them from experimental and physical point of views. The Gell-Mann Low formula does this to this point without loss of information. In case of calculating multi particle processes the Gell-Mann Low formula allows us to perform perturbation theory on the correlation functions by introducing the scattering operator $ S $ which then can be expanded. This  $ S $ is the key to calculate cross-sections $ \sigma $ and decay rates $ \Gamma $ .
 %\textcolor{red}{What is the GellMann Law formula, why is it so important explain in worth}
 Quantum field theory is a set of methods and concepts that allow us to describe elementary particle processes. Of great interest are derived quantities like cross-sections $ \sigma  $ or decay rates $ \Gamma $ as most common comparisons to experiments. From the side of theoretical physics, they can be extracted by calculating the amplitudes of the related correlation functions. Such calculations require pertubative approaches. However the starting points for setting up correlations functions like a Lagrangian, operators and states are described and formulated in the way of the Heisenberg picture without any parts that allow for pertubation theory. The main goal of this report is the derivation of the solution to this dilemma. The Gell-Mann Low formula. It allows transition to pictures inside the correlation functions without loss of information by including the scattering operator $ S $. This $ S $ allows to be calculated pertubatively and therefore also the actual correlation functions.  
 We will working out a few handy techniques and methods on the way to Gell-Mann Low formula. This includes discussing the more common Schrödinger, Heisenberg and Interaction picture. Followed up by $ In $ and $ out $ pictures which Gell-Mann Low formula allows easy transition inside the corr. function. These are based on boundary conditions imposing free motion on particles along them. We derive them from experimental and physical point of views.
-\section{Pictures in Quantum Mechanics }
-\subsection{Schrödinger picture and Heisenberg picture}
+\section{Pictures in Quantum Mechanics }\label{Pictures in Quantum Mechanics}
+\subsection{Schrödinger picture and Heisenberg picture}\label{SHpicture}
 The choice of a picture always requires to establish the states but also the corresponding operators. 
 In the Schrödinger picture the operators are time-independent but the wavefunctions are time dependent. The time evolution of a state vector is controlled by the Schrödinger equation. Let $ \ket{\Psi(t)} $ denote a state vector at time $ t $. It satisfies
 \begin{equation}\label{eq:schroedinger}
@@ -164,7 +164,7 @@ i\frac{d}{d t}\hat{A}_{H}(t)=
 .
 }
 \end{equation} 
-\subsection{Interaction picture}
+\subsection{Interaction picture}\label{Interactionpicture}
 A third picture can be introduced: the Interaction picture (sometimes called the Dirac picture). We will see very shortly that, in the Interacting picture both the states and the respective operators are time dependent.
 Let us suppose that the Hamiltonian in the Schrödinger picture can be splitted as follows $ \hat{H} = \hat{H}_{0}+\hat{V} $. Normally $ \hat{H}_{0} $ describe the free motion of a system, whereas  $ \hat{V} $ represents its interaction, which could be with an external source. Although it often used in a perturbative approach, the Interaction picture does not require $ \hat{V} $  to be small as compared with $ \hat{H}_{0} $. 
 Inserting this decomposition of $ \hat{H} $ in the unitary operator introduced below Eq.\enskip\eqref{eq:time_ev_op_schr}:
@@ -330,12 +330,12 @@ where Eq.\enskip\eqref{evo_U_1} has been used. Using the definition of $ \hat{\O
 	=
 	\hat{V}_{I}(t)
 	\hat{\Omega}(t)
-,}
+.}
 \end{equation}
-requiring $ \hat{\Omega}(0)=1 $.
-
-With he boundary condition a well defined solution can be found. It stems from the condition on the time evolution operator $ U(t-t_0) $. It needed to fulfill $ U(t_0-t_0)=1 $. Since we set $ t_0 =0 $ $ \Omega $ needed this form to not collide with any equations retroactively.
-The Interaction picture as introduced above does not require $ V $ to be of any special form but can still be applied in presence of external sources. 
+%requiring $ \hat{\Omega}(0)=1 $.
+%With he boundary condition a well defined solution can be found. It stems from the condition on the time evolution operator $ U(t-t_0) $. It needed to fulfill $ U(t_0-t_0)=1 $. Since we set $ t_0 =0 $ $ \Omega $ needed this form to not collide with any equations retroactively.
+To find a well defined solution a boundary condition is needed. In Eq.\enskip\eqref{eq:omega_and_U} we see that $ t=0 $ gives us $ U(0)=1 $ and from this $ \Omega(0) = 1 $ as a condition arises.
+Regarding the potential, the Interaction picture as introduced above does not require $ V $ to be of any special form but can still be applied in presence of external sources. 
 %Additionally we can derive a differential equation for $ \hat{U}(t) $
 %\begin{subequations}
 %\begin{align}
@@ -352,14 +352,14 @@ The Interaction picture as introduced above does not require $ V $ to be of any 
 %			&=H_{0}U+i\hbar e^{-\frac{i}{\hbar}tH_{0}}\partial_{t}\Omega(t).
 %\end{align}
 %\end{subequations}
-\subsection{The $ \pmb{in} $ and $ \pmb{out}$ picture: External currents}
+\subsection{The $ \pmb{in} $ and $ \pmb{out}$ picture: External currents}\label{in_out_picture_external_currents}
 Consider the set-up of most experiments in elementary particle and nuclear physics. Several particles approach each other from a macroscopic scale and interact in a microscopic section comparable to the Compton wavelength of the incoming particles. On this scale vacuum fluctuations are no longer negligible for the dynamic of the involved particles and make them impossible to distinguish between each other. As a result, the products of the interaction spread up to a macroscopic distances and the distinguishability between outgoing particles is admitted. Therefore, at such asymptotically distances, the description of the incoming and outgoing multi-particle states can be approached by direct products of single-particle effectively non-interacting states.
 
 To bring this concept into our formulation let's consider 
 %$ V=j(t)\hat{q}(t) $ with $ \hat{q}(t) $ as the operator of position and $ %j $ an external source. This will resulting in an unstable vacuum. 
 %In a system with an external current a pure vacuum state can evolve over time into a multi particle state .
 %Starting with 
-the action of a scalar field $ \Phi $ with mass $ m $ coupled to an external source $ j(\underline{x},t) $:
+the action of a scalar field $ \Phi $ with mass $ m=\dfrac{m_{0}c}{\hbar} $ coupled to an external source $ j(\underline{x},t) $\footnote{From now on we will work in natural units and set $ c=\hbar=1 $ }:
 \begin{equation}
 I=\int d^{4}x \ \mathcal{L}(\Phi, \dot{\Phi},j)=
 \int d^{4}x 
@@ -524,7 +524,16 @@ As a consequence one can distinguish between early and late times. For early tim
   ,
    \enskip t\rightarrow -\infty,}
 \end{equation}
-where $ \hat{a}_{\underline{k},in} $ denotes the annihilation operator, whereas $ \hat{a}^{\dagger}_{\underline{k},in} $ is the corresponding creation operator
+where $ \hat{a}_{\underline{k},in} $ denotes the annihilation operator, whereas $ \hat{a}^{\dagger}_{\underline{k},in} $ is the corresponding creation operator. Their commutator is donated by 
+\begin{equation}\label{crea_anni_commutator}
+\left[ 
+\hat{a}_{\underline{k},in}
+,
+\hat{a}^{\dagger}_{\underline{k'},in}
+\right] 
+=\delta_{\underline{k},\underline{k'}}
+.
+\end{equation}
 At late times Eq.\enskip\eqref{eq_for_q} also reduces to a homogeneous type. In this case the asymptotic solution $ \hat{q}_{\underline{k}}(t) \rightarrow \hat{q}_{k,out}(t) $ reads
 \begin{equation}\label{q_Out_operators}
  \textcolor[RGB]{0,0,204}{
@@ -660,10 +669,10 @@ To have a well defined operator $ \hat{\Omega}(t) $  we need conditions for $ \O
 %}
 %\end{equation}
 %%This means 
-The early time condition at $ -\infty $ defines the $ in $ picture in reminiscence to the first asymptotic solution Eq\enskip\eqref{q_In_operators} and it  writes:
+The early time condition at $ t=-\infty $ defines the $ in $ picture in reminiscence to the first asymptotic solution given in Eq\enskip\eqref{q_In_operators} and it  writes:
 \begin{equation}\label{eq:time_evo_Omega_in}
 \textcolor[RGB]{0,0,204}{
-	i\hbar
+	i
 	\frac{\partial}{\partial t}
 	\hat{\Omega}_{in}(t)
 =
@@ -672,12 +681,10 @@ The early time condition at $ -\infty $ defines the $ in $ picture in reminiscen
 	,
 	}
 	\end{equation}
- where the initial condition $	\hat{\Omega}_{in}(-\infty)=1$ has to be fulfilled.
-  
-Contrary to the previous case the operator of the $ out $ picture will satisfy the differential equation:
+ where the initial condition $	\hat{\Omega}_{in}(-\infty)=1$ has to be fulfilled. Contrary to the previous case the operator of the $ out $ picture will satisfy the differential equation:
 \begin{equation}\label{eq:time_evo_Omega_out}
 \textcolor[RGB]{0,0,204}{
-	i\hbar
+	i
 	\frac{\partial}{\partial t}
 	\hat{\Omega}_{out}(t)
 	=
@@ -695,78 +702,133 @@ with $\hat{\Omega}_{out}(+\infty)=1$.
 %	=\Omega_{I}(\infty)
 %	.}
 %\end{equation}
-\section{Scattering operator}
-\subsection{Solutions for the Interaction, in  and out picture}
+\section{Scattering operator}\label{Scattering operator}
+\subsection{Solutions for the Interaction, $ \pmb{in} $  and $ \pmb{out} $ picture}\label{solutions_interaction_in_out}
+In this section we solve the differential equations for the various pictures established in section \ref{Interactionpicture} and \ref{in_out_picture_external_currents}.
 We start with the Interaction picture depended on $ t' $  and integrate the left-hand side of \eqref{eq:time_evo_Omega_interaction} for $ t>0 $:
 \begin{equation}
 \int_{0}^{t}\mathrm{d}t'
- i\hbar 
+ i 
  \frac{\partial}{\partial_{t'}} 
  \Omega_{I} (t')
  =
- i\hbar
+ i
  \left[ 
 \Omega_{I}(t) -1
  \right] 
- .
+ ,
 \end{equation}
-Using this formula and the integral over the right-hand side of \eqref{eq:time_evo_Omega_interaction}, we find an expression for $ \Omega_{I}(t) $.
+where the initial condition $ \Omega_{I}(0)=1 $ has been used.
+With this formula and the integral over the right-hand side of \eqref{eq:time_evo_Omega_interaction}, we find an expression for $ \Omega_{I}(t) $.
 \begin{equation}
 \Omega_{I}(t)=
 1
 -
-\frac{i}{\hbar} 
+i
 \int_{0}^{t}\mathrm{d}t'V_{I}(t')\Omega_{I}(t')	,
 \end{equation}
-since the expression has an $ \Omega_{I} $ on the other side we will go on by an iterative approach.
+since the expression has an $ \Omega_{I}(t) $ on the other side we will go on by an iterative approach.
 \begin{subequations}
 \begin{align}
 \Omega_{I}(t)
 &=
 1
 -
-\frac{i}{\hbar} 
+i 
 \int_{0}^{t}\mathrm{d}t'V_{I}(t')
 \cdot
 \left( 
 1
 -
-\frac{i}{\hbar} 
+i
 \int_{0}^{t'}\mathrm{d}t''V_{I}(t'')\Omega_{I}(t'')
 \right) 
 &\\
 &=
 1
 -
-\frac{i}{\hbar} 
+i
 \int_{0}^{t}\mathrm{d}t'V_{I}(t')
-+(\frac{i}{\hbar})^{2} 
++i^{2} 
 \int_{0}^{t}\mathrm{d}t'
 \int_{0}^{t'}\mathrm{d}t''
 V_{I}(t'')\Omega_{I}(t'').
 \end{align}
 \end{subequations}
-The iteration will lead us by single digit incrementation in the power and number of integrals. An problematic aspect of this series are the different integral borders. Each term introduces a new $ t $ and keeps the previous as an integral boundary which forces us to solve them in a strict order. To keep the different $ t $ as variables over the same integral $ \int_{0}^{t} $, we use the chronological time ordering.
-\begin{equation}\label{eq:chron-time_ordering}
-\textcolor[RGB]{0,0,204}{
-T(V(t_1), V(t_2))=V(t_1)\ V(t_2)\ \theta (t_1 -t_2)\ +\ V(t_2)\  V(t_1) \ \theta (t_2-t_1)
-.}
-\end{equation}
-In chronological time ordering the Heaviside-Step-function is used to set the earlier times to the right and later to the left by checking the difference. The Step-function is $ 0 $ for negative values and $ 1 $ for positive.\footnote{Proofs and elaborations for time ordering are to be found in the Appendices }
-\\
-For convince sake we drop $ \hbar $ again, $ t $ will be labelled with numbers instead of primes and time dependency will be indicated by index : $ V(t_1)\rightarrow V_{1} $.\\
-The solution to $ \Omega_{I}(t) $ written as an infinite sum and time ordered:
-\begin{subequations}
-\begin{align}
-\Omega_{I}(t) &=
+The iteration will lead us by single incrementation in the power but also in the number of integrals. By repeating the operation described above we can write
+\begin{equation}\label{Omega_different_t}
+\Omega_{I}(t) =
 \sum\limits_{n=0}^{\infty} 
 (-i)^{n}
 \int_{0}^{t}\mathrm{d}t_1\int_{0}^{t_{1}}\! \! \mathrm{d}t_2
  \ldots
  \int_{0}^{t_{n-1}}\! \! \mathrm{d}t_n
   V_{I}(t_1)\cdot \ldots \cdot V_{I}(t_n)
-&\\
-&=
+  .
+\end{equation}
+A problematic aspect of this series are the different integral limits. Each term introduces a new $ t_{i} $ and keeps the previous $ t_{i-1} $ as an integral boundary which forces us to solve them in a strict order. 
+%\footnote{Proofs and elaborations for time ordering are to be found in the Appendices }
+\\
+Let us consider the term containing in its integral only two interacting terms. Beginning  with at a regular function in form of:\\
+\begin{equation}\label{regular_function}
+I(t)=
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t_1}\! \! \mathrm{d}t_2
+V(t_1)V(t_2)
+.
+\end{equation}
+The integrals allow us to perform a change of variable and rewrite $I$ as $ I(t) = \dfrac{1}{2} I(t) +\dfrac{1}{2} I(t)$ :\\
+\begin{equation}
+I(t)=
+\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_1\int_{0}^{t_1}\! \! \mathrm{d}t_2
+			V(t_1)V(t_2)
++
+\dfrac{1}{2}
+	\int_{-\infty}^{t}\mathrm{d}t_2\int_{0}^{t_2}\! \! \mathrm{d}t_1
+			V(t_2)V(t_1).
+\end{equation}
+To keep the different $ t $ as variables over the same integral, we use the chronological time ordering.
+\begin{equation}\label{eq:chron-time_ordering}
+\textcolor[RGB]{0,0,204}{
+T(V(t_1), V(t_2))=V(t_1)\ V(t_2)\ \theta (t_1 -t_2)\ +\ V(t_2)\  V(t_1) \ \theta (t_2-t_1)
+.}
+\end{equation}
+In chronological time ordering the Heaviside-Step-function sets the earlier times to the right and later to the left by checking the difference. The Step-function is $ 0 $ for negative values of its argument and $ 1 $ when it becomes positive.
+%We define the \textbf{chronological time ordering}\footnote{
+%earlier times to the right and later times to the left
+%} at this point to equalize the boundaries. \\
+To keep the number of brackets low we denote $ V(t_{1}) \rightarrow V_{1} $ 
+%\begin{equation}\textcolor[RGB]{0,0,204}{
+%T(V_1, V_2)=V_1\ V_2\ \theta (t_1 -t_2)\ +\ V_2\  V_1 \ \theta (t_2-t_1).
+%}
+%\end{equation}
+and use Heaviside-Step-function to rewrite Eq.\enskip\eqref{regular_function}:
+\begin{equation}
+I(t)=\dfrac{1}{2}
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
+V_1\ V_2\ \theta (t_1 -t_2)
++
+\dfrac{1}{2}
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
+\ V_2\  V_1 \ \theta (t_2-t_1)
+,
+\end{equation}
+\begin{equation}
+I(t)=\dfrac{1}{2!}
+\int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
+T(V_1,V_2)
+.
+\end{equation}
+By subtracting $ t_1 $ and $ t_2 $ in the argument of step functions we are able to switch between the later and earlier points in time, since it sets terms to zero for negative arguments. We used
+\textit{for} $ t_1 > t_2  \rightarrow \theta (t_1 -t_2)$ $\thinspace $
+and
+\textit{for} $ t_2 > t_1  \rightarrow \theta (t_2 -t_1)$.\\
+This case of two interactions will be generalized to terms involving $V $ $ n $-times in the appendix \ref{chronological_time}.  
+By labelling $ t $  using numbers instead of primes, the solution to $ \Omega_{I}(t) $ given in Eq.\enskip\eqref{Omega_different_t} can be written in the time-ordered form:
+\begin{equation}
+\Omega_{I}(t)
+=
+  V_{I}(t_1)\cdot \ldots \cdot V_{I}(t_n)
 \sum\limits_{n=0}^{\infty} 
 \frac{(-i)^{n}}{n!}
 \int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
@@ -774,8 +836,7 @@ The solution to $ \Omega_{I}(t) $ written as an infinite sum and time ordered:
  \int_{0}^{t}\! \! \mathrm{d}t_n
  T\left\lbrace V_{I}(t_1), \ldots , V_{I}(t_n)\right\rbrace 
  ,
-\end{align}
-\end{subequations}
+\end{equation}
 observe this expression is a non pertubative result, which can  be written as:
 \begin{equation}\label{eq:Omega_I_Chron_0}
 \textcolor[RGB]{0,0,204}{
@@ -788,11 +849,11 @@ We needed to split the solution of $ \Omega_{I}(t)
  $, since the condition for the picture is not on the limits of the time span. Assuming $ t<0 $ changes the first integral to:
  \begin{equation}
  \int_{t}^{0}\mathrm{d}t'
- i\hbar 
+ i
  \frac{\partial}{\partial_{t'}} 
  \Omega_{I} (t')
  =
- i\hbar
+ i
  \left[ 
 1 -\Omega_{I}(t)
  \right] 
@@ -1765,20 +1826,20 @@ S=
     \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
      	\dfrac{1}{2\omega_{\underline{k}}}
      	\left(
-			\hat{a}_{\underline{k},in} 
-			e^{-i\omega_{\underline{k}}t}
+			\hat{a}^{\dagger}_{\underline{k},in} 
+			e^{i\omega_{\underline{k}}t}
 		\right)    
-    \right)
+    \right)   
 	\\
 &\quad\cdot
-    exp
+ exp
     \left(
        i
     \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t)
      	\dfrac{1}{2\omega_{\underline{k}}}
      	\left(
-			\hat{a}^{\dagger}_{\underline{k},in} 
-			e^{i\omega_{\underline{k}}t}
+			\hat{a}_{\underline{k},in} 
+			e^{-i\omega_{\underline{k}}t}
 		\right)    
     \right)
 	\\
@@ -1797,9 +1858,10 @@ S=
 		\right]    
     \right)	
 	\Biggr]
-	.
+	,
 \end{split}
 \end{equation}
+where the commutation relation given in Eq.\enskip\eqref{crea_anni_commutator} has been used.
 The integral over $ t $ will Fourier transform $ \bar{j_{\underline{k}}}(t) $ into our relativistic notation,
 \begin{equation}
 \begin{split}
@@ -2129,52 +2191,7 @@ This confirms our statement about an unstable vacuum. The negative sign in the e
 % .}
 %\end{equation}
 %This confirms our statement about an unstable vacuum. The negative sign in the exponent translates to smaller probability at higher external currents. So the vacuum can change it's state if a current is $ >0 $.
-\subsection{Chronological time ordering}
-Let's begin with at a regular function in form of:\\
-\begin{equation}\label{regular_function}
-I(t)=
-\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
-V(t_1)V(t_2)
-\end{equation}
-\\
-We see that although the the right hand side has functions of $t_2$ and $t_1$ the left hand side  doesn't. The integrals allow us to perform a change of variable and rewrite $I$ as $ I(t) = \dfrac{1}{2} I(t) +\dfrac{1}{2} I(t)$ :\\
-\begin{equation}
-I(t)=
-\dfrac{1}{2}
-	\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_1}\! \! \mathrm{d}t_2
-			V(t_1)V(t_2)
-+
-\dfrac{1}{2}
-	\int_{-\infty}^{t}\mathrm{d}t_2\int_{-\infty}^{t_2}\! \! \mathrm{d}t_1
-			V(t_2)V(t_1).
-\end{equation}
-We define the \textbf{chronological time ordering}\footnote{
-earlier times to the right and later times to the left
-} at this point to equalize the boundaries. \\
-Note $ V(t_{1}) \rightarrow V_{1} $:
-\begin{equation}\textcolor[RGB]{0,0,204}{
-T(V_1, V_2)=V_1\ V_2\ \theta (t_1 -t_2)\ +\ V_2\  V_1 \ \theta (t_2-t_1).
-}
-\end{equation}
-Being based on the Heaviside step-function it allows us to write the Eq.\enskip\eqref{regular_function} as:
-\begin{equation}
-I(t)=\dfrac{1}{2}
-\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
-V_1\ V_2\ \theta (t_1 -t_2)
-+
-\dfrac{1}{2}
-\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
-\ V_2\  V_1 \ \theta (t_2-t_1)
-\end{equation}
-\begin{equation}
-I(t)=\dfrac{1}{2!}
-\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
-T(V_1,V_2)
-\end{equation}
-The Heaviside function allows us to set terms to zero for negative arguments of $ \theta $ and 1 for positive. By subtracting $ t_1 $ and $ t_2 $ we will be able to switch between the later and earlier points in time. \\
-\textit{for} $ t_1 > t_2  \rightarrow \theta (t_1 -t_2)$ $\thinspace $
-and
-\textit{for} $ t_2 > t_1  \rightarrow \theta (t_2 -t_1)$\\
+\subsection{Chronological time ordering}\label{chronological_time}
 To expand our concept to cases of more then  two $  t $ we start by advancing $ T $.
 In general it consists of a summation of all permutations P of a given set multiplied by Heaviside functions. These Heaviside functions have arguments with the negative summation of the t in the same permutation P.\\
 Definition:
@@ -2297,7 +2314,7 @@ T(V_1, V_2)=T(V_2, V_1)
 }
 \end{equation}
 In other words, the commutation relations say whether the subtraction of permutations of elements is zero or not. But in time ordering all permutations appear, we can rearrange the terms so subtraction of equal permutations happens. Therefore commutation in $ T $ holds.
-\subsection{Anti-chronological time ordering}
+\subsection{Anti-chronological time ordering}\label{anti_chronological_time}
 On a close inspection of the introduction of the Heaviside-function and its' insertion into the integral, we actually skipped a choice. If we just would have wanted to the overall boundaries the order of $ t_1 $ and $ t_2 $ in relation to $ V_1 $ and $ V_2 $ the insertion of $  \theta$  could have been switched. This secretly led us to the definition of time-ordering or chronological time ordering as it is called more precisely. The other path would have resulted in anti-chronological time ordering:\footnote{
 earlier times to the left and later times to the right
 }

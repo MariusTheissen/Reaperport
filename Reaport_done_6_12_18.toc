@@ -1,0 +1,16 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Pictures in Quantum Mechanics }{2}
+\contentsline {subsection}{\numberline {2.1}Schr\IeC {\"o}dinger picture and Heisenberg picture}{2}
+\contentsline {subsection}{\numberline {2.2}Interaction picture}{4}
+\contentsline {subsection}{\numberline {2.3}The $ \pmb {in} $ and $ \pmb {out}$ picture: External currents}{5}
+\contentsline {section}{\numberline {3}Scattering operator}{9}
+\contentsline {subsection}{\numberline {3.1}Solutions for the Interaction, $ \pmb {in} $ and $ \pmb {out} $ picture}{9}
+\contentsline {subsection}{\numberline {3.2}Connections}{13}
+\contentsline {section}{\numberline {4}Gell-Mann Low formula}{16}
+\contentsline {subsection}{\numberline {4.1}Vacuum expectation value}{19}
+\contentsline {section}{\numberline {5}Conclusion}{20}
+\contentsline {subsection}{\numberline {5.A}Chronological time ordering}{21}
+\contentsline {subsection}{\numberline {5.B}Anti-chronological time ordering}{23}
+\contentsline {subsection}{\numberline {5.C}Vacuum transition probability under external current}{24}
+\contentsline {subsection}{\numberline {5.D}Unitarity of S}{26}

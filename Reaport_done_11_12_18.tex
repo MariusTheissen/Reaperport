@@ -69,7 +69,15 @@ with $ \hat{U}(t-t_{0}) = e^{-\frac{i}{\hbar}\hat{H}(t-t_{0})} $ the time evolut
 i\hbar\partial_{t}\hat{U}(t-t_{0})=\hat{H}\hat{U}(t-t_{0})
 . 
 \end{equation}
- Here $ \ket{\Psi_{S}(t_0)} $ is a ket of $ t=t_{0} $. We shall generally take $ t_{0}=0 $ and write
+Under the general assumption of the Hamiltonian being hermitian $ \hat{U}(t-t_{0}) $  is also an unitary operator, meaning:
+\begin{equation}\label{Unitary_U}
+\begin{split}
+&\hat{U}(t-t_{0}) \times \hat{U}^{\dagger}(t-t_{0}) = e^{-\frac{i}{\hbar}\hat{H}(t-t_{0})} e^{\frac{i}{\hbar}\hat{H}(t-t_{0})}=1
+\\
+&=\hat{U}(t-t_{0}) \times \hat{U}^{-1}(t-t_{0})
+\end{split}
+\end{equation}
+ Going back to Eq.\enskip\eqref{eq:time_ev_op_schr} we see $ \ket{\Psi_{S}(t_0)} $ is a ket of $ t=t_{0} $. We shall generally take $ t_{0}=0 $ and write
 \begin{equation}\label{eq:phi_s_and_phi_h}
 \textcolor[RGB]{0,0,204}{
 \ket{\Psi_{S}(t)} 
@@ -174,10 +182,10 @@ Inserting this decomposition of $ \hat{H} $ in the unitary operator introduced b
 =e^{-\frac{i}{\hbar}t\left(  \hat{H}_{0}+V\right) }
 =
 e^{-\frac{i}{\hbar}t \hat{H_{0}}}
-\hat{\Omega} (t)
+\hat{\Omega}_{I} (t)
 }
 \end{equation}
-This expression helps us to establish a formula from which operators and states in the interaction picture can be defined. For this, consider a matrix element $ 	\bra{\Psi_{S}^{\prime}(t)}
+This expression helps us to establish a formula from which operators and states in the interaction picture can be defined\footnote{By substituting Eq.\enskip\eqref{eq:omega_and_U} in Eq.\enskip\eqref{Unitary_U} one can see directly that $ \Omega_{I}(t) $ is also unitary}. For this, consider a matrix element $ 	\bra{\Psi_{S}^{\prime}(t)}
 	\hat{A}_{S}
 	\ket{\Psi_{S}(t)} $. Taking into account Eq.\enskip\eqref{eq:phi_s_and_phi_h} and \eqref{eq:omega_and_U} we find
 %\begin{align}\label{eq:matrix_ele_for_interaction}
@@ -188,10 +196,10 @@ This expression helps us to establish a formula from which operators and states 
 %	=
 %	\bra{\Psi^{\prime}}
 %	(e^{-\frac{i}{\hbar}t \hat{H_{0}}}	
-%	\Omega (t))^{\dagger}
+%	\Omega_{I} (t))^{\dagger}
 %	\hat{A}_{S}
 %	e^{-\frac{i}{\hbar}t \hat{H_{0}}}
-%	\Omega (t)
+%	\Omega_{I} (t)
 %	\ket{\Psi}
 %}
 %\end{align}
@@ -203,23 +211,23 @@ This expression helps us to establish a formula from which operators and states 
 	\ket{\Psi_{S}(t)}
   		&= 	\bra{\Psi_{H}^{\prime}}
 			(e^{-\frac{i}{\hbar}t \hat{H_{0}}}	
-			\Omega (t))^{\dagger}
+			\Omega_{I} (t))^{\dagger}
 			\hat{A}_{S}
 			e^{-\frac{i}{\hbar}t \hat{H_{0}}}
-			\Omega (t)
+			\Omega_{I} (t)
 			\ket{\Psi_{H}}
   		\\
   		&= \bra{\Psi^{\prime}_{H}}
-  			\Omega(t)^{-1}
+  			\Omega_{I}(t)^{-1}
 			\hat{A}_{I}(t)
-			\Omega (t)
+			\Omega_{I} (t)
 			\ket{\Psi_{H}}
 %  		\\
 %  		&\underset{\mathrm{def.picture}}{=}
 %  			\bra{\Psi^{\prime}_{H}}
-%  			\Omega(t)^{-1}
+%  			\Omega_{I}(t)^{-1}
 %			\hat{A}_{I}
-%			\Omega (t)
+%			\Omega_{I} (t)
 %			\ket{\Psi_{H}}  
 %		\\
 %		&=	
@@ -245,7 +253,7 @@ whereas a corresponding state in this picture is
 \begin{equation}\label{eq:state_interac_schrodinger}
 \textcolor[RGB]{0,0,204}{
 	\ket{\Psi_{I}(t)}
-	=\Omega (t)
+	=\Omega_{I} (t)
 			\ket{\Psi_{H}}
 		.
 }
@@ -277,9 +285,9 @@ ending with
 \textcolor[RGB]{0,0,204}{
 	\hat{A}_{I}(t)
 	=
-	\hat{\Omega}(t)
+	\hat{\Omega}_{I}(t)
 	\hat{A}_{H}(t)
-	\hat{\Omega}(t)^{-1}
+	\hat{\Omega}_{I}(t)^{-1}
 	.
 }
 \end{equation}
@@ -297,12 +305,12 @@ The time evolution equation for $ 	\hat{A}_{I}(t) $ can be found as done for $ \
 	\right] .
 }
 \end{equation}
-Furthermore, an equation for $ \hat{\Omega}(t) $ can be determined. To this end we invert Eq.\enskip\eqref{eq:omega_and_U} and express $  \hat{\Omega}(t) 
+Furthermore, an equation for $ \hat{\Omega}_{I}(t) $ can be determined. To this end we invert Eq.\enskip\eqref{eq:omega_and_U} and express $  \hat{\Omega}_{I}(t) 
   		= e^{\frac{i}{\hbar}t \hat{H_{0}}}
 			\hat{U}(t)  $ . Afterwards we differentiate with respect to times: 
 \begin{subequations}
 \begin{align}
-  		i\hbar\partial_{t}\hat{\Omega}(t) 
+  		i\hbar\partial_{t}\hat{\Omega}_{I}(t) 
   		 &= 
   		 e^{\frac{i}{\hbar}t\hat{H_{0}}}
   		 \left(i\hbar\partial_{t}\hat{U}(t) \right)
@@ -321,20 +329,20 @@ Furthermore, an equation for $ \hat{\Omega}(t) $ can be determined. To this end 
   		 \hat{U}(t),
 \end{align}
 \end{subequations}
-where Eq.\enskip\eqref{evo_U_1} has been used. Using the definition of $ \hat{\Omega}(t) $ we end up with
+where Eq.\enskip\eqref{evo_U_1} has been used. Using the definition of $ \hat{\Omega}_{I}(t) $ we end up with
 \begin{equation}\label{eq:time_evo_Omega_interaction}
 \textcolor[RGB]{0,0,204}{
 	i\hbar
 	\frac{\partial}{\partial t}
-	\hat{\Omega}(t)
+	\hat{\Omega}_{I}(t)
 	=
 	\hat{V}_{I}(t)
-	\hat{\Omega}(t)
+	\hat{\Omega}_{I}(t)
 .}
 \end{equation}
-%requiring $ \hat{\Omega}(0)=1 $.
-%With he boundary condition a well defined solution can be found. It stems from the condition on the time evolution operator $ U(t-t_0) $. It needed to fulfill $ U(t_0-t_0)=1 $. Since we set $ t_0 =0 $ $ \Omega $ needed this form to not collide with any equations retroactively.
-To find a well defined solution, an initial condition is needed. In Eq.\enskip\eqref{eq:omega_and_U} we see that at $ t=0 $, the time evolution operator reduces to $ U(0)=1 $, and from this the following condition $ \Omega(0) = 1 $ arises.
+%requiring $ \hat{\Omega}_{I}(0)=1 $.
+%With he boundary condition a well defined solution can be found. It stems from the condition on the time evolution operator $ U(t-t_0) $. It needed to fulfill $ U(t_0-t_0)=1 $. Since we set $ t_0 =0 $ $ \Omega_{I} $ needed this form to not collide with any equations retroactively.
+To find a well defined solution, an initial condition is needed. In Eq.\enskip\eqref{eq:omega_and_U} we see that at $ t=0 $, the time evolution operator reduces to $ U(0)=1 $, and from this the following condition $ \Omega_{I}(0) = 1 $ arises.
 We remark that $ V_{I}(t) $ in the Interaction picture as introduced above does not require $ V $ to be of any specific form but can still be applied in presence of external sources. 
 %Additionally we can derive a differential equation for $ \hat{U}(t) $
 %\begin{subequations}
@@ -342,14 +350,14 @@ We remark that $ V_{I}(t) $ in the Interaction picture as introduced above does 
 %	i\hbar
 %	\partial_{t}
 %	(e^{-\frac{i}{\hbar}tH_{0}}
-%	\Omega(t))
+%	\Omega_{I}(t))
 %		&=
-%		i\hbar(-\frac{i}{\hbar}H_{0}) e^{-\frac{i}{\hbar}tH^{0}} \Omega(t)
+%		i\hbar(-\frac{i}{\hbar}H_{0}) e^{-\frac{i}{\hbar}tH^{0}} \Omega_{I}(t)
 %		+
-%		i\hbar e^{-\frac{i}{\hbar}tH_{0}} \partial_{t} \Omega(t)
+%		i\hbar e^{-\frac{i}{\hbar}tH_{0}} \partial_{t} \Omega_{I}(t)
 %		\\
 %			i\hbar \partial_{t} U
-%			&=H_{0}U+i\hbar e^{-\frac{i}{\hbar}tH_{0}}\partial_{t}\Omega(t).
+%			&=H_{0}U+i\hbar e^{-\frac{i}{\hbar}tH_{0}}\partial_{t}\Omega_{I}(t).
 %\end{align}
 %\end{subequations}
 \subsection{The $ \pmb{in} $ and $ \pmb{out}$ picture: External currents}\label{in_out_picture_external_currents}
@@ -628,7 +636,7 @@ We split the Hamiltonian as done there: $ \hat{H}= \hat{H_0} +\hat{V} $.
 j\hat{\Phi}
 .
 \end{equation}
-Expressing both field operators in terms of the Fourier basis given in \eqref{box_quanta}, and using the orthonormality relation Eq.\enskip\eqref{ortho_relation}, as well as the reality condition of the field for $ \hat{q}_{\underline{-k}}(t)=\hat{q}^{\star}_{\underline{k}}(t) $ we can express the Hamiltonian as follows:
+Expressing both field operators in terms of the Fourier basis given in \eqref{box_quanta}, and using the orthonormality relation Eq.\enskip\eqref{ortho_relation}, as well as the reality condition of the field for $ \hat{q}_{-\underline{k}}(t)=\hat{q}^{\star}_{\underline{k}}(t) $ we can express the Hamiltonian as follows:
 \begin{equation}
 \hat{H}_{0}({q},\dot{{q}})=
 \sum_{\underline{k}}
@@ -652,11 +660,11 @@ From this form we go to the Interaction picture. In the present context, the pot
 where we used Eq.\enskip\eqref{eq:operator_interac_heisenberg} to transform $ \hat{q}_{\underline{k}}(t) $ into the Interaction picture
 \begin{equation}
 \hat{q}_{\underline{k}_{I}}(t)=
-\hat{\Omega}(t)
+\hat{\Omega}_{I}(t)
 \hat{q}_{\underline{k}}(t)
-\hat{\Omega}^{-1}(t).
+\hat{\Omega}_{I}^{-1}(t).
 \end{equation}
-To have a well defined operator $ \hat{\Omega}(t) $  we need conditions for $ \Omega \rightarrow 1 $ as stated for the Interaction picture in Eq.\enskip\eqref{eq:time_evo_Omega_interaction} which is at the moment mostly depended on the current $ j $.
+To have a well defined operator $ \hat{\Omega}_{I}(t) $  we need conditions for any $ \Omega $ so that $\Omega \rightarrow 1 $ as stated for the Interaction picture in Eq.\enskip\eqref{eq:time_evo_Omega_interaction} which is at the moment mostly depended on the current $ j $.
 %
 %
 %
@@ -665,7 +673,7 @@ To have a well defined operator $ \hat{\Omega}(t) $  we need conditions for $ \O
 %The effect of these conditions on Eq.\enskip\eqref{eq:time_evo_Omega_interaction} leads to 
 %\begin{equation}
 %\textcolor[RGB]{0,0,204}{
-%\Omega(\pm \infty) \rightarrow 1
+%\Omega_{I}(\pm \infty) \rightarrow 1
 %}
 %\end{equation}
 %%This means 
@@ -772,8 +780,7 @@ A problematic aspect of this series are the different integral limits. Each term
 To circumvent this formal aspect we will perform some additional operations.
 Let us consider the term  from  Eq.\enskip\eqref{Omega_different_t} containing the product of two interactions :
 \begin{equation}\label{regular_function}
-I(t)=\\
-
+I(t)=
 \int_{0}^{t}\mathrm{d}t_1\int_{0}^{t_1}\! \! \mathrm{d}t_2
 \hat{V}_{I}(t_1)\hat{V}(t_2)
 .
@@ -806,14 +813,8 @@ The chronological time ordering sets operators depending of earlier times to the
 By subtracting $ t_1 $ and $ t_2 $ in the argument of the step functions we are able to switch between the two terms in Eq.\enskip\eqref{I_by_adding} and extending the integral limits to $ t $, since it sets terms to zero for negative arguments. Therefore no change appears in the result of the integral by extending the limit. We used
 for $ t_1 > t_2  \rightarrow \theta (t_1 -t_2)$ $\thinspace $
 and
-for $ t_2 > t_1  \rightarrow \theta (t_2 -t_1)$.
-
-
-%\begin{equation}\textcolor[RGB]{0,0,204}{
-%T(\hat{V}_1, \hat{V}_2)=\hat{V}_1\ \hat{V}_2\ \theta (t_1 -t_2)\ +\ \hat{V}_2\  \hat{V}_1 \ \theta (t_2-t_1).
-%}
-%\end{equation}
-and rewrite Eq.\enskip\eqref{I_by_adding}:
+for $ t_2 > t_1  \rightarrow \theta (t_2 -t_1)$. 
+By applying Eq.\enskip\eqref{eq:chron-time_ordering} at Eq.\enskip\eqref{I_by_adding}, we find the desired notation:
 \begin{equation}
 I(t)=\dfrac{1}{2}
 \int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
@@ -963,11 +964,11 @@ Extending this to the eigenstates we need a new piece in our repertoire. It is c
 \begin{equation}
 \ket{in}=S\ket{out}.
 \end{equation}
-Referring to the case of two vacua, the scalar product can be written as:
-\begin{equation}
-\braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
-\end{equation}
-Being able to describe our system over asymptotic long time spans we can work out whether it always stays in a state with no particle. This is a question of stability and is answered in appendix \ref{Vacuum_transition}. 
+%Referring to the case of two vacua, the scalar product can be written as:
+%\begin{equation}
+%\braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
+%\end{equation}
+%Being able to describe our system over asymptotic long time spans we can work out whether it always stays in a state with no particle. This is a question of stability and is answered in appendix \ref{Vacuum_transition}. 
 
 Now we need expressions for $ S $. Using the different unitary operators we can proof:
 \begin{subequations}\label{S_defi}
@@ -992,7 +993,7 @@ S=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} 
 \right]^{-1}	
 	.
 \end{equation}
-As an unitar operator $ \hat{\Omega}_{out}(t)^{-1}=\hat{\Omega}_{out}(t)^{\dagger} $, therefore:
+As stated under Eq.\enskip\eqref{eq:omega_and_U} $ \hat{\Omega}_{I}(t) $ is unitary. Since we established in section\ref{solutions_interaction_in_out} $ \hat{\Omega}_{in}(t) $ and $ \hat{\Omega}_{out}(t) $ mainly differ in the integral limits, this property carries over. So $ \hat{\Omega}_{out}(t)^{-1}=\hat{\Omega}_{out}(t)^{\dagger} $, therefore:
 \begin{equation}
 S=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} \right)
 	\cdot
@@ -1001,7 +1002,15 @@ S=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} 
 \right]^{\dagger}
 	.
 \end{equation}
-The hermitian conjugation of anti-chronological time ordering operators turns it into the chronological time ordering of same operators, as long as they are hermitian. Noted that this can be seen immediately by hermitian conjugate Eq.\enskip\eqref{eq:anti-chron-time_ordering}. The operators switch position but the Heaviside-step-functions are unchanged which gives directly the definition in Eq.\enskip\eqref{eq:chron-time_ordering}.
+The hermitian conjugation of anti-chronological time ordering operators turns it into the chronological time ordering of same operators, as long as they are hermitian. Noted that this can be seen immediately by hermitian conjugate Eq.\enskip\eqref{eq:anti-chron-time_ordering}
+\begin{equation}
+\left[
+\bar{T}(\hat{V}(t_{n})\ldots\hat{V}(t_{1}))
+\right]^{\dagger}
+=T(\hat{V}(t_{1})\ldots\hat{V}(t_{n}))
+,
+\end{equation}
+observe that the operators' positions are switched. Yet the Heaviside-step-functions are unchanged which gives directly the definition in Eq.\enskip\eqref{eq:chron-time_ordering}.
 \begin{equation}
 S=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} \right)
 	\cdot
@@ -1023,8 +1032,8 @@ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})
 -i\int_{t}^{\infty}\mathrm{d}t^{\prime \prime} \hat{V}_{out}(t^{\prime \prime})
 }
 \right)
-.
 \end{equation}
+\\
 %\begin{subequations}
 %\begin{align}
 %  S
@@ -1044,6 +1053,7 @@ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})
 %	 } \right).
 %\end{align}
 %\end{subequations}
+
 We see the overlap makes $ S $ time-independent. Therefore $ t $  is set to  $ \infty $:
 \begin{equation}\label{eq:S_equal_in_infty}
 S=T\left( e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})
@@ -1488,76 +1498,7 @@ $ t_{1} $  to $ t_n $ wouldn't change the result
 \rightarrow T(S^{-1} \ldots)=S^{-1} T(\ldots)
 \]
 %%
-\subsection{Vacuum expectation value} 
-The Gell-Mann Low formula Eq.\enskip\eqref{Gell-Mann_Low_formula} plays a central role in many perturbative or non-perturbative calculations. In particular by evaluating it sandwiched between eigenstates to rising and lowering operators in the In- and Out-picture. If they are in the groundstate of the theory aka. the vacuum state, we obtain the vacuum expectation value.
-\begin{subequations}
-\begin{align}
-\bra{0_{out}}
 %
-T
-\left(
-Q_{H}(t_1)
-Q_{H}(t_2)
-\ldots
-\right)
-%
-\ket{0_{in}}=
-\\
-=
-\bra{0_{out}}
-S^{-1}
-T\left( 
-Q_{in}(t_{1})
-Q_{in}(t_{2})
-\ldots
-S
-\right)
-\ket{0_{in}}
-\\
-=
-\bra{0_{out}}
-S^{-1}
-T\left( 
-Q_{in}(t_{1})
-Q_{in}(t_{2})
-\ldots
-e^{-i\int^{\infty}_{-\infty}dt'\hat{V}_{in}(t')}
-\right)
-\ket{0_{in}}
-\end{align}
-\end{subequations}%%
-This average (expectation value) of a product of $ n $ operators is called the $ n $-point correlation function. For example, using Wick's theorem and expansions in powers of $ \hat{V}_{in}(Q_{in}(t),t) $ , we can gain knowledge about processes that involves in total $ n $ excitations of the ground state (or vacuum) in both asymptotic states. This is the core element to be studied in high energy physics and nuclear physics.\\
-%At this point one can be in two situations. The ground state can be either stable or unstable. Over time it could spontaneously go into a state of excitation. Mathematically speaking instability leads to :
-%\begin{equation}\textcolor[RGB]{0,0,204}{
-%\braket{0_{out}|0_{in}}
-%\neq
-%1.
-%}
-%\end{equation}
-%Here of course already normalized states. This possibility for excitations stem from external sources and therefore external currents. A stable state would lead to:
-%\begin{equation}\textcolor[RGB]{0,0,204}{
-%\bra{0_{out}}
-%S^{-1}
-%=
-%\bra{0_{in}}
-%}
-%\end{equation}
-%An asymptotic state would go over time into a asymptotic state of same excitation.
-%
-%
-% 
-%\subsection{Gell-Mann Low formula for Out and Interaction picture}
-%%%
-%We can derive equivalent representations of the Gell-Mann Low formula. First for the Out-picture and its unitary transformation similar to the In.
-%\begin{subequations}
-%\begin{align}
-%Q_{H}(t)
-%=
-%\hat{\Omega}_{out}(t)^{-1}
-%Q_{out}(t)
-%\hat{\Omega}_{out}(t)
-%\end{align}
-%\end{subequations}
 \newpage
 \section{Conclusion}
 In this report we have presented a set of fundamental concepts and methods. These are essential for starting to study Quantum field theory. We began with well-known pictures from quantum mechanics and introduced the In and Out picture as consequences of working with asymptotic states. They lead us to the important connecting element between the pictures, the scattering operator. The connections allowed us to derive the Gell-Mann Low formula, which plays a major part in the second quantisation process one would do in quantum field theories. 
@@ -1782,16 +1723,8 @@ Now we assume our total Hamiltonian $ \hat{H}=\hat{H}_0 + \hat{\hat{V}} $ is her
 \end{flalign}
 \end{subequations}
 %
-\subsection{Vacuum transition probability under external current}\label{Vacuum_transition}
-The applications stated in section \ref{Connections} require the operator $ S $ to be of the form
-\begin{equation}
-\begin{split}
-&S=e^{i\Lambda}\\
-&S^{\dagger}=e^{-i\Lambda^{\dagger}}
-\end{split}
-,
-\end{equation}
-since $ S=S^{\dagger} $ should hold $ \rightarrow $ $ \Lambda =-\Lambda^{\dagger} $. We choose for $ \Lambda $ the chronological time-ordered sum $ \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $.\\
+\subsection{Wick theorem and vacuum stability}\label{Vacuum_transition}
+The Wick theorem as a means to evaluate correlation functions, can be established by further investigating $ S $. We choose $ \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $ in the chronological time-ordered exponential function of $ S $ and using expressions found in section\enskip\ref{in_out_picture_external_currents}.\\
 Explicitly,
 \begin{subequations}
 \begin{align}
@@ -1948,12 +1881,12 @@ S=&
 	.
 \end{split}
 \end{equation}
-For the operators we can write:
-\begin{equation}
-S^{-1}\hat{a}_{\underline{k},in}S=\hat{a}_{\underline{k},Out}=\hat{a}_{\underline{k},in} +i\ \bar{j_{\underline{k}}}(\omega_{\underline{k}})
-\end{equation}
-%
-%
+%For the operators we can write:
+%\begin{equation}
+%S^{-1}\hat{a}_{\underline{k},in}S=\hat{a}_{\underline{k},Out}=\hat{a}_{\underline{k},in} +i\ \bar{j_{\underline{k}}}(\omega_{\underline{k}})
+%\end{equation}
+%%
+%%
 Using this, we obtain first of all the probability for staying in the ground state for one mode:
 \begin{subequations}
 \begin{align}
@@ -2576,5 +2509,75 @@ W.Greiner;J.Reinhart.
 %\end{equation}
 %%%
 %%
+%\subsection{Vacuum expectation value} 
+%The Gell-Mann Low formula Eq.\enskip\eqref{Gell-Mann_Low_formula} plays a central role in many perturbative or non-perturbative calculations. In particular by evaluating it sandwiched between eigenstates to rising and lowering operators in the In- and Out-picture. If they are in the groundstate of the theory aka. the vacuum state, we obtain the vacuum expectation value.
+%\begin{subequations}
+%\begin{align}
+%\bra{0_{out}}
+%%
+%T
+%\left(
+%Q_{H}(t_1)
+%Q_{H}(t_2)
+%\ldots
+%\right)
+%%
+%\ket{0_{in}}=
+%\\
+%=
+%\bra{0_{out}}
+%S^{-1}
+%T\left( 
+%Q_{in}(t_{1})
+%Q_{in}(t_{2})
+%\ldots
+%S
+%\right)
+%\ket{0_{in}}
+%\\
+%=
+%\bra{0_{out}}
+%S^{-1}
+%T\left( 
+%Q_{in}(t_{1})
+%Q_{in}(t_{2})
+%\ldots
+%e^{-i\int^{\infty}_{-\infty}dt'\hat{V}_{in}(t')}
+%\right)
+%\ket{0_{in}}
+%\end{align}
+%\end{subequations}%%
+%This average (expectation value) of a product of $ n $ operators is called the $ n $-point correlation function. For example, using Wick's theorem and expansions in powers of $ \hat{V}_{in}(Q_{in}(t),t) $ , we can gain knowledge about processes that involves in total $ n $ excitations of the ground state (or vacuum) in both asymptotic states. This is the core element to be studied in high energy physics and nuclear physics.\\
+%%At this point one can be in two situations. The ground state can be either stable or unstable. Over time it could spontaneously go into a state of excitation. Mathematically speaking instability leads to :
+%%\begin{equation}\textcolor[RGB]{0,0,204}{
+%%\braket{0_{out}|0_{in}}
+%%\neq
+%%1.
+%%}
+%%\end{equation}
+%%Here of course already normalized states. This possibility for excitations stem from external sources and therefore external currents. A stable state would lead to:
+%%\begin{equation}\textcolor[RGB]{0,0,204}{
+%%\bra{0_{out}}
+%%S^{-1}
+%%=
+%%\bra{0_{in}}
+%%}
+%%\end{equation}
+%%An asymptotic state would go over time into a asymptotic state of same excitation.
+%%
+%%
+%% 
+%%\subsection{Gell-Mann Low formula for Out and Interaction picture}
+%%%%
+%%We can derive equivalent representations of the Gell-Mann Low formula. First for the Out-picture and its unitary transformation similar to the In.
+%%\begin{subequations}
+%%\begin{align}
+%%Q_{H}(t)
+%%=
+%%\hat{\Omega}_{out}(t)^{-1}
+%%Q_{out}(t)
+%%\hat{\Omega}_{out}(t)
+%%\end{align}
+%%\end{subequations}
 %\\
 \end{document}

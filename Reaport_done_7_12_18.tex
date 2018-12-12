@@ -961,11 +961,11 @@ Extending this to the eigenstates we need a new piece in our repertoire. It is c
 \begin{equation}
 \ket{in}=S\ket{out}.
 \end{equation}
-Referring to the case of two vacua, the scalar product can be written as:
-\begin{equation}
-\braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
-\end{equation}
-Being able to describe our system over asymptotic long time spans we can work out whether it always stays in a state with no particle. This is a question of stability and is answered in appendix \ref{Vacuum_transition}. 
+%Referring to the case of two vacua, the scalar product can be written as:
+%\begin{equation}
+%\braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
+%\end{equation}
+%Being able to describe our system over asymptotic long time spans we can work out whether it always stays in a state with no particle. This is a question of stability and is answered in appendix \ref{Vacuum_transition}. 
 
 Now we need expressions for $ S $. Using the different unitary operators we can proof:
 \begin{subequations}\label{S_defi}
@@ -999,7 +999,15 @@ S=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} 
 \right]^{\dagger}
 	.
 \end{equation}
-The hermitian conjugation of anti-chronological time ordering operators turns it into the chronological time ordering of same operators, as long as they are hermitian. Noted that this can be seen immediately by hermitian conjugate Eq.\enskip\eqref{eq:anti-chron-time_ordering}. The operators switch position but the Heaviside-step-functions are unchanged which gives directly the definition in Eq.\enskip\eqref{eq:chron-time_ordering}.
+The hermitian conjugation of anti-chronological time ordering operators turns it into the chronological time ordering of same operators, as long as they are hermitian. Noted that this can be seen immediately by hermitian conjugate Eq.\enskip\eqref{eq:anti-chron-time_ordering}
+\begin{equation}
+\left[
+\bar{T}(\hat{V}(t_{n})\ldots\hat{V}(t_{1}))
+\right]^{\dagger}
+=T(\hat{V}(t_{1})\ldots\hat{V}(t_{n}))
+,
+\end{equation}
+observe that the operators' positions are switched. Yet the Heaviside-step-functions are unchanged which gives directly the definition in Eq.\enskip\eqref{eq:chron-time_ordering}.
 \begin{equation}
 S=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} \right)
 	\cdot

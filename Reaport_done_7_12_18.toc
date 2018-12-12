@@ -1,4 +1,4 @@
-\select@language {english}
+\babel@toc {english}{}
 \contentsline {section}{\numberline {1}Introduction}{2}
 \contentsline {section}{\numberline {2}Pictures in Quantum Mechanics }{2}
 \contentsline {subsection}{\numberline {2.1}Schr\IeC {\"o}dinger picture and Heisenberg picture}{2}

@@ -1,0 +1,520 @@
+
+%Now we will apply a second Fourier transformation in respect to $ t $. The commutation between $ \underline{k},\underline{x},t,E $ ensures no problem to do these transformations separate and we move the $ \underline{k} $ dependence to a index notation.
+%\begin{equation}
+%\bar{j_{\underline{k}}}(E)= \int^{\infty}_{-\infty}dt \tilde{j_{\underline{k}}}(t) e^{iEt}.
+%\end{equation}
+%The wave vector $ \underline{k} $ and the energy written in terms of the angular frequency $ \omega_{k} $ together form the relativistic  four-wave-vector $ k^{\mu}=(\omega_{\underline{k}},k_x,k_y,k_z) $ or just $ k $ . This gives us the notation $ \bar{j_{\underline{k}}}(\omega_k)=j_k $.
+
+%The Green's function solves these partial differential equation for delta functions instead of currents $ j $.
+%\begin{equation}
+%\left(
+%\partial^{2}+m^{2}
+% \right)G(x-y)
+% =-i\delta^{4}(x-y).
+%\end{equation}
+%This specific Green's function is called the scalar propagator $ \Delta_{f} (x-y)$.
+%From this we can derive the general solution to Eq.\enskip\eqref{motion_scalar}
+%\begin{equation}
+%\Phi(x)=\Phi^{0}(x)+ \int d^{4}y \Delta_{f} (x-y)j(y),
+%\end{equation}
+%where $ \Phi^{0}(x) $ is the solution for the free equation without j. The precise form of the propagator depends on boundary conditions. Here we assume that the current $ j $ has been switched on adiabatically on a finite time interval. This assumption allows us to denote $ \Phi^{0}(x) $ with a vanishing for $ j $ at early times, giving us the $ in $ picture and reducing the full solution $ \Delta_{F} $ to only allow propagation forward in time. This is called the retarded Propagator:
+%\begin{equation}
+%\Delta_{ret}(x-x')=\int \dfrac{d^{4}k}{(2\pi)^{4}}\frac{i}{k^{2}-m^{2}+i\varepsilon}
+%e^{-ik(x-x')}.
+%\end{equation}
+%This used we write:
+%\begin{equation}
+%\Phi(x)=\Phi_{in}(x)+ \int d^{4}y \Delta_{ret} (x-y)j(y),
+%\end{equation}
+%%
+%Going for the late times, we define the $ out $ picture and the advanced Propagator, which only allows for negative time differences:
+%\begin{equation}
+%\Phi(x)=\Phi_{out}(x)+ \int d^{4}y \Delta_{adv} (x-y)j(y).
+%\end{equation}
+%Combining both will state a connection between both pictures.
+%\begin{equation}
+%\Phi_{out}(x)=\Phi_{in}(x)+\int d^{4}y\left[ \Delta_{ret}(x-y) -\Delta_{adv} (x-y)\right] j(y)
+%\end{equation}
+%
+%
+%Beginning with the In picture and Eq.\enskip\eqref{eq:time_evo_Omega_in} we reach:
+%\begin{subequations}
+%\begin{align}
+%\int_{t_{0}}^{t}\mathrm{d}t'
+% i\hbar 
+% \frac{\partial}{\partial_{t'}} 
+% \Omega_{in} (t')
+% =
+% i\hbar
+% \left[ 
+%\Omega_{I}(in) -\Omega_{in}(t_{0})
+% \right] 
+%\end{align}
+%\text{,here we state $ t_{0} = -\infty $ }
+%\begin{align}
+%\int_{-\infty}^{t}\mathrm{d}t'
+% i\hbar 
+% \frac{\partial}{\partial_{t'}} 
+% \Omega_{in} (t')
+% =
+% i\hbar
+% \left[ 
+%\Omega_{in}(t) -1
+% \right] 
+% .
+%\end{align}
+%\end{subequations}
+%The condition of the In picture being a limit for the time span spares us any splitting. Following the first solution of the Interaction picture: 
+%\begin{subequations}
+%\begin{align}
+%\Omega_{in}(t) &=
+%\sum\limits_{n=0}^{\infty} 
+%(-i)^{n}
+%\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t_{1}}\! \! \mathrm{d}t_2
+% \ldots
+% \int_{-\infty}^{t_{n-1}}\! \! \mathrm{d}t_n
+%  V_{in}(t_1)\cdot \ldots \cdot V_{in}(t_n)
+%&\\
+%&=
+%\sum\limits_{n=0}^{\infty} 
+%\frac{(-i)^{n}}{n!}
+%\int_{-\infty}^{t}\mathrm{d}t_1\int_{-\infty}^{t}\! \! \mathrm{d}t_2
+% \ldots
+% \int_{-\infty}^{t}\! \! \mathrm{d}t_n
+% T\left\lbrace V_{in}(t_1), \ldots , V_{in}(t_n)\right\rbrace .
+%\end{align}
+%\end{subequations}
+%
+%\\\\\\This allows us to connect the field by propagators, so in terms of functions. An operator on the other hand would link both fields and the two different states. We call it the scattering operator $ S $. \\
+%For the $ in $-field and $ out $-field we write:
+%\begin{equation}
+%\Phi_{out}(x)=S^{-1}\Phi_{in}(x)S,
+%\end{equation}
+%and the $ in $ and $ out $-states according to
+%\begin{equation}
+%\ket{out}=S^{-1}\ket{In}
+%\end{equation}
+%\begin{equation}
+%\ket{In}=S\ket{Out},
+%\end{equation}
+%with these we express the probability amplitude to remain the ground state as
+%\begin{equation}
+%\braket{0_{out}|0_{in}}=\braket{0_{in}|S|0_{in}}=\braket{0_{out}|S|0_{out}}.
+%\end{equation}
+%The $ S $ operator can expressed in the following way, which will be verified in a more general form in it's own section.
+%\begin{equation}
+%S=\exp\left[-i\int d^{4}y \phi_{in}(y)j(y) \right]
+%\end{equation}
+%%
+%It is convenient to separate the total field in a sum of creation operators $ a^{(-)}_{in}  $ and annihilation operators $ a^{(+)}_{in}  $. 
+%\begin{equation}\begin{split}
+%\phi_{in}(t,x)&=\int \dfrac{d^{3}p}{(2\pi)^{3}}\dfrac{1}{2\omega} a_{in}(p)^{(-)}e^{-i p x} -a_{in}(p)^{(+)}e^{+i p x} \\\
+%&=A^{(-)}_{in}(y) + A^{(+)}_{in}(y) 
+%\end{split}
+%\end{equation}
+%The Baker-Campbell-Hausdorff formula allows us to write each term in it's own exponential function.
+%\begin{equation}
+%e^{X+Y}=e^{X}e^{Y}e^{-\frac{1}{2}\left[ X,Y\right] }.
+%\end{equation}
+%In this case we need to choose two integral variables
+%\begin{equation}\begin{split}
+%S=& \exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] \exp\left[-i\int d^{4}y\ A^{(+)}_{in}(y)j(y) \right] \\\
+%&\times \exp\left\lbrace
+% 		 \frac{1}{2}\int \!\! \int d^{4}x d^{4}y \ 
+% 		 	\left[ 
+% 		 			 A^{(-)}_{in}(x)j(x), A^{(+)}_{in}(y)j(y)
+% 		 	\right] 
+%\right\rbrace .
+%\end{split}
+%\end{equation}
+%Now we introduce the Fourier transform of the current $ j(x) $
+%\begin{equation}
+%J(k)=\int d^{4}x j(x)e^{-i k x },
+%\end{equation}
+%where a change in sign means complex conjugation 
+%\begin{equation}
+%J(-k)=J(k)^{\ast}.
+%\end{equation}
+%Applying this on the commutator in $ S $ results in 
+%\begin{equation}
+%\begin{split}
+%S=& \exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] \exp\left[-i\int d^{4}y\ A^{(+)}_{in}(y)j(y) \right] \\\
+%&\times \exp\left\lbrace
+% 		- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+%\right\rbrace .
+%\end{split}
+%\end{equation}
+%Based on this new concept we look for the probabilities of excitations. Setting the number of particles in the $ out $ -state  $ n $ will give us a distribution.
+%\begin{equation}
+%p_{n}=\left| \braket{n_{out}|0_{in}} \right|^{2}
+%		=\left| \braket{n_{in}|S|0_{in}} \right|^{2}
+%\end{equation}
+%First we have the same factor as for $ 0 $ but a second exponential function between the vectors is important.
+%\begin{equation}
+%p_{n}=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+% 		 			  \braket{n_{in}|\exp\left[-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right] |0_{in}}
+% 		 			 \right|^{2}
+%\end{equation}
+%The exponential series will contain one term of order $ n $ . These $ n $ creation operators will act as annihilation operators in the bra vector. Term with more the $ n $ would directly go to zero and lower, too since the states are still orthogonal. Giving us the single contribution
+%\begin{subequations}
+%\begin{align}
+%  p_{n}&=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+% 		 			  \braket{n_{in}|
+% 		 			 \dfrac{1}{n!} \left(-i\int d^{4}y\ A^{(-)}_{in}(y)j(y) \right)^{n} 
+% 		 			  |0_{in}}
+% 		 			 \right|^{2}
+% 		 			 &\\
+% 		 	&=\left|- \frac{1}{2}\int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(k)J(k)
+% 		 			  \braket{0_{in}|
+% 		 			 \dfrac{1}{n!} \left(
+% 		 			 -i\int \dfrac{d^{3}q}{(2\pi)^{3}}\dfrac{1}{2\omega} \ 
+% 		 			 J^{\ast}(q)J(q)
+% 		 			 \right)^{n} 
+% 		 			  |0_{in}}
+% 		 			 \right|^{2}		  .	
+%\end{align}
+% \end{subequations}  
+%Defining
+%\begin{equation}
+%\bar{n} \equiv \int \dfrac{d^{3}k}{(2\pi)^{3}}\dfrac{1}{2\omega} 
+% 		 			 |J(k)|^{2},
+%\end{equation}
+%using it in the equation above we find the the solution to $ p_{n} $ to be a Poisson distribution.
+%\begin{equation}
+%p_{n}=e^{-\bar{n}}\frac{\bar{n}^{n}}{n!}
+%\end{equation}
+%%%
+%%
+%\subsection{Vacuum expectation value} 
+%The Gell-Mann Low formula Eq.\enskip\eqref{Gell-Mann_Low_formula} plays a central role in many perturbative or non-perturbative calculations. In particular by evaluating it sandwiched between eigenstates to rising and lowering operators in the In- and Out-picture. If they are in the groundstate of the theory aka. the vacuum state, we obtain the vacuum expectation value.
+%\begin{subequations}
+%\begin{align}
+%\bra{0_{out}}
+%%
+%T
+%\left(
+%Q_{H}(t_1)
+%Q_{H}(t_2)
+%\ldots
+%\right)
+%%
+%\ket{0_{in}}=
+%\\
+%=
+%\bra{0_{out}}
+%S^{-1}
+%T\left( 
+%Q_{in}(t_{1})
+%Q_{in}(t_{2})
+%\ldots
+%S
+%\right)
+%\ket{0_{in}}
+%\\
+%=
+%\bra{0_{out}}
+%S^{-1}
+%T\left( 
+%Q_{in}(t_{1})
+%Q_{in}(t_{2})
+%\ldots
+%e^{-i\int^{\infty}_{-\infty}dt'\hat{V}_{in}(t')}
+%\right)
+%\ket{0_{in}}
+%\end{align}
+%\end{subequations}%%
+%This average (expectation value) of a product of $ n $ operators is called the $ n $-point correlation function. For example, using Wick's theorem and expansions in powers of $ \hat{V}_{in}(Q_{in}(t),t) $ , we can gain knowledge about processes that involves in total $ n $ excitations of the ground state (or vacuum) in both asymptotic states. This is the core element to be studied in high energy physics and nuclear physics.\\
+%%At this point one can be in two situations. The ground state can be either stable or unstable. Over time it could spontaneously go into a state of excitation. Mathematically speaking instability leads to :
+%%\begin{equation}\textcolor[RGB]{0,0,204}{
+%%\braket{0_{out}|0_{in}}
+%%\neq
+%%1.
+%%}
+%%\end{equation}
+%%Here of course already normalized states. This possibility for excitations stem from external sources and therefore external currents. A stable state would lead to:
+%%\begin{equation}\textcolor[RGB]{0,0,204}{
+%%\bra{0_{out}}
+%%S^{-1}
+%%=
+%%\bra{0_{in}}
+%%}
+%%\end{equation}
+%%An asymptotic state would go over time into a asymptotic state of same excitation.
+%%
+%%
+%% 
+%%\subsection{Gell-Mann Low formula for Out and Interaction picture}
+%%%%
+%%We can derive equivalent representations of the Gell-Mann Low formula. First for the Out-picture and its unitary transformation similar to the In.
+%%\begin{subequations}
+%%\begin{align}
+%%Q_{H}(t)
+%%=
+%%\hat{\Omega}_{out}(t)^{-1}
+%%Q_{out}(t)
+%%\hat{\Omega}_{out}(t)
+%%\end{align}
+%%\end{subequations}
+%\\
+%%
+%\section{External currents and the unstable vacuum}
+%In a system with an external current the vacuum state can evolve over time into a state with particles.
+%Starting with the action of a scalar field with mass $ m $
+%\begin{equation}
+%I=
+%\int d^{4}x 
+%\left(
+%\frac{1}{2}\partial_{\mu}\Phi\partial^{\mu}\Phi
+%-\frac{1}{2}m^{2}\Phi^{2}
+%-\Phi j
+% \right)
+%\end{equation}
+%, by taking the functional derivative in respect to $ \Phi $ and setting it to zero, we obtain the equation of motion
+%\begin{equation}\label{motion_scalar}
+%\textcolor[RGB]{0,0,204}{
+%\left(
+%\partial^{2}+m^{2}
+% \right)\Phi
+% =j
+% .}
+%\end{equation}
+%We will confine the field in a box and impose periodic boundary conditions on it. This is called quantisation in a box. It allows us to write the field in terms of modes.
+%\begin{equation}\label{box_quanta}
+%\textcolor[RGB]{0,0,204}{
+%\Phi(x) = \Phi (\underline{x},t)= \sum_{\underline{k}} q_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+% .}
+%\end{equation}
+%In this separated time and space dependency, we choose the Fourier basis for $ u_{\underline{k}} $. 
+%\begin{equation}\label{fourierbasis}
+%u_{\underline{k}}(\underline{x})
+%=
+%\dfrac{1}{\sqrt{\hat{V}}} e^{ik\underline{x}}
+%\end{equation}
+%The normalisation over the volume $ \hat{V} $ comes form the box we impose for the field. In addition $ u_{\underline{k}} $ fulfills the completeness relation.
+%\begin{equation}\label{compl_relation}
+%\int d^{3}\underline{x} \ 
+%u^{\ast}_{k'}(\underline{x})
+%u_{\underline{k}}(\underline{x})
+%=
+%\delta_{kk'}
+%\end{equation}
+%With these we can rewrite the equation of motion:
+%\begin{subequations}
+%\begin{align}
+%\left(
+%\partial^{2}+m^{2}
+% \right)
+% \sum_{\underline{k}} q_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+% =j(\underline{x},t)
+%	&\\
+% \sum_{\underline{k}}
+% \left[ 
+%	\left( 
+%	\dfrac{\partial}{\partial t^{2}}
+%	-\nabla^{2}
+%	+m^{2}
+%	\right)  
+%	q_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+% \right] 
+% =j(\underline{x},t).
+%\end{align}
+%\end{subequations}
+%The basis for $ u_{\underline{k}} $ will enable us to take the spacial derivative.
+%\begin{equation}
+% \sum_{\underline{k}}
+% \left[ 
+%	\ddot{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+%	-(i)^{2}k^{2}q_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+%	+m^{2}q_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+% \right] 
+%  =j(\underline{x},t).
+%\end{equation}
+%To get an equation for $ q_{\underline{k}} $ alone we need to get rid of $ u_{\underline{k}} $ and remove the space dependency in the current. Multiplying with $ u^{\ast}_{k'} $ and integrating over the whole space will form the completeness relation on the left-hand side and the Fourier transformation for the current.
+%\begin{equation}
+%\int d^{3}\underline{x} \ 
+%u^{\ast}_{k'}
+%\ \cdot
+%\vert 
+% \sum_{\underline{k}}
+% \left[ 
+%	\ddot{q}_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+%	-(i)^{2}k^{2}q_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+%	+m^{2}q_{\underline{k}}(t)u_{\underline{k}}(\underline{x})
+% \right] 
+% =
+% \int d^{3}\underline{x} \ 
+%j(\underline{x},t) \dfrac{1}{\sqrt{\hat{V}}} e^{ik\underline{x}}
+%\end{equation}
+%\begin{equation}
+% \sum_{\underline{k}}
+% \left[ 
+% \int d^{3}\underline{x} \ u^{\ast}_{k'}u_{k}
+% \left( 
+% \ddot{q}_{k}(t) 
+% +
+% \left( k^{2}+m^{2}\right) 
+% q_{k}(t) 
+% \right) 
+%  \right] 
+%  =\tilde{j}(k',t).
+%\end{equation}
+%Using the completeness relation 
+%\begin{equation}
+% \sum_{k}
+% \delta_{kk'}
+% \left[ 
+% \ddot{q}_{k}(t) 
+% +
+% \left( k^{2}+m^{2}\right) 
+% q_{k}(t) 
+%  \right] 
+%  =\tilde{j}(k',t).
+%\end{equation}
+%The Kronecker-delta reduces the sum to one term. With change of variable we set choose $ k $ and we define $ (k^{2}+m^{2}) = \omega_{k}^{2} $.
+%\begin{equation}\label{eq_for_q}
+% \textcolor[RGB]{0,0,204}{
+%\ddot{q}_{k}(t) 
+% +
+%\omega_{k}^{2}
+% q_{k}(t) 
+%  =\tilde{j}(k',t)
+%  .}
+%\end{equation}
+%We now make the assumption that the current vanishes outside a finite time interval. 
+%This gives us two cases. For early time it would go to the homogeneous solution. We call it $ q_{k}(t) \rightarrow q_{k,In}(t) $.
+%\begin{equation}\label{eq_for_q_in}
+% \textcolor[RGB]{0,0,204}{
+%\ddot{q}_{k,in}(t) 
+% +
+%\omega_{k}^{2}
+% q_{k,in}(t) 
+%  =0
+%  ,}
+%\end{equation}
+%with the general solution in terms of creation $ a_{\underline{k},in} $ and annihilation operators $ \hat{a}^{\dagger}_{\underline{k},in} $,
+%\begin{equation}\label{q_in_operators}
+% \textcolor[RGB]{0,0,204}{
+% q_{k,in}(t) 
+%  =
+%  \dfrac{1}{2\omega_{k}}\left(
+%	a_{\underline{k},in} 
+%	e^{-i\omega_{k}t}
+%	+
+%	\hat{a}^{\dagger}_{\underline{k},in}  
+%	e^{i\omega_{k}t}
+%  \right) 
+%  .}
+%\end{equation}
+%At late times it would also reduce the differential equation to a homogeneous type. This will be $ q_{k}(t) \rightarrow q_{k,out}(t) $. 
+%\begin{equation}\label{q_Out_operators}
+% \textcolor[RGB]{0,0,204}{
+% q_{k,out}(t) 
+%  =
+%  \dfrac{1}{2\omega_{k}}\left(
+%	a_{k,out} 
+%	e^{-i\omega_{k}t}
+%	+
+%	\hat{a}^{\dagger}_{\underline{k},out}  
+%	e^{i\omega_{k}t}
+%  \right) 
+%  .}
+%\end{equation}
+%The full solution for $ q_k(t) $ would then consist of homogeneous solution plus a term for the dependence of the current.
+%\begin{equation}
+% q_{k}(t) 
+%  =
+%  q_{k,in}(t) 
+%  +
+%    \dfrac{1}{\omega_{k}}
+%    \int^{t}_{-\infty}
+%    dt'
+%    sin\left(\omega_{k}(t-t') \right) \tilde{j}(k',t),
+%\end{equation}
+%for late times we again go over to the different homogeneous solution $ q_{k,out}(t)  $ and take the integral to $ +\infty $.
+%\begin{equation}\label{q_Out_by_q_in}
+% \textcolor[RGB]{0,0,204}{
+%q_{k,out}(t) 
+%  =
+%  q_{k,in}(t) 
+%  +
+%    \dfrac{1}{\omega_{k}}
+%    \int^{\infty}_{-\infty}
+%    dt'
+%    \sin\left(\omega_{k}(t-t') \right) \tilde{j}(k',t)
+%  .}
+%\end{equation}
+%Now we will apply a second Fourier transformation in respect to $ t $. The commutation between $ k,x,t,E $ ensures no problem to do these transformations separate and we move the $ k $ dependence to a index notation.
+%\begin{equation}
+%\bar{j_{k}}(E)= \int^{\infty}_{-\infty}dt \tilde{j_{k}}(t) e^{iEt}.
+%\end{equation}
+%After splitting sinus we write:
+%\begin{equation}
+%q_{k,out}(t) 
+%  =
+%  q_{k,in}(t) 
+%  -
+%  	\dfrac{i}{2\omega_{k}}e^{i\omega_{k}t}\
+%  	\bar{j_{k}}(-\omega_{k})
+%  +
+%  	\dfrac{i}{2\omega_{k}}e^{-i\omega_{k}t}\
+%  	\bar{j_{k}}(\omega_{k})
+%\end{equation}
+%From this equation we can obtain a very important information. The connection between creation and annihilation operators.
+%\begin{subequations}
+%\begin{align}
+%a_{k,Out}=  a_{k,in}+i\bar{j_{k}}(\omega_{k})  
+%&\\
+%\hat{a}^{\dagger}_{\underline{k},out} = \hat{a}^{\dagger}_{\underline{k},in}-i\bar{j_{k}}(-\omega_{k})  
+%\end{align}
+%\end{subequations}
+%This shows the operators are not the same in the present of a current. Therefore we need to differ between the eigenstates to these operators. Especially, it has to be stated that vacua also differ in this scenario. The concept of early and later times to fully solve the full equations will be discussed further in the later chapters.
+%\\
+%Still, we need a way to transition from one operator to another and from eigenstate to eigenstate. This link is called the scattering operator $ S $.
+%\begin{subequations}
+%\begin{align}
+%\ket{Out}=S^{-1}\ket{in}
+%&\\
+%\ket{In}=S\ket{Out}.
+%\end{align}
+%\end{subequations}
+%The scalar product of the mentioned two vacua can be written as :
+%\begin{equation}
+%\braket{0_{out}|0_{in}}=\braket{0_{out}|S|0_{out}}
+%\end{equation}
+%For now we choose $ S $ in a more specific form , where we used $ \bar{j}_{k}(-\omega_{k}) = \bar{j}^{\ast}_{k}(\omega_{k})  $. The general one will be obtained later:
+%\begin{equation}
+%S=e^{\dfrac{i}{2\omega_{k}}\bar{j}_{k}(\omega_{k})\hat{a}^{\dagger}_{\underline{k},in}}
+%e^{\dfrac{i}{2\omega_{k}}\bar{j}_{k}(-\omega_{k})a_{k,in}}
+%e^{-\dfrac{1}{4\omega_{k}}|\bar{j}_{k}(-\omega_{k})|^{2}}
+%\end{equation}
+%For the operators we can write:
+%\begin{equation}
+%S^{-1}a_{k,in}S=a_{k,Out}=a_{\underline{k},in} +i\ \bar{j_{k}}(\omega_{k})
+%\end{equation}
+%%
+%%
+%Using this, we obtain first of all the probability for staying in the ground state for one mode:
+%\begin{subequations}
+%\begin{align}
+%p_{0,k}&=\left| \braket{0_{out}|0_{in}}\right|^{2}=\left| \braket{0_{in}|S|0_{in}}\right|^{2}
+%	&\\
+%	&=\left| \braket{0_{in}|e^{\dfrac{i}{2\omega_{k}}\bar{j}_{k}(\omega_{k})\hat{a}^{\dagger}_{\underline{k},in}}
+%e^{\dfrac{i}{2\omega_{k}}\bar{j}_{k}(-\omega_{k})a_{k,in}}
+%e^{-\dfrac{1}{4\omega_{k}}|\bar{j}_{k}(-\omega_{k})|^{2}}|0_{in}}\right|^{2}
+%.
+%\end{align}
+%\end{subequations}
+%The annihilation operator will return a $ 0 $ in the exponent. Therefore only one factor remain important. The probabilty while taking to account any mode transition just involves the integral over all $ k $:
+%\begin{equation}\label{prob_staying}
+% \textcolor[RGB]{0,0,204}{
+%	p_{0}
+%	= 	\exp\left\lbrace -\int \dfrac{d^{3}k}{(2\pi)^{3}} \ 
+% 		 			 \left| \dfrac{\bar{j}_{k}(\omega_{k})}{\sqrt{2\omega_{k}}} \right|^{2}
+% 		 			 \right\rbrace 
+% .}
+%\end{equation}
+%This confirms our statement about an unstable vacuum. The negative sign in the exponent translates to smaller probability at higher external currents. So the vacuum can change it's state if a current is $ >0 $.

@@ -1149,7 +1149,7 @@ i\partial_{t}
 %\end{align}
 %}
 %\end{subequations} 
-To bring a $ \hat{S} $ into our equation, we substitute $ \hat{\Omega}_{in}(t) $ using the definition of $ \hat{S} $ in Eq.\enskip\eqref{S_defi}:
+To bring the $ \hat{S} $ operator into our equation, we substitute $ \hat{\Omega}_{in}(t) $ using the definition in Eq.\enskip\eqref{S_defi}:
 \begin{equation}
 \begin{split}
 \hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{I}(t)
@@ -1318,9 +1318,10 @@ i\partial_{t}\hat{\Omega}_{in}(t)
 		\hat{S}
 		.	
 \end{align}
-\text{One $ i $ taken out of the sum allows us to remove the negative sign and restores the correct power $ n-1 $ under reapplying anti-chronological time ordering}
-\begin{align}
-	&=\hat{V}_{in}(t)
+\end{subequations}
+One $ i $ taken out of the sum allows us to remove the negative sign and restores the correct power $ n-1 $ to reapplying anti-chronological time ordering:
+\begin{equation}
+	i\partial_{t}\hat{\Omega}_{in}(t)	=\hat{V}_{in}(t)
 	\sum_{n}
 	\frac{i^{n-1}}{(n-1)!} 
  	     \int_{t_1}^{\infty}\mathrm{d}t_2 
@@ -1333,8 +1334,7 @@ i\partial_{t}\hat{\Omega}_{in}(t)
 		     \hat{V}_{in}(t_n)
 		\right)\hat{S}
 		.
-\end{align}
-\end{subequations}
+\end{equation}
 We again write the expression compactly and
 since $ t $ being the earliest time in the integral and anti-chronological time ordering can be applied we are allowed keep$ \hat{V}_{in}(t) $ to the left and out of the $ \bar{T} $ operator.
 \begin{equation}
@@ -1355,7 +1355,7 @@ since $ t $ being the earliest time in the integral and anti-chronological time 
 	.
 \end{split}
 \end{equation}
- On the other hand we also need to verify the initial condition $ \hat{\Omega}_{in}(-\infty)= 1 $ still holds.
+ On the other hand we also need to verify the initial condition $ \hat{\Omega}_{in}(-\infty)= 1 $ still holds. We begin with the explicit expression from Eq.\enskip\eqref{Omeaga_in_for_GML}:
 %\begin{subequations}
 %\begin{align}
 %\hat{\Omega}_{in}(t)
@@ -1370,15 +1370,37 @@ since $ t $ being the earliest time in the integral and anti-chronological time 
 %	&=\hat{S}^{\dagger}\hat{S}=\hat{S}^{-1}\hat{S}=1
 %\end{align}
 %\end{subequations}
+\begin{equation}\label{Omega_in_minus_infty_GML}
+\hat{\Omega}_{in}(-\infty)
+=\bar{T}
+	\left( 
+	 e^{i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+	\right) \hat{S}
+\end{equation}
+At this point we need to make use of an important aspect of time ordered operators. 
+
+Hermitian conjugation of anti-chronological time ordering of a product of operators $ \hat{V}(t)$ turns it into the chronological time ordering of same operators, as long as $ \hat{V}(t) $ is hermitian. Note that this can be seen immediately by taking the hermitian conjugate of Eq.\enskip\eqref{eq:anti-chron-time_ordering}:
+\begin{equation}\label{barT_to_T}
+\left[
+\bar{T}(\hat{V}(t_{1})\ldots\hat{V}(t_{n}))
+\right]^{\dagger}
+=T(\hat{V}(t_{1})\ldots\hat{V}(t_{n}))
+.
+\end{equation}
+Observe that the operators positions are switched. Yet the Heaviside-step-functions are unchanged which gives directly the definition in Eq.\enskip\eqref{eq:chron-time_ordering}.
+
+Keeping this in mind, we recognize the hermitian conjugate of Eq.\enskip\eqref{eq:Omega_in_converg} taking at $ t=\infty $ in Eq.\enskip\eqref{Omega_in_minus_infty_GML}.
 \begin{equation}
 \begin{split}
-.
+\hat{\Omega}_{in}(-\infty)
+&= 	(\hat{\Omega}_{in}(\infty))^{\dagger}\hat{S}
+	\\
+	&\!\!\!\!\!\underbrace{=}_{\text{Eq.\enskip\eqref{S_first_3}}}\! \hat{S}^{-1}\hat{S}=1
 \end{split}
 \end{equation}
-This last step required $ \hat{S} $ to be unitary. This can be seen straight away  by taking the hermitian conjugate of Eq.\enskip\eqref{S_all_3_exp}.
+This last step required $ \hat{S} $ to be unitary. This can be seen straight away  by taking the hermitian conjugate of Eq.\enskip\eqref{S_defi}.
 \subsection{Wick theorem and vacuum stability}\label{Vacuum_transition}
-The Wick theorem as a means to evaluate correlation functions, can be established by further investigating the $ \hat{S} $ operator. In section\enskip\ref{in_out_picture_external_currents}, the Eq.\enskip\eqref{V_I_with_q_and_j} expressed the potential term of our full Hamiltonian in the Interaction picture. Going the $ in $ picture by evaluation the time evolution operator at $ t_{0}= -\infty $, we write $\hat{V}_{in}= \sum_k \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $. Using this in Eq.\enskip\eqref{eq:S_equal_in_infty} and \eqref{eq:Omega_in_converg} an expression in term of the current can be formulated.\\
-Explicitly,
+The Wick theorem as a means to evaluate correlation functions, can be established by further investigating the $ \hat{S} $ operator. In section\enskip\ref{in_out_picture_external_currents}, the Eq.\enskip\eqref{V_I_with_q_and_j} expressed the potential term of our full Hamiltonian in the Interaction picture. Going  to the $ in $ picture, we write $\hat{V}_{in}=\! \! $ $ \text{$\sum \!\! \textcolor{white}{i}_{k}$}$ $ \!     \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $. Using $ \hat{S}=\hat{\Omega}_{in}(\infty) $ (see Eq.\enskip\eqref{S_first_3}) and taking \eqref{eq:Omega_in_converg}  into account, an expression in term of the current can be formulated.Explicitly,
 \begin{subequations}\label{S_start_wick}
 \begin{align}
 	\hat{S} &=
@@ -1408,7 +1430,7 @@ Explicitly,
    .
 \end{align}
 \end{subequations}
-Using the the BCH-formula allows us to split the exponent. To simplify we use the temporal Fourier transformation given below Eq.\enskip\eqref{q_full}. As a consequence 
+Using the the BCH-formula, we split the exponent. To simplify we use the temporal Fourier transformation given below Eq.\enskip\eqref{q_full}. As a consequence,
 \begin{equation}
 \begin{split}
 \hat{S}=
@@ -1449,7 +1471,7 @@ Using the the BCH-formula allows us to split the exponent. To simplify we use th
 			\hat{a}_{\underline{k}',in} 
 		\right]  
 		\right)      	
-	,
+	.
 \end{split}
 \end{equation}
 We note that, in this expression there is no further dependence on $ t $ and therefore the $ T $ operator has been dropped. We move all common factors out of the commutator,
@@ -1479,7 +1501,7 @@ We note that, in this expression there is no further dependence on $ t $ and the
    \exp
     \left(    
     \sum_{\underline{k},\underline{k}'}
-       \frac{1}{2\omega_{\underline{k}}+2\omega_{\underline{k}'}}
+       \frac{1}{4\omega_{\underline{k}}\omega_{\underline{k}'}}
        \bar{j_{\underline{k}}}(\omega_{\underline{k}})
        \bar{j_{\underline{k'}}}(-\omega_{\underline{k}'})
             	\left[
@@ -1573,7 +1595,7 @@ Take notice of the effect on the commutator:
  &=0
  \end{split}
 \end{equation}
-Following this in our case the BCH-formula becomes trivial inside of normal ordering and we can write:
+Following this in our case the BCH-formula becomes trivial inside of normal ordering and we can write the product
 \begin{equation}
 \begin{split}
 \exp &
@@ -1583,8 +1605,7 @@ Following this in our case the BCH-formula becomes trivial inside of normal orde
      	\dfrac{1}{2\omega_{\underline{k}}}
      	 \bar{j}_{\underline{k}}(\omega_{\underline{k}})
 			\hat{a}^{\dagger}_{\underline{k},in}     
-    \right)
-    \times
+    \right)    
         \exp
     \left(
      	  i
@@ -1615,7 +1636,7 @@ Following this in our case the BCH-formula becomes trivial inside of normal orde
     .
 \end{split}
 \end{equation}
-This is again our starting point from Eq.\enskip\eqref{S_start_wick},
+Or simply,
 \begin{equation}\label{1_term_wick}
 =
 \quad
@@ -1626,6 +1647,7 @@ This is again our starting point from Eq.\enskip\eqref{S_start_wick},
     \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) 
     \right)
     :  
+    .
 \end{equation}
 The third exponential function in Eq.\enskip\eqref{S_all_3_exp} can be formulated differently by reversing the temporal Fourier transformation. The exponential functions of the transformation $ e^{-iw_{\underline{k}}t} $ will be joined and we take the absolute value of the different times $ t $, $ t' $:
 \begin{equation}\label{2_term_wick}
@@ -1652,18 +1674,19 @@ The third exponential function in Eq.\enskip\eqref{S_all_3_exp} can be formulate
      e^{-iw_{\underline{k}}|t-t'|} 
 	          \bar{j}_{\underline{k}}(t')
     \right)	
-    ,
+    .
 \end{split}
 \end{equation}
-we now introduce the Feynman Green's function for one mode :
+We now introduce the Feynman Green's function for one mode:
 \begin{equation}\label{Greens_func_Feynman}
  \textcolor[RGB]{0,0,204}{
  G_{\underline{k}}(t-t')=\dfrac{1}{2\omega_{\underline{k}}} e^{-i\omega_{\underline{k}} |t-t'|}
  .
 }
 \end{equation}
-By taking Eq.\enskip\eqref{1_term_wick}, \eqref{2_term_wick} and \eqref{Greens_func_Feynman} into account we established the Wick theorem in term of the  modes of a real scalar field.
-\begin{equation}\label{Wick_theorem_scalar_modes}
+By substituting Eq.\enskip\eqref{Greens_func_Feynman} into Eq.\enskip\eqref{2_term_wick}, we find the second exponential function required for re-expressing the $ \hat{S} $-operator. With this one and Eq.\enskip\eqref{1_term_wick} we can establish the relation in term of the modes of a real scalar field.
+%By taking Eq.\enskip\eqref{1_term_wick}, \eqref{2_term_wick} and \eqref{Greens_func_Feynman} into account we established the relation in term of the  modes of a real scalar field.
+\begin{equation}\label{Wick_theorem_relation_scalar_modes}
 \begin{split}
 \hat{S}&=	 T\left[
     \exp
@@ -1672,8 +1695,7 @@ By taking Eq.\enskip\eqref{1_term_wick}, \eqref{2_term_wick} and \eqref{Greens_f
     \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) 
     \right)
     \right]  
-    \\
-    &=
+    =
     \quad
 :
 \exp
@@ -1682,6 +1704,8 @@ By taking Eq.\enskip\eqref{1_term_wick}, \eqref{2_term_wick} and \eqref{Greens_f
     \sum_{\underline{k}}\int dt \ \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) 
     \right)
     :  
+      \\
+   \quad   &\times 
           \exp
     \left(
        -
@@ -1698,11 +1722,11 @@ By taking Eq.\enskip\eqref{1_term_wick}, \eqref{2_term_wick} and \eqref{Greens_f
  .
 \end{split}
 \end{equation}
-One can easily derive this expression in terms of the scalar field $ \Phi $. One replaces the modes with the fields and the integrals with $  4$ dim. ones. This follows from Eq.\enskip\eqref{box_quanta} rewritten so $ \hat{q}_{\underline{k},in}(t)  $ is on the left hand side and further use of the completeness relation in Eq.\enskip\eqref{completness_relation}. The Green's function becomes the scalar propagator $ \triangle(x-x')$ . Which is the Green's function to the free equation of motion of the real scalar field. An equation similar to \eqref{q_Out_by_q_In} for the fields $ \Phi_{in} $ and $ \Phi_{out} $ can be derived. Here  $ i\triangle(x-x')$ would take the place of the $  \sin
-    \left[
-    \omega_{\underline{k}}(t-t') 
-    \right] $. The Wick theorem for the real scalar field reads:
-\begin{equation}
+One can easily derive this expression in terms of the quantized field $\hat{ \Phi }$. It follows from the inversion of Eq.\enskip\eqref{box_quanta}, $ \hat{q}_{\underline{k}}(t) = \int \! dx \  \hat{ \Phi }(\underline{x},t)u^{\star}_{\underline{k}}(\underline{x}) $ and its substitution in Eq.\enskip\eqref{Wick_theorem_relation_scalar_modes}. A repeated use of the completeness relation in Eq.\enskip\eqref{completness_relation} lead us to:% express:% The Green's function becomes the scalar propagator $ \triangle(x-x')$ . Which is the Green's function to the free equation of motion of the real scalar field. An equation similar to \eqref{q_Out_by_q_In} for the fields $ \Phi_{in} $ and $ \Phi_{out} $ can be derived. Here  $ i\triangle(x-x')$ would take the place of the $  \sin
+%    \left[
+%    \omega_{\underline{k}}(t-t') 
+%    \right] $. The Wick theorem for the real scalar field reads:
+\begin{equation}\label{Generating_functional_scalar_real} 
  \textcolor[RGB]{0,0,204}{
 \begin{split}
 \hat{S}&=	 T\left[
@@ -1712,8 +1736,7 @@ One can easily derive this expression in terms of the scalar field $ \Phi $. One
     \int d^{4}x \ j(x) \Phi(x)
     \right)
     \right]  
-    \\
-    &=
+   =
     \quad
 :
     \exp
@@ -1721,7 +1744,9 @@ One can easily derive this expression in terms of the scalar field $ \Phi $. One
     i
     \int d^{4}x \ j(x) \Phi(x)
     \right)
-    :  
+    : 
+     \\
+	& \quad \times
           \exp
     \left(
        -
@@ -1731,14 +1756,28 @@ One can easily derive this expression in terms of the scalar field $ \Phi $. One
      	\int d^{4}x'
      	\
     j(x)
-	\triangle(x-x')
+	\triangle_{F}(x-x')
     j(x')
     \right)	
- .
+ ,
 \end{split}
  }
 \end{equation}
-This theorem in combination with functional derivatives respect the currents of the regarded theory and taking the vacuum expectation value, allows us to find the desired correlations functions.
+where $ \triangle_{F}(x-x')$ is the Feynman propagator for the real scalar field. It reads in the covariant form:
+\begin{equation}
+\triangle_{F}(x-x')=\int \frac{d^{4}k}{\left( 2\pi\right)^{4}  }\frac{i}{k^{2} -m^{2} +i\epsilon} e^{-ik(x-x')}.
+\end{equation}
+Here $ \epsilon $ is a positive infinitesimal and $ k^{2}=\omega_{\underline{k}}^{2}-\underline{k}^{2} $.
+Eq.\enskip\eqref{Generating_functional_scalar_real} in combination with functional derivatives respect the currents of the regarded theory and taking the vacuum expectation value, allows us to find the desired correlations functions. For example the time ordered product of two fields $ \hat{\Phi}(x_{1}) $ and $ \hat{\Phi}(x_{2})  $ can be obtained from the generating functional given in Eq.\enskip\eqref{Generating_functional_scalar_real} by taken the functional derivatives $\delta/\delta j(x_{1}) $ and $ \delta/\delta j(x_{2})  $, while afterwards setting the current to zero.
+\begin{equation}\label{two_time_order_fields}
+T\left(
+\hat{\Phi}(x_{1})
+\hat{\Phi}(x_{2})
+ \right) =
+ \quad : \hat{\Phi}(x_{1})
+\hat{\Phi}(x_{2}) :  + \triangle_{F}(x_{1}-x_{2})
+\end{equation}
+This relation is called the \textit{Wick theorem}  and can be extended to any finite number of field operators. % time ordering of operators, normal ordering of the same and the propagator of a theory is called the \textit{Wick theorem}. 
 
 Beside obtaining the Wick theorem,  we can use Eq.\enskip\eqref{S_for_probability} to verify that, in the presence of an external current, the vacuum is not stable. For showing this we compute the probability for staying in the ground state:
 \begin{subequations}
@@ -1767,7 +1806,8 @@ Here we have made a transition the continuous description of the modes of our fi
 \section{Gell-Mann Low formula}
 %
 To motivate Gell-Mann Low formula as the important asset, a common way of application and requirement will be laid out. \\
-First, the formula allows us to transform a polynomial , chronological (or anti-chronological) ordered set of operators in the Heisenberg picture to  the three pictures with initial conditions. This won't require any picture related unitary operator $ \hat{\Omega} $, only one scattering operator $ \hat{S} $. \\
+First, the formula allows us to transform a polynomial , chronological (or anti-chronological) ordered set of operators in the Heisenberg picture to  the three pictures with initial conditions. This won't require any picture related unitary operator $ \hat{\Omega} $, only one scattering operator $ \hat{S} $. 
+
 This strikes as a fundamental step for dealing with the pictures as $ \hat{S} $ can be evaluated pertubativly and nothing else in the formula up to this point could be treated like this with anywhere the same accuracy. Furthermore this transition needs be made very early when working on many topics of quantum field theory. As most of the time, one would begin with classical mechanical description of the action. Formulating the problem in terms of classical fields and then apply second quantisation to promote them to operators in the Heisenberg picture. This would be the point of transition and one needs the Gell-Mann Low formula.\\
 %
 Recalling Eq.\enskip\eqref{eq:operator_interac_heisenberg} we can write:
@@ -1780,7 +1820,7 @@ By evaluate Eq.\enskip\eqref{eq:operator_interac_heisenberg} to the case in whic
 Q_{H}(t)=\hat{\Omega}_{in}(t)^{-1}Q_{in}(t)\ \hat{\Omega}_{in}(t).
 }
 \end{equation}
-Expressing $ \hat{\Omega}_{in} $ using Eq.\enskip\eqref{Omeaga_in_for_GML}:
+Expressing $ \hat{\Omega}_{in}(t)^{-1} $ using Eq.\enskip\eqref{Omeaga_in_for_GML} and $ \hat{\Omega}_{in}(t) $ as in Eq.\enskip\eqref{eq:Omega_in_converg}.
 \begin{equation}
 Q_{H}(t)
 =\left( 
@@ -1832,8 +1872,13 @@ T
 \left( 
  e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
 \right) 
-\\
-&=
+,
+\end{align}
+\end{subequations}
+taking Eq.\enskip\eqref{barT_to_T} again into account results in:
+\begin{equation}
+Q_{H}(t)
+=
 \hat{S}^{-1} 
 T
 \left( 
@@ -1846,79 +1891,173 @@ T
 \left( 
  e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
 \right) .
-\end{align}
-\end{subequations}
- In this step we combine $ T $'s, since overlap in the limits is zero.
-\begin{equation}
-%%
-Q_{H}(t)
-=\hat{S}^{-1}
-T\left( 
- e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-%%
-Q_{in}(t)
-%%
- e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) .
 \end{equation}
-The position of $ Q_{in}  $ is still not ideal for our purpose. Changing it will require commutations. Using the infinite series for the exponential function and removing time ordering will reduce the problem to commutations between $ Q_{in} $ and $ \hat{V}_{in} $.
+The chronological time ordering on both sides of $ Q_{in}(t) $ can be expanded.
 \begin{equation}
+\begin{split}
 Q_{H}(t)
 =
-\hat{S}^{-1}
-\left( 
+\hat{S}^{-1} 
+&\left( 
 \sum_{n}
 (-i)^{n}
-\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
 \int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
 \ldots
-\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
 \int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
 \hat{V}_{in}(t_{1}^{\prime})
 \ldots
 \hat{V}_{in}(t_{n}^{\prime})
-Q_{in}(t)
-\right) .
-\end{equation}
-We see $ Q_{in} $ and $ \hat{V}_{in} $ can commute without any problem since $ Q_{in} $ depends on $  t $ and $ t \neq t' $. Moving it to the left and reapply $ T $ as well as the compact notation:
-\begin{subequations}
-\begin{align}
-Q_{H}(t)
-&=
-\hat{S}^{-1}
-\left( 
-\sum_{n}
-(-i)^{n}
-Q_{in}(t)
-\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
-\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
-\ldots
-\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
-\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
-\hat{V}_{in}(t_{1}^{\prime})
-\ldots
-\hat{V}_{in}(t_{n}^{\prime})
-\right) 
-\\
-Q_{H}(t)
-&=\hat{S}^{-1}
-T\left( 
+%%
 Q_{in}(t)
 %%
- e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) .
-\end{align}
-\end{subequations}
-Seeing Eq.\enskip\eqref{eq:S_equal_in_infty} can be applied results in:
-\begin{equation}\textcolor[RGB]{0,0,204}{
-Q_{H}(t)=
-\hat{S}^{-1}
-T\left( 
+\right)
+\\
+&\times
+\left( 
+\sum_{n}
+(-i)^{n}
+\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
+\ldots
+\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
+\hat{V}_{in}(t_{1}^{\prime})
+\ldots
+\hat{V}_{in}(t_{n}^{\prime})
+\right)
+,
+\end{split}
+\end{equation}
+reapplying one total chronological time ordering to both brackets allows us to moves $ Q_{in}(t)
+ $to the very left. But it must stay inside this new $ T $ alongside all the integrals because the correct time ordered position for $ Q_{in}(t)
+ $ is just between the limits $ \pm \infty $ of the total integral. This rearrangement inside of $ T $ is due to commutation inside of it and is explained in the  appendix\ref{chronological_time}. Compactly written:
+% \begin{equation}
+%\begin{split}
+%Q_{H}(t)
+%=
+%\hat{S}^{-1} 
+%&\left( 
+%\sum_{n}
+%(-i)^{n}
+%\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
+%\ldots
+%\int_{t}^{\infty}\mathrm{d}t_{n}^{\prime}
+%T\left[ 
+%Q_{in}(t),
+%\hat{V}_{in}(t_{1}^{\prime})
+%\ldots
+%\hat{V}_{in}(t_{n}^{\prime})
+%%%
+%%%
+%\right]\right)
+%\\
+%&\times
+%T
+%\left( 
+% e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+%\right) 
+%.
+%\end{split}
+%\end{equation}
+%In compact notation:
+ \begin{equation}
+\begin{split}
+Q_{H}(t)
+=
+\hat{S}^{-1} 
+T
+\left( 
+Q_{in}(t)
+ e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) 
+.
+\end{split}
+\end{equation}
+Using the BCH-formula here, we find an expression for $ \hat{S} $ given in the second line of Eq.\enskip\eqref{S_first_3}. 
+ \begin{equation}
+\begin{split}
+Q_{H}(t)
+=
+\hat{S}^{-1} 
+T
+\left( 
 Q_{in}(t)
 \hat{S}
-\right) .
-}
+\right) 
+.
+\end{split}
 \end{equation}
+It must be stressed that this only holds for $ \hat{S} $ inside of the $ T $ operator. As we remarked $ Q_{in}(t) $ should be written between the exponential functions in expression prior.
+%In this step we combine $ T $'s, since overlap in the limits is zero.
+%\begin{equation}
+%%%
+%Q_{H}(t)
+%=\hat{S}^{-1}
+%T\left( 
+% e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+%%%
+%Q_{in}(t)
+%%%
+% e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+%\right) .
+%\end{equation}
+%The position of $ Q_{in}  $ is still not ideal for our purpose. Changing it will require commutations. Using the infinite series for the exponential function and removing time ordering will reduce the problem to commutations between $ Q_{in} $ and $ \hat{V}_{in} $.
+%\begin{equation}
+%Q_{H}(t)
+%=
+%\hat{S}^{-1}
+%\left( 
+%\sum_{n}
+%(-i)^{n}
+%\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
+%\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
+%\ldots
+%\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
+%\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
+%\hat{V}_{in}(t_{1}^{\prime})
+%\ldots
+%\hat{V}_{in}(t_{n}^{\prime})
+%Q_{in}(t)
+%\right) .
+%\end{equation}
+%We see $ Q_{in} $ and $ \hat{V}_{in} $ can commute without any problem since $ Q_{in} $ depends on $  t $ and $ t \neq t' $. Moving it to the left and reapply $ T $ as well as the compact notation:
+%\begin{subequations}
+%\begin{align}
+%Q_{H}(t)
+%&=
+%\hat{S}^{-1}
+%\left( 
+%\sum_{n}
+%(-i)^{n}
+%Q_{in}(t)
+%\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
+%\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
+%\ldots
+%\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
+%\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
+%\hat{V}_{in}(t_{1}^{\prime})
+%\ldots
+%\hat{V}_{in}(t_{n}^{\prime})
+%\right) 
+%\\
+%Q_{H}(t)
+%&=\hat{S}^{-1}
+%T\left( 
+%Q_{in}(t)
+%%%
+% e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+%\right) .
+%\end{align}
+%\end{subequations}
+%Seeing Eq.\enskip\eqref{eq:S_equal_in_infty} can be applied results in:
+%\begin{equation}\textcolor[RGB]{0,0,204}{
+%Q_{H}(t)=
+%\hat{S}^{-1}
+%T\left( 
+%Q_{in}(t)
+%\hat{S}
+%\right) .
+%}
+%\end{equation}
 Next will be for more than one operator. Starting with the left side in a non trivial time ordering and applying the transformation for each operator:
 \begin{subequations}
 \begin{align}
@@ -2070,11 +2209,23 @@ T(\hat{V}_1, \hat{V}_2,\ldots,\hat{V}_n)=
 \theta \left(P_{j}\left[t_{j} -\sum_{i\neq j}^{n} t_{i}\right]\right)\ .
 }
 \end{equation}
+The generalisation of anti-chronological time ordering given in Eq.\enskip\eqref{eq:anti-chron-time_ordering} is based on the same principle. The main difference lays in the $ t_i $  in the argument of Heaviside function, which is not multiplied by $-1$.
+Definition:
+\begin{equation}\label{T_bar_general}
+\textcolor[RGB]{0,0,204}{
+\bar{T}(\hat{V}_1, \hat{V}_2,\ldots,\hat{V}_n)=
+\sum_{j=1}^{n!}\ P_{j}
+\left[
+\hat{V}_1, \hat{V}_2,\ldots,\hat{V}_n
+ \right]  
+\cdot
+\theta \left(P_{j}\left[t_{n-j+1} -\sum_{i\neq j}^{n} t_{i}\right]\right)\ .
+}
+\end{equation}
 %But this summation over $ j $ would not add up to the same value for $ I(t) $ since it started in the order of one element in the sum.In this case we need a normalization in addition to $ T $ . From statistics we know a set of n different elements can be linear arranged in $ n! $ ways.Coming in as a factor of $ \frac{1}{n!} $ in the expressions later.
-\\
-As a test we set $ n=3 $
-\begin{subequations}
-\begin{align}
+As a test we set $ n=3 $ in Eq.\enskip\eqref{T_general}:
+\begin{equation}
+\begin{split}
 T(\hat{V}_1, \hat{V}_2,\hat{V}_3)
 &=
 \sum_{j=1}^{3!}\ P_{j}
@@ -2083,23 +2234,50 @@ T(\hat{V}_1, \hat{V}_2,\hat{V}_3)
  \right]  
 \cdot
 \theta \left(P_{j}\left[t_{j} -\sum_{i\neq j}^{3} t_{i}\right]\right)\
-&\\
+\\
 &=\hat{V}_{1}\hat{V}_{2}\hat{V}_{3}\cdot \theta(t_{1}-t_{2}-t_{3})
-	&\\
+	\\
 	& \ \ \ +\hat{V}_{1}\hat{V}_{3}\hat{V}_{2} \cdot \theta(t_{1}-t_{3}-t_{2})
-	&\\
+	\\
 	& \ \ \ +\hat{V}_{2}\hat{V}_{1}\hat{V}_{3} \cdot \theta(t_{2}-t_{1}-t_{3})
-	&\\
+	\\
 	& \ \ \ +\hat{V}_{2}\hat{V}_{3}\hat{V}_{1} \cdot \theta(t_{2}-t_{3}-t_{1})
-	&\\
+	\\
 	& \ \ \ +\hat{V}_{3}\hat{V}_{1}\hat{V}_{2} \cdot \theta(t_{3}-t_{1}-t_{2})
-	&\\
-	& \ \ \ +\hat{V}_{3}\hat{V}_{2}\hat{V}_{1} \cdot \theta(t_{3}-t_{2}-t_{1})
-\end{align}
-\end{subequations}
-In Eq.\enskip\eqref{regular_function} we defined an function $ I(t)$ for two potentials $ V_I(t) $. Expanding this function to the case of $ n $ requires a a normalization factor alongside $ T $ . From stochastic we know a set of n different elements can be linear arranged in $ n! $ ways. Requiring a factor of $ 1/{n!} $ in the expressions for $ I(t)$ below involving time ordering.  
+	\\
+	& \ \ \ +\hat{V}_{3}\hat{V}_{2}\hat{V}_{1} \cdot \theta(t_{3}-t_{2}-t_{1}).
+\end{split}
+\end{equation}
+As well as $ n=3 $ in Eq.\enskip\eqref{T_bar_general}
+\begin{equation}
+\begin{split}
+\bar{T}(\hat{V}_1, \hat{V}_2,\hat{V}_3)
+&=
+\sum_{j=1}^{3!}\ P_{j}
+\left[
+\hat{V}_1, \hat{V}_2,\hat{V}_3
+ \right]  
+\cdot
+\theta \left(P_{j}\left[t_{n-j+1} -\sum_{i\neq j}^{3} t_{i}\right]\right)\
+\\
+&=\hat{V}_{1}\hat{V}_{2}\hat{V}_{3}\cdot \theta(t_{3}-t_{2}-t_{1})
+	\\
+	& \ \ \ +\hat{V}_{1}\hat{V}_{3}\hat{V}_{2} \cdot \theta(t_{2}-t_{3}-t_{1})
+	\\
+	& \ \ \ +\hat{V}_{2}\hat{V}_{1}\hat{V}_{3} \cdot \theta(t_{3}-t_{1}-t_{2})
+	\\
+	& \ \ \ +\hat{V}_{2}\hat{V}_{3}\hat{V}_{1} \cdot \theta(t_{1}-t_{3}-t_{2})
+	\\
+	& \ \ \ +\hat{V}_{3}\hat{V}_{1}\hat{V}_{2} \cdot \theta(t_{2}-t_{1}-t_{3})
+	\\
+	& \ \ \ +\hat{V}_{3}\hat{V}_{2}\hat{V}_{1} \cdot \theta(t_{1}-t_{2}-t_{3}).
+\end{split}
+\end{equation}
+The following results and calculations can be performed in the same fashion for chronological and anti-chronological time ordering. We will show them explicitly for the case of chronological time ordering.
 
-Now we can apply Eq.\enskip\eqref{T_general} to a larger $ I(t) $ and perform a proof by induction based on the number of $ \hat{V} $. The induction start is the case of two $ \hat{V} $. In the induction step we state that it works for at least one unspecified higher order. Let's call it $ k $ : ($ \textit{Note:} $ $ t_0 = t $)\\
+In Eq.\enskip\eqref{regular_function} we defined an function $ I(t)$ for two potentials $ V_I(t) $. Expanding this function to the case of $ n $ requires a a normalization factor alongside $ T $. From stochastic we know a set of n different elements can be linear arranged in $ n! $ ways. Therefore a factor of $ 1/{n!} $ in the expressions for $ I(t)$ is required, when ever chronological time ordering is applied.  
+
+Now we use Eq.\enskip\eqref{T_general} in a larger $ I(t) $ and perform a proof by induction based on the number of $ \hat{V} $. The induction start is the case of two $ \hat{V} $. In the induction step we state that it works for at least one unspecified higher order. Let's call it $ k $ : ($ \textit{Note:} $ $ t_0 = t $)\\
 \begin{equation}
 I_k (t)
 =
@@ -2164,7 +2342,7 @@ T(\hat{V}_1,\ldots,\hat{V}_{k+1})
 \end{equation}
 %Time ordering is as concept in field theory t. For expressing the propagators in term of vaccum expectation values of fields requires. % The reason apart from pure mathematics is comprehensible. The different functions, functionals or fields are best organized for summarizing a scattering or interaction event if they are time-like sorted.
 
-An very useful aspect of chronological as well as anti-chronological time ordering is all operators $ V_i $ in $ T(\ldots) $ commute. For two elements:
+An very useful aspect of chronological as well as anti-chronological time ordering is all operators $ V_i $ in $ T(\ldots) $ or $ \bar{T}(\ldots) $ commute. For two elements:
 \begin{subequations}
 \begin{align}
 T(\hat{V}_1, \hat{V}_2)=\hat{V}_1\ \hat{V}_2\ \theta (t_1 -t_2)\ +\ \hat{V}_2\  \hat{V}_1 \ \theta (t_2-t_1)

@@ -26,7 +26,7 @@
 
 
 \title{\includegraphics[scale=0.07]{logo}\\Specialization report}
-\date{15.12.2018}
+\date{8.1.2019}
 \author{ Heinrich Heine Universit\"at D\"usseldorf\\ Institut f\"ur Theoretische Physik I\\  \\Presented by:\\Marius Thei\ss{}en\\ Matrn.: 2163903 \\  }
 
 \begin{document}
@@ -45,7 +45,7 @@
 %This report has three main goals. First we shall establish the transition between pictures in quantum mechanics and quantum field theory. We go over the more common ones, Schrödinger, Heisenberg and Interaction picture, to derive and justify the two In and Out Pictures.
 %By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula. This important formula allows us transition of polynomial terms of field operators in the Heisenberg picture to multiple different but equivalent picture expressions. These are based on boundary conditions imposing free motion on particles along them. We derive them from experimental and physical point of views. The Gell-Mann Low formula does this to this point without loss of information. In case of calculating multi particle processes the Gell-Mann Low formula allows us to perform perturbation theory on the correlation functions by introducing the scattering operator $ S $ which then can be expanded. This  $ S $ is the key to calculate cross-sections $ \sigma $ and decay rates $ \Gamma $ .
 %\textcolor{red}{What is the GellMann Law formula, why is it so important explain in worth}
-Quantum field theory is a set of methods and concepts that allow us to describe elementary particle processes. Of great interest are derived quantities like cross-sections $ \sigma  $ or decay rates $ \Gamma $ as most common comparisons to experiments. From the side of theoretical physics, they can be extracted by calculating the amplitudes of the related correlation functions. Such calculations require pertubative approaches. However the starting points for setting up correlations functions like a Lagrangian, operators and states are described and formulated in the way of the Heisenberg picture without any parts that allow for pertubation theory. The main goal of this report is the derivation of the solution to this dilemma. The Gell-Mann Low formula. It allows transition to pictures inside the correlation functions without loss of information by including the scattering operator $ S $. This $ S $ allows to be calculated pertubatively and therefore also the actual correlation functions.  
+Quantum field theory is a formalism that allow us to describe the interaction between elementary particles. Of great interest are observable quantities like cross-sections or decay rates, which can be established theoretically and contrasted with experimental results. Both observables can be determined by calculating the amplitude of the regarding process. Such calculations require pertubative approaches. However the starting points for setting up correlations functions like a Lagrangian, operators and states are described and formulated in the way of the Heisenberg picture without any parts that allow for pertubation theory. The main goal of this report is the derivation of the solution to this dilemma. The Gell-Mann Low formula. It allows transition to pictures inside the correlation functions without loss of information by including the scattering operator $ S $. This $ S $ allows to be calculated pertubatively and therefore also the actual correlation functions.  
 We will working out a few handy techniques and methods on the way to Gell-Mann Low formula. This includes discussing the more common Schrödinger, Heisenberg and Interaction picture. Followed up by $ In $ and $ out $ pictures which Gell-Mann Low formula allows easy transition inside the corr. function. These are based on boundary conditions imposing free motion on particles along them. We derive them from experimental and physical point of views.
 \section{Pictures in Quantum Mechanics }\label{Pictures in Quantum Mechanics}
 \subsection{Schrödinger picture and Heisenberg picture}\label{SHpicture}
@@ -342,8 +342,8 @@ where Eq.\enskip\eqref{evo_U_1} has been used. Using the definition of $ \hat{\O
 \end{equation}
 %requiring $ \hat{\Omega}_{I}(0)=1 $.
 %With he boundary condition a well defined solution can be found. It stems from the condition on the time evolution operator $ U(t-t_0) $. It needed to fulfill $ U(t_0-t_0)=1 $. Since we set $ t_0 =0 $ $ \Omega_{I} $ needed this form to not collide with any equations retroactively.
-To find a well defined solution, an initial condition is needed. In Eq.\enskip\eqref{eq:omega_and_U} we see that at $ t=0 $, the time evolution operator reduces to $ U(0)=1 $, and from this the following condition $ \Omega_{I}(0) = 1 $ arises.
-We remark that $ V_{I}(t) $ in the Interaction picture as introduced above does not require $ V $ to be of any specific form but can still be applied in presence of external sources. 
+To find a well defined solution, an initial condition is needed. In Eq.\enskip\eqref{eq:omega_and_U} we see that at $ t=0 $, the time evolution operator reduces to $ \hat{U}(0)=1 $, and from this the following condition $ \hat{\Omega}_{I}(0) = 1 $ arises.
+We remark that $ \hat{V}_{I}(t) $ in the Interaction picture as introduced above does not require $ \hat{V} $ to be of any specific form but can still be applied in presence of external sources. 
 %Additionally we can derive a differential equation for $ \hat{U}(t) $
 %\begin{subequations}
 %\begin{align}
@@ -487,7 +487,7 @@ To get an equation for $ \hat{q}_{\underline{k}}(t) $ alone we need to get rid o
  \right) 
   \right] 
   ={\underbrace{\int d^{3}x \ 
-j(\underline{x},t) \dfrac{1}{\sqrt{V}} e^{i\underline{k}\cdot\underline{x}}}_{=\tilde{j}(\underline{k},t)}}
+j(\underline{x},t) \dfrac{1}{L^{3/2}} e^{i\underline{k}\cdot\underline{x}}}_{=\tilde{j}(\underline{k},t)}}
   .
 \end{equation}
 After using the orthonormality relation \eqref{ortho_relation} this expression reduces to
@@ -664,7 +664,7 @@ where we used Eq.\enskip\eqref{eq:operator_interac_heisenberg} to transform $ \h
 \hat{q}_{\underline{k}}(t)
 \hat{\Omega}_{I}^{-1}(t).
 \end{equation}
-To have a well defined operator $ \hat{\Omega}_{I}(t) $  we need conditions for any $ \Omega $ so that $\Omega \rightarrow 1 $ as stated for the Interaction picture in Eq.\enskip\eqref{eq:time_evo_Omega_interaction} which is at the moment mostly depended on the current $ j $.
+To have a well defined operator $ \hat{\Omega}_{I}(t) $  we need conditions for any $ \hat{\Omega} $ so that $\hat{\Omega} \rightarrow 1 $ as stated for the Interaction picture in Eq.\enskip\eqref{eq:time_evo_Omega_interaction} which is at the moment mostly depended on the current $ j $.
 %
 %
 %
@@ -718,7 +718,7 @@ We start with the Interaction picture depended on $ t' $  and integrate both sid
 \int_{0}^{t}\mathrm{d}t'
  i 
  \frac{\partial}{\partial_{t'}} 
- \hat{\hat{\Omega}}_{I} (t')
+ \hat{\Omega}_{I} (t')
  =
  i
  \left[ 
@@ -815,20 +815,20 @@ for $ t_1 > t_2  \rightarrow \theta (t_1 -t_2)$ $\thinspace $
 and
 for $ t_2 > t_1  \rightarrow \theta (t_2 -t_1)$. 
 By applying Eq.\enskip\eqref{eq:chron-time_ordering} at Eq.\enskip\eqref{I_by_adding}, we find the desired notation:
-\begin{equation}
+\begin{equation*}
 \begin{split}
 &I(t)=\dfrac{1}{2}
 \int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
 \hat{V}_{I}(t_1)\ \hat{V}_{I}(t_2)\ \theta (t_1 -t_2)
 \\
-&\qquad
+&\quad\qquad
 +
 \dfrac{1}{2}
 \int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
 \ \hat{V}_{I}(t_2)\  \hat{V}_{I}(t_1) \ \theta (t_2-t_1)
 ,
 \end{split}
-\end{equation}
+\end{equation*}
 \begin{equation}
 I(t)=\dfrac{1}{2!}
 \int_{0}^{t}\mathrm{d}t_1\int_{0}^{t}\! \! \mathrm{d}t_2
@@ -837,7 +837,7 @@ T(\hat{V}_{I}(t_1),\hat{V}_{I}(t_2))
 \end{equation}
 
 This case of two interactions is generalized to terms involving $\hat{V}(t) $ $ n $-times in the appendix \ref{chronological_time}.  
-By labelling $ t $  using numbers instead of primes, the solution to $ \hat{\Omega}_{I}(t) $ given in Eq.\enskip\eqref{Omega_different_t} can be written in the time-ordered form:
+Applying the $ T $ operator allows us to write the solution to $ \hat{\Omega}_{I}(t) $ given in Eq.\enskip\eqref{Omega_different_t} in the time-ordered form:
 \begin{equation}
 \hat{\Omega}_{I}(t)
 =
@@ -848,7 +848,7 @@ By labelling $ t $  using numbers instead of primes, the solution to $ \hat{\Ome
  T\left\lbrace \hat{V}_{I}(t_1), \ldots , \hat{V}_{I}(t_n)\right\rbrace 
  .
 \end{equation}
-Observe that this expression is a non-pertubative result, which can  be written as:
+Observe that this expression is a non-pertubative result, which can  be written in a compact notation
 \begin{equation}\label{eq:Omega_I_Chron_0}
 \textcolor[RGB]{0,0,204}{
 \hat{\Omega}_{I}(t)
@@ -856,7 +856,7 @@ Observe that this expression is a non-pertubative result, which can  be written 
 	\! ,\text{\enskip for  }  t\geq 0 
 	.}
 \end{equation}
-To not limit the Interaction picture only to positive $ t $ values, we need to a complementary expression for only negative $ t $. Assuming $ t<0 $. This change the integral in Eq.\enskip\eqref{first_term_left_Omega_time_order} to:
+To not limit the Interaction picture only to positive $ t $ values, we need a complementary expression for negative $ t $'s. Assuming $ t<0 $, the integral in Eq.\enskip\eqref{first_term_left_Omega_time_order} is changed to:
  \begin{equation}\label{first_term_left_anti_chrono}
  \int_{t}^{0}\mathrm{d}t'
  i
@@ -868,7 +868,7 @@ To not limit the Interaction picture only to positive $ t $ values, we need to a
 1 -\hat{\Omega}_{I}(t)
  \right] .
  \end{equation}
- Alongside performing in the integral of the right hand side of  Eq.\enskip\eqref{eq:time_evo_Omega_interaction} in the new limits, we find:
+ Alongside performing in the integral of the right-hand side of  Eq.\enskip\eqref{eq:time_evo_Omega_interaction} in the new limits, we find:
  \begin{equation}
   \hat{\Omega}_{I}(t)=
 1
@@ -876,7 +876,7 @@ To not limit the Interaction picture only to positive $ t $ values, we need to a
 i
 \int^{0}_{t}\mathrm{d}t'\hat{V}_{I}(t')\hat{\Omega}_{I}(t')	.
   \end{equation} 
-From this, our infinite sum expression still holds up to an different sign:
+From this, our infinite sum expression still holds up to a different sign:
 \begin{equation}\label{Omega_anti_without_anti}
 \hat{\Omega}_{I}(t) =
 \sum\limits_{n=0}^{\infty} 
@@ -903,34 +903,27 @@ Using it similar as before:
  \int^{0}_{t}\! \! \mathrm{d}t_n
  \bar{T}\left\lbrace \hat{V}_{I}(t_1), \ldots , \hat{V}_{I}(t_n)\right\rbrace .
 \end{equation}
-As a consequence We arrive at the second expression:\begin{equation}\label{eq:Omega_I_Chron1_0<}
+As a consequence, we obtain a second expression:\begin{equation}\label{eq:Omega_I_Chron1_0<}
 \hat{\Omega}_{I}(t)
 = \bar{T}\left( e^{i\int^{0}_{t}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
 	\! ,\text{\enskip for  }  t<0 
 	.
 \end{equation}
-Often the integration borders are flipped to have a the same sign as Eq.\enskip\eqref{eq:Omega_I_Chron_0}
-\begin{equation}\label{eq:Omega_I_Chron_0<}
-\textcolor[RGB]{0,0,204}{
-\hat{\Omega}_{I}(t)
-= \bar{T}\left( e^{-i\int_{0}^{t}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
-	\! ,\text{\enskip for  }  t<0 
-	.}
-\end{equation}
-%These two cases make the use of $ \hat{\Omega}_I $ safe in a sense of not having to watch out for sign flip in the integral while t runs. Second, the picture condition is clearly stated and not possible to hit while performing integration over t from negative to positive. But to perform the iterative solution ones only needs to state $ \hat{\Omega}_{I} $ being finite in the region of integration. Lowering the integral boundary  to $ -\infty $ instead of $ 0 $. Losing the advantages from above but gaining the single expression:
-%\begin{equation}\label{eq:Omega_I_Chron_infty}
+%Often the integration borders are flipped to have a the same sign as Eq.\enskip\eqref{eq:Omega_I_Chron_0}
+%\begin{equation}\label{eq:Omega_I_Chron_0<}
 %\textcolor[RGB]{0,0,204}{
 %\hat{\Omega}_{I}(t)
-%=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
+%= \bar{T}\left( e^{-i\int_{0}^{t}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
+%	\! ,\text{\enskip for  }  t<0 
 %	.}
 %\end{equation}
-A notation for $ \hat{\Omega}_{I}(t) $ without specifying the values of $ t $ can be derived again using Heaviside-Step-functions:
+A notation for $ \hat{\Omega}_{I}(t) $ without specifying the values of $ t $ can be derived by using Heaviside-Step-functions:
 \begin{equation}\label{Omega_i_complete}
 \hat{\Omega}_{I}(t)
 =T\left( e^{-i\int_{0}^{t}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
 \theta(t)
 +
- \bar{T}\left( e^{-i\int_{0}^{t}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
+ \bar{T}\left( e^{+i\int_{t}^{0}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
  \theta(-t)
  .
 \end{equation}
@@ -960,23 +953,23 @@ Performing a flip in the integral limits we conclude:
 = \bar{T}\left( e^{-i\int_{\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} \right)
 	.}
 \end{equation}
-\subsection{Connections}\label{Connections}
+\subsection{Representation of the Scattering operator}\label{Connections}
 In section \ref{in_out_picture_external_currents} we saw that the creation and annihilation operators associated with the $ in $ and $ out $ pictures are related between each other in Eq.\enskip\eqref{differ_by_current} via the external current. 
-We wish to establish how this connection manifests at the level of the corresponding interaction states. To this end, we particularize Eq.\enskip\eqref{eq:state_interac_schrodinger} to the case in which the initial condition is taken at $ t \rightarrow \pm \infty $.
+We wish to establish how this connection manifests at the level of the corresponding scattering states. To this end, we particularize Eq.\enskip\eqref{eq:state_interac_schrodinger} to the case in which the initial condition is taken at $ t \rightarrow \pm \infty $.
 %We start with a state in the Heisenberg picture and do a transformation to the $ in $ picture following the same way as Eq.\enskip\eqref{eq:state_interac_schrodinger} for the Interaction picture.
 If the initial condition is $ t \rightarrow - \infty $, we have
-\begin{equation}
+\begin{equation}\label{in_state_from_Heisenberg}
 \ket{\Psi_{in}(t)}=\hat{\Omega}_{in}(t)\ket{\Psi_{H}}.
 \end{equation}
-Likewise for the $ out $ picture we write :
-\begin{equation}
+Likewise for the $ out $ picture we write:
+\begin{equation}\label{out_state_from_Heisenberg}
 \ket{\Psi_{out}(t)}=\hat{\Omega}_{out}(t)\ket{\Psi_{H}}.
 \end{equation}
-Combining both:
+Combining both Eq.\enskip\eqref{in_state_from_Heisenberg} and Eq.\enskip\eqref{out_state_from_Heisenberg} we find
 \begin{equation}
 \ket{\Psi_{in}(t)}=\hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)\ket{\Psi_{out}(t)}.
 \end{equation}
-The product of $ \hat{\Omega} $ defines the scattering operator $ \hat{S} $.% It connects any state 
+The product of $ \hat{\Omega} $'s defines the scattering operator $ \hat{S} $:% It connects any state 
 %\begin{equation}
 %\ket{in}=\hat{S}\ket{out}.
 %\end{equation}
@@ -987,21 +980,71 @@ The product of $ \hat{\Omega} $ defines the scattering operator $ \hat{S} $.% It
 	.
 }
 \end{equation}
-We will verify explicitly that Eq.\enskip\eqref{S_defi} is  time independent. For this we take the partial derivative with respect to $ t $.
+We will verify explicitly that Eq.\enskip\eqref{S_defi} is  time independent. For this we take the partial derivative of $ \hat{S} $ with respect to $ t $. This operation leads to
 \begin{equation}\label{partial_t_for_indepen}
 \begin{split}
 i\partial_{t}
 \left( \hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t) \right)
-&= i\dot{\hat{\Omega}}_{in}(t)\hat{\Omega}^{-1}_{out}(t) +
-\hat{\Omega}_{in}(t)\dot{\hat{\Omega}}^{-1}_{out}(t)
+&= i\dot{\hat{\Omega}}_{in}(t)\hat{\Omega}^{-1}_{out}(t)
+ 	+ 
+ 		i\hat{\Omega}_{in}(t)\dot{\hat{\Omega}}^{-1}_{out}(t)
 \\
 &= \hat{V}_{in}(t)\hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)
-+
-\hat{\Omega}_{in}(t)(\hat{\Omega}_{out}(t) (-\hat{V}_{out}(t)))^{-1}
+	+ 	
+		i\hat{\Omega}_{in}(t)\dot{\hat{\Omega}}^{-1}_{out}(t)
+%\\
+%&= \hat{V}_{in}(t)\hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)
+%	+ 	
+%		\hat{\Omega}_{in}(t)(\hat{\Omega}_{out}(t) (-\hat{V}_{out}(t)))^{-1}	
 .
 \end{split}
 \end{equation}
-In the second line we used the differential equations given for the pictures in  Eq.\enskip\eqref{eq:time_evo_Omega_in} and \eqref{eq:time_evo_Omega_out}. A picture transformation like stated for the Interaction picture in Eq.\enskip\eqref{eq:operator_interac_heisenberg} allows us to write both potentials in the Heisenberg representation.
+In first term of the second line we used the differential equations given for the pictures in  Eq.\enskip\eqref{eq:time_evo_Omega_in} to calculate the partial derivative. Evaluating $ \dot{\hat{\Omega}}^{-1}_{out}(t) $ will require additional steps. We start with the partial derivative with respect to $ t $ of the product $ 
+\hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{out}(t)  = 1 $:
+\begin{equation}
+\begin{split}
+i\partial_{t}
+\left( \hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{out}(t) \right)
+&=0
+\\
+ i\dot{\hat{\Omega}}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
+ 	+ 
+ 		i\hat{\Omega}_{out}(t)\dot{\hat{\Omega}}^{-1}_{out}(t)
+&=0 
+\\
+	\text{$  \hat{\Omega}^{-1}_{out}(t) \times \mid \qquad $}
+		i\hat{\Omega}_{out}(t)\dot{\hat{\Omega}}^{-1}_{out}(t)
+	&=
+		-i\dot{\hat{\Omega}}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
+\\
+%\text{Using Eq.\enskip\eqref{eq:time_evo_Omega_out} $\mid \qquad $}
+		i\dot{\hat{\Omega}}^{-1}_{out}(t)
+			&=	
+			-i\hat{\Omega}^{-1}_{out}(t)\dot{\hat{\Omega}}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
+			\\
+		&
+		\!\!\!\!\!
+		\underbrace{=}_{Eq.\enskip\eqref{eq:time_evo_Omega_out}}
+				\!\!					
+					-\hat{\Omega}_{out}^{-1}(t)\hat{V}_{out}(t)\hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
+					\\
+					i\dot{\hat{\Omega}}^{-1}_{out}(t)
+			&=	
+					-\hat{\Omega}^{-1}_{out}(t)\hat{V}_{out}(t)
+.
+\end{split}
+\end{equation}
+This results inserted in Eq.\enskip\eqref{partial_t_for_indepen} gives us:
+\begin{equation}
+\begin{split}
+i\partial_{t}
+\left( \hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t) \right)
+&=  \hat{V}_{in}(t)\hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)
+	- 	
+		\hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)\hat{V}_{out}(t)
+\end{split}
+\end{equation}
+A picture transformation like stated for the Interaction picture in Eq.\enskip\eqref{eq:operator_interac_heisenberg} allows us to write both potentials in the Heisenberg representation.
 \begin{equation}\label{S_t_indep}
 \begin{split}
 i\partial_{t}
@@ -1013,21 +1056,35 @@ i\partial_{t}
 .
 \end{split}
 \end{equation}
-This time independence of the product gives us the choice to set $ t $ to different values without changing $ \hat{S} $, i.e.
-\begin{equation}\label{S_first_3}
+This time independence of the product gives us the choice to set $ t $ to any value. In particular by setting it to $ t=\infty $ we find that Eq.\enskip\eqref{S_defi} reduces to 
+\begin{equation}\label{S_first_3_1}
 \textcolor[RGB]{0,0,204}{
 \begin{split}
 \hat{S}
-&= \hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)
-\\
+%&= \hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)
+%\\
 &=\hat{\Omega}_{in}(\infty)
-\\
+%\\
+%&=\hat{\Omega}^{-1}_{out}(-\infty)
+,
+\end{split}
+}
+\end{equation}
+where the initial conditions, $\hat{\Omega}_{out}(\infty) = 1  $  has been used. Similarly, if $ t=\infty $ we use $ \hat{\Omega}_{in}(-\infty)=1 $ 
+\begin{equation}\label{S_first_3_2}
+\textcolor[RGB]{0,0,204}{
+\begin{split}
+\hat{S}
+%&= \hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{out}(t)
+%\\
+%&=\hat{\Omega}_{in}(\infty)
+%\\
 &=\hat{\Omega}^{-1}_{out}(-\infty)
 ,
 \end{split}
 }
 \end{equation}
-where the initial conditions, $\hat{\Omega}_{out}(\infty) = 1  $ and $ \hat{\Omega}_{in}(-\infty)=1 $, have been used respectively.
+%and $ \hat{\Omega}_{in}(-\infty)=1 $,
 %For this we insert the expressions given in Eq.\enskip\eqref{eq:Omega_in_converg} and \eqref{eq:Omega_out_converg},
 %\begin{equation}\label{S_expressed_o_o}
 %\hat{S}=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})} \right)
@@ -2574,6 +2631,13 @@ In other words, the commutation relations say whether the subtraction of permuta
 %	&=	1
 %\end{align}
 %\end{subequations}
+%These two cases make the use of $ \hat{\Omega}_I $ safe in a sense of not having to watch out for sign flip in the integral while t runs. Second, the picture condition is clearly stated and not possible to hit while performing integration over t from negative to positive. But to perform the iterative solution ones only needs to state $ \hat{\Omega}_{I} $ being finite in the region of integration. Lowering the integral boundary  to $ -\infty $ instead of $ 0 $. Losing the advantages from above but gaining the single expression:
+%\begin{equation}\label{eq:Omega_I_Chron_infty}
+%\textcolor[RGB]{0,0,204}{
+%\hat{\Omega}_{I}(t)
+%=T\left( e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{I}(t^{\prime})} \right)
+%	.}
+%\end{equation}
 \end{subappendices}
 \newpage
 \begin{thebibliography}{12}

@@ -526,7 +526,7 @@ As a consequence one can distinguish between early and late times. For early tim
 	\hat{a}_{\underline{k},in} 
 	e^{-i\omega_{\underline{k}}t}
 	+
-	\hat{a}^{\dagger}_{\underline{k},in}  
+	\hat{a}^{\dagger}_{-\underline{k},in}  
 	e^{i\omega_{\underline{k}}t}
   \right) 
   ,
@@ -539,7 +539,7 @@ where $ \hat{a}_{\underline{k},in} $ denotes the annihilation operator, whereas 
 ,
 \hat{a}^{\dagger}_{\underline{k'},in}
 \right] 
-=\delta_{\underline{k},\underline{k'}}
+=2 \omega_{\underline{k}} \delta_{\underline{k},\underline{k'}}
 .
 \end{equation}
 At late times Eq.\enskip\eqref{eq_for_q} also reduces to a homogeneous type. In this case the asymptotic solution $ \hat{q}_{\underline{k}}(t) \rightarrow \hat{q}_{k,out}(t) $ reads
@@ -551,7 +551,7 @@ At late times Eq.\enskip\eqref{eq_for_q} also reduces to a homogeneous type. In 
 	\hat{a}_{\underline{k},out} 
 	e^{-i\omega_{\underline{k}}t}
 	+
-	\hat{a}^{\dagger}_{\underline{k},out}  
+	\hat{a}^{\dagger}_{-\underline{k},out}  
 	e^{i\omega_{\underline{k}}t}
   \right) 
   ,
@@ -1245,7 +1245,290 @@ One also has to provide $ \hat{\Omega}_{in}(-\infty)= 1 $:
 \end{align}
 \end{subequations}
 This last step required $ \hat{S} $ to be unitary. This can be seen straight away  by taking the hermitian conjugate of Eq.\enskip\eqref{S_all_3_exp}.
-\subsection{Wick theorem and vacuum stability}\label{Vacuum_transition}
+
+\subsection{Gell-Mann Low formula}
+%
+To motivate Gell-Mann Low formula as the important asset, a common way of application and requirement will be laid out. \\
+First, the formula allows us to transform a polynomial , chronological (or anti-chronological) ordered set of operators in the Heisenberg picture to  the three pictures with initial conditions. This won't require any picture related unitary operator $ \hat{\Omega} $, only one scattering operator $ \hat{S} $. \\
+This strikes as a fundamental step for dealing with the pictures as $ \hat{S} $ can be evaluated pertubativly and nothing else in the formula up to this point could be treated like this with anywhere the same accuracy. Furthermore this transition needs be made very early when working on many topics of quantum field theory. As most of the time, one would begin with classical mechanical description of the action. Formulating the problem in terms of classical fields and then apply second quantisation to promote them to operators in the Heisenberg picture. This would be the point of transition and one needs the Gell-Mann Low formula.\\
+%
+Recalling Eq.\enskip\eqref{eq:operator_interac_heisenberg} we can write:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+Q_{H}(t)=\hat{\Omega}_{I}(t)^{-1}Q_{I}(t)\ \hat{\Omega}_{I}(t).
+}
+\end{equation}
+By evaluate Eq.\enskip\eqref{eq:operator_interac_heisenberg} to the case in which the initial condition is taken at $ t \rightarrow + \infty $. It reads:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+Q_{H}(t)=\hat{\Omega}_{in}(t)^{-1}Q_{in}(t)\ \hat{\Omega}_{in}(t).
+}
+\end{equation}
+Expressing $ \hat{\Omega}_{in} $ using Eq.\enskip\eqref{Omeaga_in_for_GML}:
+\begin{equation}
+Q_{H}(t)
+=\left( 
+\bar{T}
+\left( 
+ e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) 
+\hat{S}
+\right)^{-1}
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) 
+,
+\end{equation}
+ the unitary operators allow us again to replace $ -1 $ with $ \dagger $ and then apply  the hermitian conjugation
+\begin{subequations}
+\begin{align}
+Q_{H}(t)
+&=\left( 
+\bar{T}
+\left( 
+ e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) 
+\hat{S}
+\right)^{\dagger}
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) 
+\\
+&=
+\hat{S}^{\dagger}\left( 
+\bar{T}
+\left( 
+ e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) 
+\right)^{\dagger}
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) 
+\\
+&=
+\hat{S}^{-1} 
+T
+\left( 
+ e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right)
+%%
+Q_{in}(t)
+%%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) .
+\end{align}
+\end{subequations}
+ In this step we combine $ T $'s, since overlap in the limits is zero.
+\begin{equation}
+%%
+Q_{H}(t)
+=\hat{S}^{-1}
+T\left( 
+ e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+%%
+Q_{in}(t)
+%%
+ e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) .
+\end{equation}
+The position of $ Q_{in}  $ is still not ideal for our purpose. Changing it will require commutations. Using the infinite series for the exponential function and removing time ordering will reduce the problem to commutations between $ Q_{in} $ and $ \hat{V}_{in} $.
+\begin{equation}
+Q_{H}(t)
+=
+\hat{S}^{-1}
+\left( 
+\sum_{n}
+(-i)^{n}
+\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
+\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
+\ldots
+\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
+\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
+\hat{V}_{in}(t_{1}^{\prime})
+\ldots
+\hat{V}_{in}(t_{n}^{\prime})
+Q_{in}(t)
+\right) .
+\end{equation}
+We see $ Q_{in} $ and $ \hat{V}_{in} $ can commute without any problem since $ Q_{in} $ depends on $  t $ and $ t \neq t' $. Moving it to the left and reapply $ T $ as well as the compact notation:
+\begin{subequations}
+\begin{align}
+Q_{H}(t)
+&=
+\hat{S}^{-1}
+\left( 
+\sum_{n}
+(-i)^{n}
+Q_{in}(t)
+\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
+\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
+\ldots
+\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
+\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
+\hat{V}_{in}(t_{1}^{\prime})
+\ldots
+\hat{V}_{in}(t_{n}^{\prime})
+\right) 
+\\
+Q_{H}(t)
+&=\hat{S}^{-1}
+T\left( 
+Q_{in}(t)
+%%
+ e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+\right) .
+\end{align}
+\end{subequations}
+Seeing Eq.\enskip\eqref{eq:S_equal_in_infty} can be applied results in:
+\begin{equation}\textcolor[RGB]{0,0,204}{
+Q_{H}(t)=
+\hat{S}^{-1}
+T\left( 
+Q_{in}(t)
+\hat{S}
+\right) .
+}
+\end{equation}
+Next will be for more than one operator. Starting with the left side in a non trivial time ordering and applying the transformation for each operator:
+\begin{subequations}
+\begin{align}
+T\left( 
+Q_{H}(t_1)
+Q_{H}(t_2)
+\ldots
+\right) 
+=
+T\left( 
+\prod_{j}
+\hat{\Omega}_{in}(t_{j})^{-1}
+Q_{in}(t_j)
+\hat{\Omega}_{in}(t_{j})
+\right)
+,
+\end{align}
+\text{applying Eq.\enskip\eqref{Omeaga_in_for_GML} for a $ \hat{\Omega}_{in}(t) $ depending on $ t_{j} $,}
+\begin{align}
+&=
+T\left( 
+\prod_{j}
+\hat{S}^{-1}
+T\left( 
+ e^{-i\int_{t_{j}}^{\infty}\mathrm{d}t^{\prime}_{j} \hat{V}_{in}(t^{\prime}_{j})}
+\right) 
+%
+Q_{in}(t_{j})
+%
+T
+\left( 
+ e^{-i\int_{-\infty}^{t_{j}}\mathrm{d}t^{\prime}_{j} \hat{V}_{in}(t^{\prime}_{j})}
+\right) 
+\right) 
+,
+\end{align}
+\end{subequations}
+the series and commutation follows the same argumentation as for a single $ Q_{H}(t) $, 
+\begin{equation}
+T\left( 
+Q_{H}(t_1)
+Q_{H}(t_2)
+\ldots
+\right) 
+=
+T\left( 
+\prod_{j}
+\hat{S}^{-1}
+Q_{in}(t_{j})
+\hat{S}
+\right).
+\end{equation}
+We can move $ \hat{S}^{-1} $ outside of the chronological time ordering $ T $, since it is time independent. From this we arrive at the final form of the Gell-Mann Low formula:
+\begin{equation}\label{Gell-Mann_Low_formula}
+\textcolor[RGB]{0,0,204}{
+T\left( 
+Q_{H}(t_1)
+Q_{H}(t_2)
+\ldots
+\right) 
+=
+\hat{S}^{-1}
+T\left( 
+Q_{in}(t_{1})
+Q_{in}(t_{2})
+\ldots
+\hat{S}
+\right).
+}
+\end{equation}
+%To verify, that the $ \hat{S}^{-1} $ can be taken out of chronological time ordering, regard $ T(\hat{S}^{-1}) $:
+%\begin{subequations}
+%\begin{align}
+% T({\hat{S}^{-1}})
+% &= T(\hat{S}^{\dagger})
+%\end{align}
+%\text{,using the expression of $ \hat{S} $ in term of the In-picture and apply hermitian conjugation,}
+%\begin{align}
+% T({\hat{S}^{-1}})=
+%T\left( 
+%\bar{T}
+%\left( 
+% e^{i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
+%\right) 
+%\right) 
+%\end{align}
+%\text{,$ e^{x} $ as a series,}
+%\begin{align}
+% &=
+% T\left( 
+% \sum_{n}
+% \frac{(i)^{n}}{n!}
+% \int_{-\infty}^{\infty}\mathrm{d}t_{1}
+% \int_{-\infty}^{\infty}\mathrm{d}t_{2}
+% \ldots
+% \int_{-\infty}^{\infty}\mathrm{d}t_{n}
+% \bar{T}
+% \left( 
+%  \hat{V}_{in}(t_{1})
+%  \ldots
+%   \hat{V}_{in}(t_{n})
+% \right) 
+%  \right) 
+%\end{align}
+%\text{and removing the anti-chronological time ordering,}
+%\begin{align} &=
+% T\left( 
+% \sum_{n}
+%\frac{(i)^{n}}{n!}
+% i^{n}
+% \int_{-\infty}^{\infty}\mathrm{d}t_{1}
+% \int_{-\infty}^{\infty}\mathrm{d}t_{2}
+% \ldots
+% \int_{-\infty}^{\infty}\mathrm{d}t_{n}
+%  \hat{V}_{in}(t_{1})
+%  \ldots
+%   \hat{V}_{in}(t_{n})
+%  \right) .
+%\end{align}
+%\end{subequations}
+%The boundaries make every integral independent from each other so rearranging 
+%$ t_{1} $  to $ t_n $ wouldn't change the result 
+%\[
+%\rightarrow T(\hat{S}^{-1} \ldots)=\hat{S}^{-1} T(\ldots)
+%\]
+%%%
+%%
+\section{Wick theorem and vacuum stability}\label{Vacuum_transition}
 The Wick theorem as a means to evaluate correlation functions, can be established by further investigating the $ \hat{S} $ operator. In section\enskip\ref{in_out_picture_external_currents}, the Eq.\enskip\eqref{V_I_with_q_and_j} expressed the potential term of our full Hamiltonian in the Interaction picture. Going the $ in $ picture by evaluation the time evolution operator at $ t_{0}= -\infty $, we write $\hat{V}_{in}= \sum_{\underline{k}} \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $. Using this in Eq.\enskip\eqref{eq:S_equal_in_infty} and \eqref{eq:Omega_in_converg} an expression in term of the current can be formulated.\\
 Explicitly,
 \begin{subequations}\label{S_start_wick}
@@ -1633,288 +1916,6 @@ The annihilation operator will return a $ 0 $ in the exponent. Therefore only on
  .}
 \end{equation}
 Here we have made a transition the continuous description of the modes of our field by replacing the sum with an integral. This confirms our statement about an unstable vacuum. The negative sign in the exponent translates to smaller probabilities $ (p_{0}<1) $.
-\section{Gell-Mann Low formula}
-%
-To motivate Gell-Mann Low formula as the important asset, a common way of application and requirement will be laid out. \\
-First, the formula allows us to transform a polynomial , chronological (or anti-chronological) ordered set of operators in the Heisenberg picture to  the three pictures with initial conditions. This won't require any picture related unitary operator $ \hat{\Omega} $, only one scattering operator $ \hat{S} $. \\
-This strikes as a fundamental step for dealing with the pictures as $ \hat{S} $ can be evaluated pertubativly and nothing else in the formula up to this point could be treated like this with anywhere the same accuracy. Furthermore this transition needs be made very early when working on many topics of quantum field theory. As most of the time, one would begin with classical mechanical description of the action. Formulating the problem in terms of classical fields and then apply second quantisation to promote them to operators in the Heisenberg picture. This would be the point of transition and one needs the Gell-Mann Low formula.\\
-%
-Recalling Eq.\enskip\eqref{eq:operator_interac_heisenberg} we can write:
-\begin{equation}\textcolor[RGB]{0,0,204}{
-Q_{H}(t)=\hat{\Omega}_{I}(t)^{-1}Q_{I}(t)\ \hat{\Omega}_{I}(t).
-}
-\end{equation}
-By evaluate Eq.\enskip\eqref{eq:operator_interac_heisenberg} to the case in which the initial condition is taken at $ t \rightarrow + \infty $. It reads:
-\begin{equation}\textcolor[RGB]{0,0,204}{
-Q_{H}(t)=\hat{\Omega}_{in}(t)^{-1}Q_{in}(t)\ \hat{\Omega}_{in}(t).
-}
-\end{equation}
-Expressing $ \hat{\Omega}_{in} $ using Eq.\enskip\eqref{Omeaga_in_for_GML}:
-\begin{equation}
-Q_{H}(t)
-=\left( 
-\bar{T}
-\left( 
- e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) 
-\hat{S}
-\right)^{-1}
-%%
-Q_{in}(t)
-%%
-T
-\left( 
- e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) 
-,
-\end{equation}
- the unitary operators allow us again to replace $ -1 $ with $ \dagger $ and then apply  the hermitian conjugation
-\begin{subequations}
-\begin{align}
-Q_{H}(t)
-&=\left( 
-\bar{T}
-\left( 
- e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) 
-\hat{S}
-\right)^{\dagger}
-%%
-Q_{in}(t)
-%%
-T
-\left( 
- e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) 
-\\
-&=
-\hat{S}^{\dagger}\left( 
-\bar{T}
-\left( 
- e^{i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) 
-\right)^{\dagger}
-%%
-Q_{in}(t)
-%%
-T
-\left( 
- e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) 
-\\
-&=
-\hat{S}^{-1} 
-T
-\left( 
- e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right)
-%%
-Q_{in}(t)
-%%
-T
-\left( 
- e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) .
-\end{align}
-\end{subequations}
- In this step we combine $ T $'s, since overlap in the limits is zero.
-\begin{equation}
-%%
-Q_{H}(t)
-=\hat{S}^{-1}
-T\left( 
- e^{-i\int_{t}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-%%
-Q_{in}(t)
-%%
- e^{-i\int_{-\infty}^{t}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) .
-\end{equation}
-The position of $ Q_{in}  $ is still not ideal for our purpose. Changing it will require commutations. Using the infinite series for the exponential function and removing time ordering will reduce the problem to commutations between $ Q_{in} $ and $ \hat{V}_{in} $.
-\begin{equation}
-Q_{H}(t)
-=
-\hat{S}^{-1}
-\left( 
-\sum_{n}
-(-i)^{n}
-\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
-\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
-\ldots
-\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
-\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
-\hat{V}_{in}(t_{1}^{\prime})
-\ldots
-\hat{V}_{in}(t_{n}^{\prime})
-Q_{in}(t)
-\right) .
-\end{equation}
-We see $ Q_{in} $ and $ \hat{V}_{in} $ can commute without any problem since $ Q_{in} $ depends on $  t $ and $ t \neq t' $. Moving it to the left and reapply $ T $ as well as the compact notation:
-\begin{subequations}
-\begin{align}
-Q_{H}(t)
-&=
-\hat{S}^{-1}
-\left( 
-\sum_{n}
-(-i)^{n}
-Q_{in}(t)
-\int_{-\infty}^{t}\mathrm{d}t_{1}^{\prime}
-\int_{t}^{\infty}\mathrm{d}t_{1}^{\prime}
-\ldots
-\int_{-\infty}^{t_{n-1}}\mathrm{d}t_{n}^{\prime}
-\int_{t_{n-1}}^{\infty}\mathrm{d}t_{n}^{\prime}
-\hat{V}_{in}(t_{1}^{\prime})
-\ldots
-\hat{V}_{in}(t_{n}^{\prime})
-\right) 
-\\
-Q_{H}(t)
-&=\hat{S}^{-1}
-T\left( 
-Q_{in}(t)
-%%
- e^{-i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-\right) .
-\end{align}
-\end{subequations}
-Seeing Eq.\enskip\eqref{eq:S_equal_in_infty} can be applied results in:
-\begin{equation}\textcolor[RGB]{0,0,204}{
-Q_{H}(t)=
-\hat{S}^{-1}
-T\left( 
-Q_{in}(t)
-\hat{S}
-\right) .
-}
-\end{equation}
-Next will be for more than one operator. Starting with the left side in a non trivial time ordering and applying the transformation for each operator:
-\begin{subequations}
-\begin{align}
-T\left( 
-Q_{H}(t_1)
-Q_{H}(t_2)
-\ldots
-\right) 
-=
-T\left( 
-\prod_{j}
-\hat{\Omega}_{in}(t_{j})^{-1}
-Q_{in}(t_j)
-\hat{\Omega}_{in}(t_{j})
-\right)
-,
-\end{align}
-\text{applying Eq.\enskip\eqref{Omeaga_in_for_GML} for a $ \hat{\Omega}_{in}(t) $ depending on $ t_{j} $,}
-\begin{align}
-&=
-T\left( 
-\prod_{j}
-\hat{S}^{-1}
-T\left( 
- e^{-i\int_{t_{j}}^{\infty}\mathrm{d}t^{\prime}_{j} \hat{V}_{in}(t^{\prime}_{j})}
-\right) 
-%
-Q_{in}(t_{j})
-%
-T
-\left( 
- e^{-i\int_{-\infty}^{t_{j}}\mathrm{d}t^{\prime}_{j} \hat{V}_{in}(t^{\prime}_{j})}
-\right) 
-\right) 
-,
-\end{align}
-\end{subequations}
-the series and commutation follows the same argumentation as for a single $ Q_{H}(t) $, 
-\begin{equation}
-T\left( 
-Q_{H}(t_1)
-Q_{H}(t_2)
-\ldots
-\right) 
-=
-T\left( 
-\prod_{j}
-\hat{S}^{-1}
-Q_{in}(t_{j})
-\hat{S}
-\right).
-\end{equation}
-We can move $ \hat{S}^{-1} $ outside of the chronological time ordering $ T $, since it is time independent. From this we arrive at the final form of the Gell-Mann Low formula:
-\begin{equation}\label{Gell-Mann_Low_formula}
-\textcolor[RGB]{0,0,204}{
-T\left( 
-Q_{H}(t_1)
-Q_{H}(t_2)
-\ldots
-\right) 
-=
-\hat{S}^{-1}
-T\left( 
-Q_{in}(t_{1})
-Q_{in}(t_{2})
-\ldots
-\hat{S}
-\right).
-}
-\end{equation}
-%To verify, that the $ \hat{S}^{-1} $ can be taken out of chronological time ordering, regard $ T(\hat{S}^{-1}) $:
-%\begin{subequations}
-%\begin{align}
-% T({\hat{S}^{-1}})
-% &= T(\hat{S}^{\dagger})
-%\end{align}
-%\text{,using the expression of $ \hat{S} $ in term of the In-picture and apply hermitian conjugation,}
-%\begin{align}
-% T({\hat{S}^{-1}})=
-%T\left( 
-%\bar{T}
-%\left( 
-% e^{i\int_{-\infty}^{\infty}\mathrm{d}t^{\prime} \hat{V}_{in}(t^{\prime})}
-%\right) 
-%\right) 
-%\end{align}
-%\text{,$ e^{x} $ as a series,}
-%\begin{align}
-% &=
-% T\left( 
-% \sum_{n}
-% \frac{(i)^{n}}{n!}
-% \int_{-\infty}^{\infty}\mathrm{d}t_{1}
-% \int_{-\infty}^{\infty}\mathrm{d}t_{2}
-% \ldots
-% \int_{-\infty}^{\infty}\mathrm{d}t_{n}
-% \bar{T}
-% \left( 
-%  \hat{V}_{in}(t_{1})
-%  \ldots
-%   \hat{V}_{in}(t_{n})
-% \right) 
-%  \right) 
-%\end{align}
-%\text{and removing the anti-chronological time ordering,}
-%\begin{align} &=
-% T\left( 
-% \sum_{n}
-%\frac{(i)^{n}}{n!}
-% i^{n}
-% \int_{-\infty}^{\infty}\mathrm{d}t_{1}
-% \int_{-\infty}^{\infty}\mathrm{d}t_{2}
-% \ldots
-% \int_{-\infty}^{\infty}\mathrm{d}t_{n}
-%  \hat{V}_{in}(t_{1})
-%  \ldots
-%   \hat{V}_{in}(t_{n})
-%  \right) .
-%\end{align}
-%\end{subequations}
-%The boundaries make every integral independent from each other so rearranging 
-%$ t_{1} $  to $ t_n $ wouldn't change the result 
-%\[
-%\rightarrow T(\hat{S}^{-1} \ldots)=\hat{S}^{-1} T(\ldots)
-%\]
-%%%
-%%
 \newpage
 \section{Conclusion}
 In this report we have presented a set of fundamental concepts and methods. These are essential for starting to study Quantum field theory. We began with well-known pictures from quantum mechanics and introduced the $ in $ and $ out $ picture as consequences of working with asymptotic states found by investigating the effect of an external current on an scalar action. Establishing connections between the pictures on the level of interaction states was based on the scattering operator $ \hat{S} $. From it the Wick theorem as well as the vacuum instability could be verified. At last it allowed us to derive the Gell-Mann Low formula, which plays a major part in the second quantisation performed in context of quantum field theory. 

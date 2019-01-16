@@ -26,7 +26,7 @@
 
 
 \title{\includegraphics[scale=0.07]{logo}\\Specialization report}
-\date{8.1.2019} 
+\date{16.1.2019} 
 \author{ Heinrich Heine Universit\"at D\"usseldorf\\ Institut f\"ur Theoretische Physik I\\  \\Presented by:\\Marius Thei\ss{}en\\ Matrn.: 2163903 \\  }
 
 \begin{document}
@@ -45,7 +45,9 @@
 %This report has three main goals. First we shall establish the transition between pictures in quantum mechanics and quantum field theory. We go over the more common ones, Schrödinger, Heisenberg and Interaction picture, to derive and justify the two In and Out Pictures.
 %By working out a few handy techniques and methods on the way, we will proof the Gell-Mann Low formula. This important formula allows us transition of polynomial terms of field operators in the Heisenberg picture to multiple different but equivalent picture expressions. These are based on boundary conditions imposing free motion on particles along them. We derive them from experimental and physical point of views. The Gell-Mann Low formula does this to this point without loss of information. In case of calculating multi particle processes the Gell-Mann Low formula allows us to perform perturbation theory on the correlation functions by introducing the scattering operator $ S $ which then can be expanded. This  $ S $ is the key to calculate cross-sections $ \sigma $ and decay rates $ \Gamma $ .
 %\textcolor{red}{What is the GellMann Law formula, why is it so important explain in worth}
-Quantum field theory is a formalism that allow us to describe the interaction between elementary particles. Of great interest are observable quantities like cross-sections or decay rates, which can be established theoretically and contrasted with experimental results. Both observables can be determined by calculating the amplitude of the regarding process. Such calculations require pertubative approaches. However the point after second quantisation the Lagrangian, operators and states are described and formulated in the way of the Heisenberg picture without any parts that allow for pertubation theory. The main goal of this report is the derivation of the solution to this dilemma. The Gell-Mann Low formula. It allows transition to pictures inside of correlation functions without loss of information by including the scattering operator $ S $ inside of time ordered set of operators. This $ S $ allows to be calculated pertubatively and therefore also the actual correlation functions.  
+Quantum field theory is a formalism that allow us to describe the interaction between elementary particles. Of great interest are observable quantities like cross-sections or decay rates, which can be established theoretically and contrasted with experimental results. Both observables can be determined from the amplitude of the corresponding process. Which are calculated by using pertubation theory. The main goal of this report is the derivation of the formula [Gell-Mann Low formula] that enables us  to apply this technique.
+
+The this formula allows transition to pictures inside of correlation functions without loss of information by including the scattering operator $ S $ inside of time ordered set of operators. This $ S $ allows to be calculated pertubatively and therefore also the actual correlation functions.  
 We will working out a few handy techniques and methods on the way to Gell-Mann Low formula. This includes discussing the more common Schrödinger, Heisenberg and Interaction picture. Followed up by $ in $ and $ out $ pictures to which Gell-Mann Low formula allows easy transition inside of a corr. function. These pictures are based on boundary conditions imposing free motion on particles along them. We derive them from experimental and physical points of view.
 \section{Pictures in Quantum Mechanics }\label{Pictures in Quantum Mechanics}
 \subsection{Schrödinger picture and Heisenberg picture}\label{SHpicture}
@@ -848,7 +850,7 @@ Applying the $ T $ operator allows us to write the solution to $ \hat{\Omega}_{I
  T\left\lbrace \hat{V}_{I}(t_1), \ldots , \hat{V}_{I}(t_n)\right\rbrace 
  .
 \end{equation}
-Observe that this expression is a non-pertubative result, which can  be written in a compact notation
+Observe that this expression is a non-pertubative result, which can  be written in a symbolically notation
 \begin{equation}\label{eq:Omega_I_Chron_0}
 \textcolor[RGB]{0,0,204}{
 \hat{\Omega}_{I}(t)
@@ -999,42 +1001,25 @@ i\partial_{t}
 .
 \end{split}
 \end{equation}
-In first term of the second line we used the differential equations given for the pictures in  Eq.\enskip\eqref{eq:time_evo_Omega_in} to calculate the partial derivative. Evaluating $ \dot{\hat{\Omega}}^{-1}_{out}(t) $ will require additional steps. We start with the partial derivative with respect to $ t $ of the product $ 
-\hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{out}(t)  = 1 $:
+In the first term of the second line we have used Eq.\enskip\eqref{eq:time_evo_Omega_in}. The evaluation of $ \dot{\hat{\Omega}}^{-1}_{out}(t) $ requires some additional steps. We start by differentiating the identity $ 
+\hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{out}(t)  = 1 $. We then find the relation
 \begin{equation}
 \begin{split}
-i\partial_{t}
-\left( \hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{out}(t) \right)
-&=0
-\\
- i\dot{\hat{\Omega}}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
- 	+ 
- 		i\hat{\Omega}_{out}(t)\dot{\hat{\Omega}}^{-1}_{out}(t)
-&=0 
-\\
-	\text{$  \hat{\Omega}^{-1}_{out}(t) \times \mid \qquad $}
 		i\hat{\Omega}_{out}(t)\dot{\hat{\Omega}}^{-1}_{out}(t)
 	&=
 		-i\dot{\hat{\Omega}}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
-\\
-%\text{Using Eq.\enskip\eqref{eq:time_evo_Omega_out} $\mid \qquad $}
-		i\dot{\hat{\Omega}}^{-1}_{out}(t)
-			&=	
-			-i\hat{\Omega}^{-1}_{out}(t)\dot{\hat{\Omega}}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
-			\\
-		&
-		\!\!\!\!\!
-		\underbrace{=}_{Eq.\enskip\eqref{eq:time_evo_Omega_out}}
-				\!\!					
-					-\hat{\Omega}_{out}^{-1}(t)\hat{V}_{out}(t)\hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{out}(t)
-					\\
-					i\dot{\hat{\Omega}}^{-1}_{out}(t)
+\end{split}
+\end{equation}
+Afterwards, we multiply the left by $ \hat{\Omega}_{out}(t) $ and use Eq.\enskip\eqref{eq:time_evo_Omega_out} in the right-hand side. As a consequence, 
+\begin{equation}
+\begin{split}
+				i\dot{\hat{\Omega}}^{-1}_{out}(t)
 			&=	
 					-\hat{\Omega}^{-1}_{out}(t)\hat{V}_{out}(t)
 .
 \end{split}
 \end{equation}
-This results inserted in Eq.\enskip\eqref{partial_t_for_indepen} gives us:
+This results is inserted in Eq.\enskip\eqref{partial_t_for_indepen}:
 \begin{equation}
 \begin{split}
 i\partial_{t}
@@ -1070,7 +1055,7 @@ This time independence of the product gives us the choice to set $ t $ to any va
 \end{split}
 }
 \end{equation}
-where the initial conditions, $\hat{\Omega}_{out}(\infty) = 1  $  has been used. Similarly, if $ t=\infty $ we use $ \hat{\Omega}_{in}(-\infty)=1 $ 
+where the initial conditions, $\hat{\Omega}_{out}(\infty) = 1  $  has been used. Similarly, if $ t=\infty $ we use $ \hat{\Omega}_{in}(-\infty)=1 $ and
 \begin{equation}\label{S_first_3_2}
 \textcolor[RGB]{0,0,204}{
 \begin{split}
@@ -1085,7 +1070,7 @@ where the initial conditions, $\hat{\Omega}_{out}(\infty) = 1  $  has been used.
 }
 \end{equation}
 
-Taking into account, that a lot of literature around quantum field theory relate the $ \hat{S} $ operator in term of the Interaction picture, we shall verify a secondary set of relations. Starting in a state in the $ in $ picture, we go to the Heisenberg and then to the Interaction picture similar to what we have done in Eq.\enskip\eqref{S_defi}.
+Taking into account, that a lot of literature around quantum field theory relates the $ \hat{S} $ operator in term of the Interaction picture, we shall verify a secondary set of relations. Starting in a state in the $ in $ picture, we go to the Heisenberg and then to the Interaction picture similar to what we have done in Eq.\enskip\eqref{S_defi}.
 \begin{equation}
 \begin{split}
 \ket{\Psi_{in}(t)}&=\hat{\Omega}_{in}(t)\ket{\Psi_{H}}
@@ -1094,7 +1079,7 @@ Taking into account, that a lot of literature around quantum field theory relate
 .
 \end{split}
 \end{equation}
-This new product of unitary operators is also time independent. This can be shown by taking the partial derivative as seen in Eq.\enskip\eqref{partial_t_for_indepen}. The inverse of $ \hat{\Omega}^{-1}_{I}(t) $ will also result in a $ -\hat{V}_{H}\hat{\Omega}^{-1}_{I}(t) $ under differentiation, making the to terms cancel each other.
+This new product of unitary operators is also time independent. This can be shown by taking the partial derivative as seen in Eq.\enskip\eqref{partial_t_for_indepen}. The derivative of the inverse operator $ \left[ \dot{\hat{\Omega}}^{-1}_{I}(t)\right]  $ will also result in a $ -\hat{V}_{H}\hat{\Omega}^{-1}_{I}(t) $. Thus,
 \begin{equation}\label{product_2_t_indep}
 \begin{split}
 i\partial_{t}
@@ -1122,10 +1107,10 @@ To bring the $ \hat{S} $ operator into our equation, we substitute $ \hat{\Omega
 \begin{split}
 \hat{\Omega}_{in}(t)\hat{\Omega}^{-1}_{I}(t)
 =\hat{S}\hat{\Omega}_{out}(t)\hat{\Omega}^{-1}_{I}(t)
-,
+.
 \end{split}
 \end{equation}
- we can set $t $ to the initial condition of a picture now including $ \hat{\Omega}_{I}(0) =1 $, since we have verified time independence.
+ We can set $t $ to the initial condition of a picture now including $ \hat{\Omega}_{I}(0) =1 $, since we have verified time independence.
 \begin{equation}\label{second_set_S_relations}
 \textcolor[RGB]{0,0,204}{
 \begin{split}
@@ -1138,7 +1123,7 @@ To bring the $ \hat{S} $ operator into our equation, we substitute $ \hat{\Omega
 \end{split}
 }
 \end{equation}
-Finally we want to derive the following expression:
+Finally, we want to derive the following expression:
 \begin{equation}\label{Omeaga_in_for_GML}
 \textcolor[RGB]{0,0,204}{
 \hat{\Omega}_{in}(t)=
@@ -1148,7 +1133,7 @@ Finally we want to derive the following expression:
 \right) 
 \hat{S}.}
 \end{equation}
-This formula is essential in our way of establishing the Gell-Mann Low formula, which is carried out in the next section. First it must satisfy the differential equation for $ \hat{\Omega}_{in}(t) $ given in Eq.\enskip\eqref{eq:time_evo_Omega_in}. To reduce the number of integrals directly depending on $ t $ to one, we use the representation for the exponential function without anti-chronological time ordering similar to Eq.\enskip\eqref{Omega_anti_without_anti}:
+This formula is essential in our way of establishing the Gell-Mann Low formula, which is carried out in the next section. First it must satisfy the differential equation for $ \hat{\Omega}_{in}(t) $ [see Eq.\enskip\eqref{eq:time_evo_Omega_in}]. To reduce the number of integrals directly depending on $ t $ to one, we use the representation for the exponential function without anti-chronological time ordering similar to Eq.\enskip\eqref{Omega_anti_without_anti}:
 \begin{subequations}
 \begin{align}
 i\partial_{t}\hat{\Omega}_{in}(t)
@@ -1191,24 +1176,24 @@ i\partial_{t}\hat{\Omega}_{in}(t)
 		.	
 \end{align}
 \end{subequations}
-An $ i $ taken out of the sum allows us to remove the negative sign and restores the correct power $ n-1 $. By using the definition of anti-chronological time ordering (see appendix \ref{chronological_time}),
+An $ i $ taken out of the sum allows us to remove the negative sign and restores the correct power $ n-1 $. By using the definition of anti-chronological time ordering (see appendix \ref{chronological_time}) and changing the summation index $\left(  n-1 = \tilde{n} \right) $,
 \begin{equation}
 	i\partial_{t}\hat{\Omega}_{in}(t)	=\hat{V}_{in}(t)
-	\sum_{n=1}^{\infty}
-	\frac{i^{n-1}}{(n-1)!} 
- 	     \int_{t_1}^{\infty}\mathrm{d}t_2 
+	\sum_{\tilde{n}=1}^{\infty}
+	\frac{i^{\tilde{n}}}{\tilde{n}!} 
+ 	     \int_{t^{\prime}_0}^{\infty}\mathrm{d}t^{\prime}_1 
 		\ldots    
-	   \int_{t_{1}}^{\infty}\mathrm{d}t_n
+	   \int_{t^{\prime}_{0}}^{\infty}\mathrm{d}t^{\prime}_{\tilde{n}}
 		\bar{T}
 		\left( 
-		\hat{V}_{in}(t_2)
+		\hat{V}_{in}(t^{\prime}_1)
 		\ldots
-		     \hat{V}_{in}(t_n)
+		     \hat{V}_{in}(t^{\prime}_{\tilde{n}})
 		\right)\hat{S}
 		.
 \end{equation}
-We again write the expression in a compact form and
-since $ t $ being the earliest time in the integral and anti-chronological time ordering can be applied we are allowed to keep $ \hat{V}_{in}(t) $ to the left and out of the $ \bar{T} $ operator.
+%We again write the expression in a compact form and
+%since $ t $ being the earliest time in the integral and anti-chronological time ordering can be applied we are allowed to keep $ \hat{V}_{in}(t) $ to the left and out of the $ \bar{T} $ operator.
 \begin{equation}
 \begin{split}
 	i\partial_{t}\hat{\Omega}_{in}(t)
@@ -1256,13 +1241,13 @@ The hermitian conjugation of anti-chronological time ordering of a product of op
 \end{equation}
 %Observe that the operators positions are switched. Yet the Heaviside-step-functions are unchanged which gives directly the definition in Eq.\enskip\eqref{eq:chron-time_ordering}.
 %
-By keeping this in mind, we can recognize in Eq.\enskip\eqref{Omega_in_minus_infty_GML}the hermitian conjugate of Eq.\enskip\eqref{eq:Omega_in_converg} evaluated at $ t=\infty $:
+By keeping this in mind, we can recognize in Eq.\enskip\eqref{Omega_in_minus_infty_GML} the hermitian conjugate of Eq.\enskip\eqref{eq:Omega_in_converg} evaluated at $ t=\infty $:
 \begin{equation}
 \begin{split}
 \hat{\Omega}_{in}(-\infty)
 &= 	(\hat{\Omega}_{in}(\infty))^{\dagger}\hat{S}
 	\\
-	&\!\!\!\!\!\underbrace{=}_{\text{Eq.\enskip\eqref{S_first_3}}}\! \hat{S}^{-1}\hat{S}=1,
+	&\!\!\!\!\!\underbrace{=}_{\text{Eq.\enskip\eqref{S_first_3_1}}}\! \hat{S}^{-1}\hat{S}=1,
 \end{split}
 \end{equation}
 where the last step relies on the unitary of $ \hat{S} $. This can be seen straight away  by taking the hermitian conjugate of Eq.\enskip\eqref{S_defi}.
@@ -1649,7 +1634,7 @@ T\left(
 %%%
 %%
 \section{Wick theorem and vacuum stability}\label{Vacuum_transition}
-The Wick theorem as a means to evaluate correlation functions, can be established by further investigating the $ \hat{S} $ operator. In section\enskip\ref{in_out_picture_external_currents}, the Eq.\enskip\eqref{V_I_with_q_and_j} expressed the potential term of our full Hamiltonian in the Interaction picture. Going  to the $ in $ picture, we write $\hat{V}_{in}=\! \! $ $ \text{$\sum \!\! \textcolor{white}{i}_{k}$}$ $ \!     \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $. Using $ \hat{S}=\hat{\Omega}_{in}(\infty) $ (see Eq.\enskip\eqref{S_first_3}) and taking \eqref{eq:Omega_in_converg}  into account, an expression in term of the current can be formulated.Explicitly,
+The Wick theorem as a means to evaluate correlation functions, can be established by further investigating the $ \hat{S} $ operator. In section\enskip\ref{in_out_picture_external_currents}, the Eq.\enskip\eqref{V_I_with_q_and_j} expressed the potential term of our full Hamiltonian in the Interaction picture. Going  to the $ in $ picture, we write $\hat{V}_{in}=\! \! $ $ \text{$\sum \!\! \textcolor{white}{i}_{k}$}$ $ \!     \bar{j_{\underline{k}}}(t) \hat{q}_{\underline{k},in}(t) $. Using $ \hat{S}=\hat{\Omega}_{in}(\infty) $ (see Eq.\enskip\eqref{S_first_3_1}) and taking \eqref{eq:Omega_in_converg}  into account, an expression in term of the current can be formulated.Explicitly,
 \begin{subequations}\label{S_start_wick}
 \begin{align}
 	\hat{S} &=

@@ -1,0 +1,12 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Pictures in Quantum Mechanics }{2}
+\contentsline {subsection}{\numberline {2.1}Schr\IeC {\"o}dinger picture and Heisenberg picture}{2}
+\contentsline {subsection}{\numberline {2.2}Interaction picture}{4}
+\contentsline {subsection}{\numberline {2.3}The $ \pmb {in} $ and $ \pmb {out}$ picture: External currents}{5}
+\contentsline {section}{\numberline {3}Scattering operator}{9}
+\contentsline {subsection}{\numberline {3.1}Solutions for the Interaction, $ \pmb {in} $ and $ \pmb {out} $ picture}{9}
+\contentsline {subsection}{\numberline {3.2}Representation of the Scattering operator}{13}
+\contentsline {subsection}{\numberline {3.3}Gell-Mann Low formula}{17}
+\contentsline {section}{\numberline {4}Conclusion}{23}
+\contentsline {subsection}{\numberline {4.A}Chronological and Anti-Chronological time ordering}{24}

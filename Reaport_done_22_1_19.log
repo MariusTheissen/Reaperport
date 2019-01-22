@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.1.20)  20 JAN 2019 19:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.1.20)  22 JAN 2019 18:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Reaport_done_20_1_19.tex
-(./Reaport_done_20_1_19.tex
+**Reaport_done_22_1_19.tex
+(./Reaport_done_22_1_19.tex
 LaTeX2e <2018-04-01> patch level 5
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -605,21 +605,21 @@ File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
 ) (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2018/09/02 1.7 listings language file
 )
-(./Reaport_done_20_1_19.aux)
-\openout1 = `Reaport_done_20_1_19.aux'.
+(./Reaport_done_22_1_19.aux)
+\openout1 = `Reaport_done_22_1_19.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -697,67 +697,73 @@ ABD: EveryShipout initializing macros
 <logo.png, id=4, 2007.5pt x 939.51pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 38.
+Package pdftex.def Info: logo.png  used on input line 39.
 (pdftex.def)             Requested size: 140.53935pt x 65.77242pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo.png>] (./Reaport_do
-ne_20_1_19.toc)
+ne_22_1_19.toc)
 \tf@toc=\write4
-\openout4 = `Reaport_done_20_1_19.toc'.
+\openout4 = `Reaport_done_22_1_19.toc'.
 
  [1]
 [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1055.
+(amsmath)                trying to recover with `aligned' on input line 1056.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1069.
+(amsmath)                trying to recover with `aligned' on input line 1070.
 
 [14]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1123.
+(amsmath)                trying to recover with `aligned' on input line 1124.
 
-[15] [16] [17] [18]
-Overfull \hbox (5.72797pt too wide) detected at line 1544
+[15] [16]
+Overfull \hbox (7.54146pt too wide) detected at line 1445
 []
  []
 
-[19] [20] [21] [22]
-Overfull \hbox (5.64864pt too wide) detected at line 2060
+[17]
+Overfull \hbox (26.57304pt too wide) detected at line 1483
 []
  []
 
+[18]
+Overfull \hbox (84.6519pt too wide) detected at line 1637
+[]
+ []
 
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 2097.
+[19] [20]
+Overfull \hbox (54.33618pt too wide) detected at line 1858
+[]
+ []
 
-[23] [24] [25] [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 2232--2233
+[21] [22] [23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 2078--2079
 
  []
 
-[28] [29] [30] (./Reaport_done_20_1_19.aux) ) 
+[25] [26] [27] (./Reaport_done_22_1_19.aux) ) 
 Here is how much of TeX's memory you used:
- 17978 strings out of 492639
- 358424 string characters out of 6135497
+ 17966 strings out of 492639
+ 358209 string characters out of 6135497
  623724 words of memory out of 5000000
- 21480 multiletter control sequences out of 15000+600000
- 25585 words of font info for 69 fonts, out of 8000000 for 9000
+ 21470 multiletter control sequences out of 15000+600000
+ 24028 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,25n,67p,831b,231s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,25n,67p,831b,224s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/d
 vips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex
@@ -781,10 +787,10 @@ ype1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
 super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share
 /texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on Reaport_done_20_1_19.pdf (31 pages, 520006 bytes).
+Output written on Reaport_done_22_1_19.pdf (28 pages, 501749 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 206 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
